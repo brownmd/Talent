@@ -1,8 +1,11 @@
 import sharp from "sharp";
-import { writeFileSync } from "fs";
+import { writeFileSync, mkdirSync } from "fs";
+import { join } from "path";
 
 const sourceUrl =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-I9x7UYTEHqdVU7UUvwsvaaEruH3DAN.png";
+
+const outputDir = "/vercel/share/v0-project/public";
 
 const favicons = [
   { name: "android-chrome-96x96.png", size: 96 },
@@ -18,6 +21,8 @@ async function generateFavicons() {
   const response = await fetch(sourceUrl);
   const buffer = Buffer.from(await response.arrayBuffer());
 
+  mkdirSync(outputDir, { recursive: true });
+
   for (const favicon of favicons) {
     const output = await sharp(buffer)
       .resize(favicon.size, favicon.size, {
@@ -26,9 +31,10 @@ async function generateFavicons() {
       })
       .png()
       .toBuffer();
-    // Write base64 to individual files so they can be read back
-    writeFileSync(`${favicon.name}.b64`, output.toString("base64"));
-    console.log(`Generated ${favicon.name} (${favicon.size}x${favicon.size})`);
+
+    const outputPath = join(outputDir, favicon.name);
+    writeFileSync(outputPath, output);
+    console.log(`Generated ${outputPath} (${favicon.size}x${favicon.size})`);
   }
   console.log("All favicons generated successfully!");
 }
