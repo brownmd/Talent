@@ -13,7 +13,7 @@ async function generateRssFeed() {
     description: description,
     id: site_url,
     link: site_url,
-    favicon: `${site_url}/favicon.ico`,
+    favicon: `${site_url}/logo.ico`,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${title}`,
     generator: "Feed for Node.js",
     feedLinks: {
