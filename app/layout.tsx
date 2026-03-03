@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { CONFIG } from "@/blog.config";
 
@@ -68,6 +69,7 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
           {children}
         </main>
+        <Footer />
         <Analytics />
       </body>
     </html>
