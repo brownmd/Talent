@@ -39,6 +39,11 @@ export const metadata: Metadata = {
   },
   icons: {
     shortcut: `${CONFIG.baseURL}/favicon.ico`,
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+    apple: "/logo.png",
   },
   alternates: {
     types: {

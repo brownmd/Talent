@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "../utils/cn";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -65,7 +66,18 @@ export function Navbar() {
 
   return (
     <header className="mb-6 md:px-0 pl-4">
-      <nav className="flex space-x-3" aria-label="Main navigation">
+      <nav className="flex items-center gap-3" aria-label="Main navigation">
+        <Link href="/" aria-label="Home">
+          <Image
+            src="/logo.svg"
+            alt="Site logo"
+            width={28}
+            height={28}
+            className="mr-1"
+            priority
+          />
+        </Link>
+        <span className="text-gray-700" aria-hidden="true">/</span>
         {paths.map((path, index) => (
           <React.Fragment key={index}>
             <NavItem
