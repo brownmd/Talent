@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { allPosts } from "contentlayer/generated";
+import { allPosts } from "@/app/lib/contentlayer";
 import { CONFIG } from "@/blog.config";
 
 export const runtime = "edge";
