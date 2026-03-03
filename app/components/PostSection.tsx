@@ -1,4 +1,12 @@
-import type { Post } from "@/.contentlayer/generated";
+type Post = {
+  title: string;
+  date: string;
+  slug: string;
+  url: string;
+  readingTime: { text: string };
+  body: { code: string };
+  draft: boolean;
+};
 import { format } from "date-fns";
 import Card from "./Card";
 

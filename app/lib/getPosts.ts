@@ -1,4 +1,12 @@
-import { Post } from "contentlayer/generated";
+type Post = {
+  title: string;
+  date: string;
+  slug: string;
+  url: string;
+  readingTime: { text: string };
+  body: { code: string };
+  draft: boolean;
+};
 
 export const organizeAndSortPosts = (
   posts: Post[]
