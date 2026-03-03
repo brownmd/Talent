@@ -5,11 +5,11 @@ import type { Metadata } from "next";
 import { CONFIG } from "@/blog.config";
 
 function findProject(slug: string) {
-  return allProjects.find((p) => p.slug === slug);
+  return (allProjects ?? []).find((p) => p.slug === slug);
 }
 
 export function generateStaticParams() {
-  return allProjects.map((project) => ({
+  return (allProjects ?? []).map((project) => ({
     slug: project.slug,
   }));
 }

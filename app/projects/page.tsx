@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <section className="mt-10">
-      {allProjects.map((project) => (
+      {(allProjects ?? []).map((project) => (
         <Link className={"pb-4 flex"} href={project.url} key={project.slug}>
           <h1 className="overflow-hidden whitespace-nowrap overflow-ellipsis hover:underline">
             {project.title}

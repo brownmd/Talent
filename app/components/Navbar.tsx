@@ -8,7 +8,7 @@ import React from "react";
 import { resume } from "@/blog.config";
 
 const navItems = {
-  "/": { name: "home" },
+  "/": { name: "blog" },
   "/projects": { name: "projects" },
   "/about": { name: "about" },
   "/resume.pdf": { name: "resume" },

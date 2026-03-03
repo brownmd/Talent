@@ -3,12 +3,12 @@ import { CONFIG } from "@/blog.config";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = allPosts.map((post) => ({
+  const posts = (allPosts ?? []).map((post) => ({
     url: `${CONFIG.baseURL}/${post.slug}`,
     lastModified: post.date ?? new Date().toISOString(),
   }));
 
-  const projects = allProjects.map((project) => ({
+  const projects = (allProjects ?? []).map((project) => ({
     url: `${CONFIG.baseURL}/projects/${project.slug}`,
     lastModified: new Date().toISOString(),
   }));

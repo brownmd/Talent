@@ -2,16 +2,17 @@ import { allPosts } from "@/.contentlayer/generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MdxRenderer } from "../components/Mdx";
+import { ShareBar } from "../components/ShareBar";
 import { format } from "date-fns";
 import { baseURL } from "@/blog.config";
 import Link from "next/link";
 
 function findPost(slug: string) {
-  return allPosts.find((p) => p.slug === slug);
+  return (allPosts ?? []).find((p) => p.slug === slug);
 }
 
 export function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return (allPosts ?? []).map((post) => ({
     slug: post.slug,
   }));
 }
@@ -44,10 +45,6 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   if (!post) return notFound();
 
-  const href = `https://x.com/intent/tweet?text=${encodeURIComponent(
-    post.title
-  )}&url=${encodeURIComponent(baseURL + post.url)}`;
-
   return (
     <section>
       <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
@@ -62,18 +59,9 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <MdxRenderer source={post.body.code} />
       </article>
 
-      <div className="text-gray-500 tracking-wider">
-        <div className="space-x-1">
-          <span className="font-light">&gt; </span>
-          <span>share post on</span>
-          <a
-            href={href}
-            target="_blank"
-            className="text-gray-200 hover:underline hover:text-gray-50"
-          >
-            X(twitter)
-          </a>
-        </div>
+      <ShareBar title={post.title} url={baseURL + post.url} />
+
+      <div className="mt-4 text-gray-500 tracking-wider">
         <div className="space-x-1">
           <span className="font-light">&gt; </span>
           <Link

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "About Me",
 };
 const About = () => {
-  const about = allAbouts[0];
+  const about = (allAbouts ?? [])[0];
   if (!about) return notFound();
   return (
     <article className="prose prose-invert mt-10">
