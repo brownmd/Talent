@@ -1,5 +1,4 @@
-import sharp from "sharp";
-import { writeFileSync, readFileSync } from "fs";
+import { execSync } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -19,27 +18,18 @@ const favicons = [
   { name: "mstile-150x150.png", size: 150 },
 ];
 
-async function main() {
-  const svgBuffer = readFileSync(svgSource);
-  console.log(`Read SVG source (${svgBuffer.length} bytes)`);
-
-  for (const fav of favicons) {
-    const pngBuffer = await sharp(svgBuffer, { density: 300 })
-      .resize(fav.size, fav.size, {
-        fit: "contain",
-        background: { r: 0, g: 0, b: 0, alpha: 0 },
-      })
-      .png()
-      .toBuffer();
-
-    const outPath = join(publicDir, fav.name);
-    writeFileSync(outPath, pngBuffer);
-    console.log(`Generated ${fav.name} (${fav.size}x${fav.size}, ${pngBuffer.length} bytes)`);
+for (const fav of favicons) {
+  const outPath = join(publicDir, fav.name);
+  const cmd = `magick convert -background none -density 300 "${svgSource}" -resize ${fav.size}x${fav.size} -gravity center -extent ${fav.size}x${fav.size} "${outPath}"`;
+  try {
+    execSync(cmd, { stdio: "inherit" });
+    console.log(`Generated ${fav.name} (${fav.size}x${fav.size})`);
+  } catch {
+    // Try without "magick" prefix for older ImageMagick v6
+    const cmdV6 = `convert -background none -density 300 "${svgSource}" -resize ${fav.size}x${fav.size} -gravity center -extent ${fav.size}x${fav.size} "${outPath}"`;
+    execSync(cmdV6, { stdio: "inherit" });
+    console.log(`Generated ${fav.name} (${fav.size}x${fav.size}) [ImageMagick v6]`);
   }
-  console.log("All favicons generated with transparent backgrounds!");
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+console.log("All favicons generated with transparent backgrounds using ImageMagick!");
