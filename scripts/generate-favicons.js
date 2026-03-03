@@ -14,6 +14,7 @@ const favicons = [
   { name: "favicon-16x16.png", size: 16 },
   { name: "favicon-32x32.png", size: 32 },
   { name: "favicon-48x48.png", size: 48 },
+  { name: "mstile-150x150.png", size: 150 },
 ];
 
 async function main() {
@@ -29,7 +30,11 @@ async function main() {
       .png()
       .toBuffer();
 
+    // Write locally for the sandbox
     writeFileSync(fav.name, pngBuffer);
+    // Also output a data URI so we can upload them
+    const dataUri = `data:image/png;base64,${pngBuffer.toString("base64")}`;
+    console.log(`FAVICON:${fav.name}:${dataUri}`);
     console.log(`Generated ${fav.name} (${fav.size}x${fav.size}, ${pngBuffer.length} bytes)`);
   }
   console.log("Done!");
