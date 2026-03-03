@@ -33,4 +33,16 @@ for (const fav of favicons) {
   }
 }
 
+// Generate transparent favicon.ico (multi-size ICO with 16, 32, 48px)
+const icoPath = join(projectRoot, "app", "favicon.ico");
+const icoCmd = `magick convert -background none -density 300 "${svgSource}" \\( -clone 0 -resize 16x16 \\) \\( -clone 0 -resize 32x32 \\) \\( -clone 0 -resize 48x48 \\) -delete 0 "${icoPath}"`;
+try {
+  execSync(icoCmd, { stdio: "inherit" });
+  console.log("Generated favicon.ico (16x16, 32x32, 48x48 multi-size ICO)");
+} catch {
+  const icoV6 = `convert -background none -density 300 "${svgSource}" \\( -clone 0 -resize 16x16 \\) \\( -clone 0 -resize 32x32 \\) \\( -clone 0 -resize 48x48 \\) -delete 0 "${icoPath}"`;
+  execSync(icoV6, { stdio: "inherit" });
+  console.log("Generated favicon.ico (multi-size ICO) [ImageMagick v6]");
+}
+
 console.log("All favicons generated with transparent backgrounds using ImageMagick!");
