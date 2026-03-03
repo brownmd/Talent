@@ -7,6 +7,7 @@ const Home = () => {
 
   return (
     <>
+      <h1 className="text-3xl font-bold mb-6">The Talent Operator</h1>
       {postsArray.map((yearPosts) => {
         const year = Object.keys(yearPosts)[0];
         const posts = yearPosts[year];
