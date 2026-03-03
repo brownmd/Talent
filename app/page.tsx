@@ -3,7 +3,7 @@ import { organizeAndSortPosts } from "./lib/getPosts";
 import PostSection from "./components/PostSection";
 
 const Home = () => {
-  const postsArray = organizeAndSortPosts(allPosts);
+  const postsArray = organizeAndSortPosts(allPosts ?? []);
 
   return (
     <>

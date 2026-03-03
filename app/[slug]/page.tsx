@@ -8,11 +8,11 @@ import { baseURL } from "@/blog.config";
 import Link from "next/link";
 
 function findPost(slug: string) {
-  return allPosts.find((p) => p.slug === slug);
+  return (allPosts ?? []).find((p) => p.slug === slug);
 }
 
 export function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return (allPosts ?? []).map((post) => ({
     slug: post.slug,
   }));
 }
