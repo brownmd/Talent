@@ -1,0 +1,52 @@
+import Link from "next/link";
+import Image from "next/image";
+
+const footerLinks = [
+  { href: "/", label: "blog" },
+  { href: "/projects", label: "projects" },
+  { href: "/about", label: "about" },
+];
+
+export function Footer() {
+  return (
+    <footer className="mt-16 mb-8 md:px-0 pl-4">
+      <div className="border-t border-gray-800 pt-6">
+        <nav
+          className="flex items-center gap-3"
+          aria-label="Footer navigation"
+        >
+          <Link href="/" aria-label="Home">
+            <Image
+              src="/logo.svg"
+              alt="Site logo"
+              width={20}
+              height={20}
+              className="mr-1 opacity-60 hover:opacity-100 transition-opacity duration-200"
+            />
+          </Link>
+          <span className="text-gray-700" aria-hidden="true">
+            /
+          </span>
+          {footerLinks.map((link, index) => (
+            <span key={link.href} className="flex items-center gap-3">
+              <Link
+                href={link.href}
+                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+              >
+                {link.label}
+              </Link>
+              {index < footerLinks.length - 1 && (
+                <span className="text-gray-700" aria-hidden="true">
+                  /
+                </span>
+              )}
+            </span>
+          ))}
+        </nav>
+        <p className="mt-4 text-gray-600 text-xs">
+          {new Date().getFullYear()} All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+}
