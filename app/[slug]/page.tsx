@@ -5,7 +5,6 @@ import { MdxRenderer } from "../components/Mdx";
 import { ShareBar } from "../components/ShareBar";
 import { format } from "date-fns";
 import { baseURL } from "@/blog.config";
-import Link from "next/link";
 
 function findPost(slug: string) {
   return (allPosts ?? []).find((p) => p.slug === slug);
@@ -60,18 +59,6 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </article>
 
       <ShareBar title={post.title} url={baseURL + post.url} />
-
-      <div className="mt-4 text-gray-500 tracking-wider">
-        <div className="space-x-1">
-          <span className="font-light">&gt; </span>
-          <Link
-            href="/"
-            className="text-gray-200 hover:underline hover:text-gray-50"
-          >
-            cd ..
-          </Link>
-        </div>
-      </div>
     </section>
   );
 }
