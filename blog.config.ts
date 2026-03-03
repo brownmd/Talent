@@ -1,6 +1,6 @@
 export const CONFIG = {
-  title: "Lotse",
-  description: "Minimalistic dark mode blogging template",
+  title: "The Talent Operator",
+  description: "The Talent Operator",
   baseURL: "https://lotse.vercel.app", // replace with your domain
   darkBackground: "#1a1a1a",
   resume: {
