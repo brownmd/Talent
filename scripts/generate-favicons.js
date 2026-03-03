@@ -2,10 +2,9 @@ import sharp from "sharp";
 import { writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 
-const sourceUrl =
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-I9x7UYTEHqdVU7UUvwsvaaEruH3DAN.png";
-
-const outputDir = "/vercel/share/v0-project/public";
+// Use the SVG source for best quality + transparent background
+const svgUrl =
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-LlOmmmB7ANBm5V53DaY4DvjoehUKu3.svg";
 
 const favicons = [
   { name: "android-chrome-96x96.png", size: 96 },
@@ -17,29 +16,26 @@ const favicons = [
   { name: "favicon-48x48.png", size: 48 },
 ];
 
-async function generateFavicons() {
-  const response = await fetch(sourceUrl);
-  const buffer = Buffer.from(await response.arrayBuffer());
+async function main() {
+  const res = await fetch(svgUrl);
+  const svgBuffer = Buffer.from(await res.arrayBuffer());
 
-  mkdirSync(outputDir, { recursive: true });
-
-  for (const favicon of favicons) {
-    const output = await sharp(buffer)
-      .resize(favicon.size, favicon.size, {
+  for (const fav of favicons) {
+    const pngBuffer = await sharp(svgBuffer, { density: 300 })
+      .resize(fav.size, fav.size, {
         fit: "contain",
-        background: { r: 255, g: 255, b: 255, alpha: 0 },
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
       })
       .png()
       .toBuffer();
 
-    const outputPath = join(outputDir, favicon.name);
-    writeFileSync(outputPath, output);
-    console.log(`Generated ${outputPath} (${favicon.size}x${favicon.size})`);
+    writeFileSync(fav.name, pngBuffer);
+    console.log(`Generated ${fav.name} (${fav.size}x${fav.size}, ${pngBuffer.length} bytes)`);
   }
-  console.log("All favicons generated successfully!");
+  console.log("Done!");
 }
 
-generateFavicons().catch((err) => {
-  console.error("Error generating favicons:", err);
+main().catch((e) => {
+  console.error(e);
   process.exit(1);
 });
