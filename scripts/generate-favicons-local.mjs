@@ -16,7 +16,6 @@ const favicons = [
   { name: "favicon-32x32.png", size: 32 },
   { name: "favicon-48x48.png", size: 48 },
   { name: "mstile-150x150.png", size: 150 },
-  { name: "logo.png", size: 1024 },
 ];
 
 for (const fav of favicons) {
