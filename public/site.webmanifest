@@ -1,6 +1,6 @@
 {
-  "name": "David Brown",
-  "short_name": "DB",
+  "name": "The Talent Operator",
+  "short_name": "TTO",
   "icons": [
     {
       "src": "/android-chrome-96x96.png",
@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone"
 }

@@ -1,8 +1,12 @@
 import sharp from "sharp";
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
-const svgUrl =
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-LlOmmmB7ANBm5V53DaY4DvjoehUKu3.svg";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const projectRoot = join(__dirname, "..");
+const publicDir = join(projectRoot, "public");
+const svgSource = join(publicDir, "logo.svg");
 
 const favicons = [
   { name: "android-chrome-96x96.png", size: 96 },
@@ -16,10 +20,9 @@ const favicons = [
 ];
 
 async function main() {
-  const res = await fetch(svgUrl);
-  const svgBuffer = Buffer.from(await res.arrayBuffer());
+  const svgBuffer = readFileSync(svgSource);
+  console.log(`Read SVG source (${svgBuffer.length} bytes)`);
 
-  // Process one at a time, output each as a separate base64 line
   for (const fav of favicons) {
     const pngBuffer = await sharp(svgBuffer, { density: 300 })
       .resize(fav.size, fav.size, {
@@ -29,10 +32,11 @@ async function main() {
       .png()
       .toBuffer();
 
-    // Write to sandbox cwd
-    writeFileSync(fav.name, pngBuffer);
-    console.log(`OK ${fav.name} ${pngBuffer.length} bytes`);
+    const outPath = join(publicDir, fav.name);
+    writeFileSync(outPath, pngBuffer);
+    console.log(`Generated ${fav.name} (${fav.size}x${fav.size}, ${pngBuffer.length} bytes)`);
   }
+  console.log("All favicons generated with transparent backgrounds!");
 }
 
 main().catch((e) => {
