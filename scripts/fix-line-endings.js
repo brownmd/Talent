@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
-const contentDir = join(process.cwd(), 'content');
+const contentDir = '/vercel/share/v0-project/content';
 
 async function fixLineEndings(dir) {
   const entries = await readdir(dir, { withFileTypes: true });

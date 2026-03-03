@@ -1,0 +1,9 @@
+# Ensure consistent line endings for content files
+*.mdx text eol=lf
+*.md text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
