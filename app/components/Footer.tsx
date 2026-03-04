@@ -24,7 +24,7 @@ const socialLinks = [
     icon: "/images/medium.svg",
   },
   {
-    href: "mailto:david@thetalentoperator.com",
+    href: "mailto:david_m_brown@hotmail.com?subject=Contact%20from%20the%20blog",
     label: "Email",
     icon: "/images/email.svg",
   },
