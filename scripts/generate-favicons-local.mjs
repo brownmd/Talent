@@ -32,6 +32,18 @@ for (const fav of favicons) {
   }
 }
 
+// Generate transparent logo.png (1024x1024) from SVG
+const logoPngPath = join(publicDir, "logo.png");
+const logoCmd = `magick convert -background none -density 300 "${svgSource}" -resize 1024x1024 -gravity center -extent 1024x1024 "${logoPngPath}"`;
+try {
+  execSync(logoCmd, { stdio: "inherit" });
+  console.log("Generated logo.png (1024x1024)");
+} catch {
+  const logoV6 = `convert -background none -density 300 "${svgSource}" -resize 1024x1024 -gravity center -extent 1024x1024 "${logoPngPath}"`;
+  execSync(logoV6, { stdio: "inherit" });
+  console.log("Generated logo.png (1024x1024) [ImageMagick v6]");
+}
+
 // Generate transparent favicon.ico (multi-size ICO with 16, 32, 48px)
 const icoPath = join(projectRoot, "app", "favicon.ico");
 const icoCmd = `magick convert -background none -density 300 "${svgSource}" \\( -clone 0 -resize 16x16 \\) \\( -clone 0 -resize 32x32 \\) \\( -clone 0 -resize 48x48 \\) -delete 0 "${icoPath}"`;
