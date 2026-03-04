@@ -1,0 +1,64 @@
+---
+title: "AI Powered Talent Operator OS"
+---
+
+## Work in progress...
+
+I'm currently attempting to build this:
+
+
+
+1. Inference Layer (The Brain)
+
+
+Engine: Ollama (Windows) + OLLAMA_VULKAN=1 (uses your 6600 XT directly via Vulkan).
+
+Primary: Qwen 2.5 Coder 7B (5-bit) – ~5GB VRAM.
+
+Vision: Qwen 2.5-VL 3B – ~2GB VRAM.
+
+
+
+2. Interaction Layer
+
+
+Open WebUI (Docker).
+
+Persistent Memory: Mem0 + ChromaDB (Docker).
+
+
+
+3. Agentic Layer
+
+
+
+VS Code + Roo Code extension.
+
+Aider (CLI).
+
+
+
+4. Intelligence Pipeline
+
+
+Python via uv.
+
+PyGithub + SQLite + pgeocode.
+
+
+
+5. Visualization & BI
+
+
+Kepler.gl (GPU-accelerated).
+
+Evidence.dev.
+
+
+
+6. Infrastructure
+
+
+Tailscale + Docker Desktop.
+
+Firewalla Purple + UniFi monitoring.
