@@ -12,7 +12,7 @@ const Card = (props: CardProps) => {
   return (
     <Link
       className="justify-between py-2 flex hover:text-white group transition-colors duration-200"
-      href={slug}
+      href={`/${slug}`}
       aria-label={`Read article: ${title}`}
     >
       <h2 className="overflow-hidden whitespace-nowrap text-ellipsis">
