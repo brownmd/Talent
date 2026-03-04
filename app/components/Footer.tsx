@@ -9,7 +9,7 @@ const footerLinks = [
 
 const socialLinks = [
   {
-    href: "https://www.linkedin.com/in/brownmd/",
+    href: "https://www.linkedin.com/in/davidbrownm/",
     label: "LinkedIn",
     icon: "/images/linkedin.svg",
   },
@@ -19,12 +19,12 @@ const socialLinks = [
     icon: "/images/github.svg",
   },
   {
-    href: "https://medium.com/@brownmd",
+    href: "https://medium.com/@david_m_brown",
     label: "Medium",
     icon: "/images/medium.svg",
   },
   {
-    href: "mailto:david@thetalentoperator.com",
+    href: "mailto:david_m_brown@hotmail.com",
     label: "Email",
     icon: "/images/email.svg",
   },
