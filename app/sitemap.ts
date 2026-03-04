@@ -1,4 +1,4 @@
-import { allPosts, allProjects } from "@/app/lib/contentlayer";
+import { allPosts, allProjects } from "@/.contentlayer/generated";
 import { CONFIG } from "@/blog.config";
 import { MetadataRoute } from "next";
 

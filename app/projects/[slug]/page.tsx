@@ -1,4 +1,4 @@
-import { allProjects } from "@/app/lib/contentlayer";
+import { allProjects } from "@/.contentlayer/generated";
 import { notFound } from "next/navigation";
 import { MdxRenderer } from "@/app/components/Mdx";
 import type { Metadata } from "next";

@@ -1,4 +1,4 @@
-import { allPosts } from "@/app/lib/contentlayer";
+import { allPosts } from "@/.contentlayer/generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MdxRenderer } from "../components/Mdx";

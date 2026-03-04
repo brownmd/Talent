@@ -1,4 +1,4 @@
-import { allPosts } from "@/app/lib/contentlayer";
+import { allPosts } from "@/.contentlayer/generated";
 import { organizeAndSortPosts } from "./lib/getPosts";
 import PostSection from "./components/PostSection";
 
