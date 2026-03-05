@@ -24,7 +24,7 @@ const socialLinks = [
     icon: "/images/medium.svg",
   },
   {
-    href: "mailto:david_m_brown@hotmail.com?subject=Contact%20from%20the%20blog",
+    href: "https://outlook.live.com/mail/0/deeplink/compose?to=david_m_brown@hotmail.com&subject=Contact%20from%20The%20Talent%20Operator",
     label: "Email",
     icon: "/images/email.svg",
   },
@@ -77,8 +77,8 @@ export function Footer() {
             <a
               key={social.label}
               href={social.href}
-              target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={social.label}
               className="opacity-40 hover:opacity-100 transition-opacity duration-200"
             >
