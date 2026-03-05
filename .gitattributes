@@ -1,3 +1,12 @@
+# Treat binary files as binary (no line ending conversion)
+*.pdf binary
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+
 # Ensure consistent line endings for content files
 *.mdx text eol=lf
 *.md text eol=lf
