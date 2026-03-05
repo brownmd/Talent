@@ -11,29 +11,35 @@ The prototype, built using AWS PartyRock, a no code widget drag and drop AI app 
 The goal, to generate a recruiting guide for talent operators with further improvents planned, such as increased automation and autonomious reasoning.  
 The TalentOS creates a recruiting playbook, from role understanding, talent insights, research, sourcing reconnaissance, sourcing strategy, recruitment marketing, candidate evaluation, offer strategy, and recruitment analytics
 
-I will attempt to build this system out the below "architecture" to power a real version of the modules shown in the PartyRock app.
+I will attempt to build this system out the below architecture to power a real version of the modules shown in the PartyRock app.
 
-1. Inference Layer (The Brain)
+1. Inference Layer
+
 Engine: Ollama (Windows) + OLLAMA_VULKAN=1.
 Primary: Qwen 2.5 Coder 7B (5-bit) – ~5GB VRAM.
 Vision: Qwen 2.5-VL 3B – ~2GB VRAM.
 
 2. Interaction Layer
+
 Open WebUI (Docker).
 Persistent Memory: Mem0 + ChromaDB (Docker).
 
 3. Agentic Layer
+
 VS Code + Roo Code extension.
 Aider (CLI).
 
 4. Intelligence Pipeline
+
 Python via uv.
 PyGithub + SQLite + pgeocode.
 
 5. Visualization & BI
+
 Kepler.gl (GPU-accelerated).
 Evidence.dev.
 
 6. Infrastructure
+
 Tailscale + Docker Desktop.
 Firewalla Purple + UniFi monitoring.
