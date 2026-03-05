@@ -24,7 +24,7 @@ const socialLinks = [
     icon: "/images/medium.svg",
   },
   {
-    href: "https://outlook.live.com/mail/0/deeplink/compose?to=david_m_brown@hotmail.com&subject=Contact%20from%20the%20blog",
+    href: "mailto:david_m_brown@hotmail.com?subject=Contact%20from%20the%20blog",
     label: "Email",
     icon: "/images/email.svg",
   },
