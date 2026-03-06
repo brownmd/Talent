@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { CONFIG } from "@/blog.config";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -71,6 +72,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+        <GoogleAnalytics measurementId={CONFIG.googleAnalyticsId} />
       </body>
     </html>
   );
