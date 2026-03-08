@@ -1,16 +1,14 @@
 ---
-title: "AI Talent Intelligence & Tripwire Platform"
-description: "A modular, open-source talent intelligence system with real-time market tripwires."
-status: "In Progress"
+title: AI Talent Intelligence and Tripwire Platform
 ---
 
 ## Project #2 in queue... pow!erd by A_to_the_I
 
 
-With AI's ability to enable the development of custom tools by non developers, and then power them like Iron Man's Arc Reactor, creates a fun sandbox environment to think, create, and build inside a dimension for many, including me, that was not possible very recently ago.
+AI's ability to empower vibe coders, aka muggles of the engineering world, to create systems, creates a unique sandbox for thinking, creating, and building in a dimension that, until very recently, didn't exist for many.
 
-Talent engineers is a new job title within talent acquisition and recruiting, possible a name to classify a recruiting vibe coder, which I believe is a rad role title moniker and name. to develop custom workflows and tools to create and manage recruiting systems in automated personalized steps using and Arc Reactor, aka AI.
-I've decided to role up my sleeves, activate my inner Jarvis and build, tinker, and stay up later than I should create systems. 
+
+I've decided to role up my sleeves, build, tinker, and stay up later than I should. 
 
 The Objective: To build fast or die trying before I recruit my heart out.
 
@@ -18,12 +16,12 @@ The Objective: To build fast or die trying before I recruit my heart out.
 
 ## Overview
 
-Talent Operator OS is a local-first, modular talent intelligence platform designed to ingest, enrich, monitor, and act on candidate and market signals in real time.
-Essentially a talent intelligence real time news feed, curated and customized by you, for you - a talent observability tool.
+A talent intelligence platform designed to ingest, enrich, monitor, and act on candidate and market signals in real time.
+Essentially a talent intelligence rss feed, a talent observability tool.
 
 ---
 
-## Design
+## The Design
 
 ### 1. Seed Ingest Layer
 
@@ -34,68 +32,12 @@ Capture candidate and company data without interpretation.
 - GitHub via PyGithub
 - Job boards using custom scrapers
 
-**Processing**
-- Continuous ingestion
-- Timestamping at ingest time
-
 **Outputs**
 - Unmodified records stored in SQLite (`talent.db`)
 
 ---
 
-### 2. OSINT Prefilter Layer
-
-**Purpose**  
-Identify real, reachable candidates before paid enrichment.
-
-**Inputs**
-- Raw candidate records
-
-**Processing**
-- Public identity discovery including emails, social handles, and profiles.
-
-**Outputs**
-- Scored candidate set
-- Threshold gate where candidates scoring 0.6 or higher advance
-
----
-
-### 3. Enrichment Layer
-
-**Purpose**  
-Add structured context to high confidence candidates.
-
-**Inputs**
-- OSINT qualified candidates
-
-**Processing**
-- Employment history enrichment
-- Company firmographic enrichment
-- Contact completion with fallback sources
-
-**Outputs**
-- Fully enriched candidate profiles
-
----
-
-### 4. Outreach Layer
-
-**Purpose**  
-Convert enriched candidates into measurable conversations.
-
-**Inputs**
-- Enriched and verified candidate profiles
-
-**Processing**
-- Template driven, multi channel outreach
-- Sequenced engagement execution
-
-**Outputs**
-- Candidate raining in from the heavens
-
----
-
-### 5. Monitoring and Tripwire Layer
+### 2. Monitoring and Tripwire Layer
 
 **Purpose**  
 Detect market and competitor changes as they happen.
@@ -116,7 +58,7 @@ Detect market and competitor changes as they happen.
 
 ---
 
-### 8. Storage and Intelligence Layer
+### 3. Storage and Intelligence Layer
 
 **Purpose**  
 Persist, analyze, and compound intelligence over time.
@@ -128,4 +70,4 @@ Persist, analyze, and compound intelligence over time.
 - Funnel performance
 
 
-We'll see... tbd
+tbd...
