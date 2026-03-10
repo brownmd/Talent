@@ -4,15 +4,16 @@ interface CardProps {
   title: string;
   slug: string;
   date: string;
+  basePath?: string;
 }
 
 const Card = (props: CardProps) => {
-  const { title, slug, date } = props;
+  const { title, slug, date, basePath = "" } = props;
 
   return (
     <Link
       className="justify-between py-2 flex hover:text-white group transition-colors duration-200"
-      href={`/${slug}`}
+      href={`${basePath}/${slug}`}
       aria-label={`Read article: ${title}`}
     >
       <h2 className="overflow-hidden whitespace-nowrap text-ellipsis">
