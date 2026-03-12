@@ -15,7 +15,7 @@ export function ShareBar({ title, url }: { title: string; url: string }) {
 
   return (
     <div className="mt-10 border-t border-[var(--separator)] pt-6">
-      <div className="flex items-center gap-4 text-[var(--fg-muted)]">
+      <div className="flex items-center gap-4 text-[var(--fg-muted)] leading-none">
         <span className="uppercase tracking-widest text-xs">Share</span>
 
         {/* Reddit */}
