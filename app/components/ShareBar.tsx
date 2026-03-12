@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 
 export function ShareBar({ title, url }: { title: string; url: string }) {
   const reddit = `https://www.reddit.com/submit?url=${encodeURIComponent(
@@ -11,13 +11,9 @@ export function ShareBar({ title, url }: { title: string; url: string }) {
     url
   )}`;
 
-  const [copied, setCopied] = useState(false);
-
-  const copyLink = () => {
-    navigator.clipboard.writeText(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
+  const twitter = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+    url
+  )}&text=${encodeURIComponent(title)}`;
 
   return (
     <div className="mt-10 border-t border-[var(--separator)] pt-6">
@@ -50,21 +46,22 @@ export function ShareBar({ title, url }: { title: string; url: string }) {
           </svg>
         </a>
 
-        {/* Copy link */}
-        <button
-          onClick={copyLink}
-          className="hover:text-[var(--fg)] transition-colors"
-          aria-label="Copy link"
+        {/* X (formerly Twitter) */}
+        <a
+          href={twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-70 transition-opacity"
+          aria-label="Share on X"
         >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M8 2a2 2 0 00-2 2v2h2V4h8v8h-2v2h2a2 2 0 002-2V4a2 2 0 00-2-2H8z" />
-            <path d="M4 6a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-8a2 2 0 00-2-2H4zm0 2h8v8H4V8z" />
-          </svg>
-        </button>
-
-        {copied && (
-          <span className="text-green-400 text-xs">Copied!</span>
-        )}
+          <Image
+            src="/images/x.svg"
+            alt="Share on X"
+            width={20}
+            height={20}
+            className="w-5 h-5"
+          />
+        </a>
       </div>
     </div>
   );
