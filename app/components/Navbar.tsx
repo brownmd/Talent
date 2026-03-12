@@ -6,6 +6,7 @@ import { cn } from "../utils/cn";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { resume } from "@/blog.config";
+import { useTheme } from "./ThemeProvider";
 
 const navItems = {
   "/": { name: "blog" },
@@ -34,8 +35,8 @@ const NavItem = ({ path, name, pathname }: NavItemProps) => {
       >
         <span
           className={cn(
-            "text-gray-400 hover:text-white transition-colors duration-200",
-            pathname === path ? "text-white" : ""
+            "text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200",
+            pathname === path ? "text-[var(--fg)]" : ""
           )}
         >
           {name}
@@ -48,8 +49,8 @@ const NavItem = ({ path, name, pathname }: NavItemProps) => {
     <Link href={path} key={path}>
       <span
         className={cn(
-          "text-gray-400 hover:text-white transition-colors duration-200",
-          pathname === path ? "text-white" : ""
+          "text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200",
+          pathname === path ? "text-[var(--fg)]" : ""
         )}
       >
         {name}
@@ -60,6 +61,7 @@ const NavItem = ({ path, name, pathname }: NavItemProps) => {
 
 export function Navbar() {
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
   const paths = Object.keys(navItems).filter(
     (path) => resume.show || path !== resume.link
   );
@@ -77,7 +79,7 @@ export function Navbar() {
             priority
           />
         </Link>
-        <span className="text-gray-700" aria-hidden="true">/</span>
+        <span className="text-[var(--fg-subtle)]" aria-hidden="true">/</span>
         {paths.map((path, index) => (
           <React.Fragment key={index}>
             <NavItem
@@ -86,12 +88,27 @@ export function Navbar() {
               pathname={pathname}
             />
             {index < paths.length - 1 && (
-              <span className="text-gray-700" aria-hidden="true">
+              <span className="text-[var(--fg-subtle)]" aria-hidden="true">
                 /
               </span>
             )}
           </React.Fragment>
         ))}
+
+        {/* Theme toggle — upper right */}
+        <button
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          className="ml-auto opacity-70 hover:opacity-100 transition-opacity duration-200"
+        >
+          <Image
+            src={theme === "dark" ? "/images/sun.svg" : "/images/moon.svg"}
+            alt={theme === "dark" ? "Light mode" : "Dark mode"}
+            width={20}
+            height={20}
+            className="dark-icon"
+          />
+        </button>
       </nav>
     </header>
   );

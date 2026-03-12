@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #1a1a1a;
+  --fg: #ffffff;
+  --fg-muted: #A3A3A3;
+  --fg-subtle: #656565;
+  --fg-faint: #525252;
+  --border: #2a2a2a;
+  --separator: #3a3a3a;
+}
+
+.light {
+  --bg: #F0F0F0;
+  --fg: #1a1a1a;
+  --fg-muted: #525252;
+  --fg-subtle: #858585;
+  --fg-faint: #A3A3A3;
+  --border: #D0D0D0;
+  --separator: #C2C2C2;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Social icons: white on dark, dark on light */
+.dark-icon {
+  filter: invert(1);
+}
+.light .dark-icon {
+  filter: invert(0);
+}
+
+/* Prose overrides for light mode */
+.light .prose-invert {
+  --tw-prose-body: #1a1a1a;
+  --tw-prose-headings: #1a1a1a;
+  --tw-prose-lead: #525252;
+  --tw-prose-links: #1a1a1a;
+  --tw-prose-bold: #1a1a1a;
+  --tw-prose-counters: #525252;
+  --tw-prose-bullets: #858585;
+  --tw-prose-hr: #C2C2C2;
+  --tw-prose-quotes: #1a1a1a;
+  --tw-prose-quote-borders: #C2C2C2;
+  --tw-prose-captions: #525252;
+  --tw-prose-code: #1a1a1a;
+  --tw-prose-pre-code: #F0F0F0;
+  --tw-prose-pre-bg: #2a2a2a;
+  --tw-prose-th-borders: #C2C2C2;
+  --tw-prose-td-borders: #D0D0D0;
+}

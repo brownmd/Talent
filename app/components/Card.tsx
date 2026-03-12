@@ -12,14 +12,14 @@ const Card = (props: CardProps) => {
 
   return (
     <Link
-      className="justify-between py-2 flex hover:text-white group transition-colors duration-200"
+      className="justify-between py-2 flex hover:text-[var(--fg)] group transition-colors duration-200"
       href={`${basePath}/${slug}`}
       aria-label={`Read article: ${title}`}
     >
       <h2 className="overflow-hidden whitespace-nowrap text-ellipsis">
         {title}
       </h2>
-      <span className="text-gray-500 group-hover:text-white transition-colors duration-150 ml-3 flex-shrink-0">
+      <span className="text-[var(--fg-subtle)] group-hover:text-[var(--fg)] transition-colors duration-150 ml-3 flex-shrink-0">
         {date}
       </span>
     </Link>

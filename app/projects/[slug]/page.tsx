@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <section>
-      <span className="font-medium text-sm text-gray-600">Project</span>
+      <span className="font-medium text-sm text-[var(--fg-faint)]">Project</span>
       <h2 className="text-2xl font-bold">{project.title}</h2>
       <article className="mt-10 prose prose-invert">
         <MdxRenderer source={project.body.code} />

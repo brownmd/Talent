@@ -49,7 +49,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   return (
     <section>
       <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
-      <div className="flex space-x-2 text-gray-500">
+      <div className="flex space-x-2 text-[var(--fg-subtle)]">
         <span>{format(new Date(post.date), "MM/dd/yyyy")}</span>
         <span className="font-bold">·</span>
         <span>{post.readingTime.text}</span>

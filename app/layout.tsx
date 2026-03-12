@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { CONFIG } from "@/blog.config";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -65,12 +66,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="bg-dark text-white max-w-2xl mb-40 flex flex-col mt-4 mx-auto">
-        <Navbar />
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
-          {children}
-        </main>
-        <Footer />
+      <body className="max-w-2xl mb-40 flex flex-col mt-4 mx-auto">
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
         <Analytics />
         <GoogleAnalytics measurementId={CONFIG.googleAnalyticsId} />
       </body>
