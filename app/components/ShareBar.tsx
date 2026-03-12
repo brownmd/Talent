@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 export function ShareBar({ title, url }: { title: string; url: string }) {
   const reddit = `https://www.reddit.com/submit?url=${encodeURIComponent(
     url
@@ -17,7 +15,7 @@ export function ShareBar({ title, url }: { title: string; url: string }) {
 
   return (
     <div className="mt-10 border-t border-[var(--separator)] pt-6">
-      <div className="flex items-center space-x-4 text-[var(--fg-muted)]">
+      <div className="flex items-center gap-4 text-[var(--fg-muted)]">
         <span className="uppercase tracking-widest text-xs">Share</span>
 
         {/* Reddit */}
@@ -51,16 +49,12 @@ export function ShareBar({ title, url }: { title: string; url: string }) {
           href={twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
+          className="hover:text-current transition-opacity opacity-100 hover:opacity-70"
           aria-label="Share on X"
         >
-          <Image
-            src="/images/x.svg"
-            alt="Share on X"
-            width={20}
-            height={20}
-            className="w-5 h-5"
-          />
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.207-6.802-5.997 6.802H2.117l7.644-8.744-8.158-10.756h6.833l4.719 6.24 5.441-6.24zM17.002 18.807h1.844L6.736 5.104H4.782l12.22 13.703z" />
+          </svg>
         </a>
       </div>
     </div>
