@@ -1,0 +1,62 @@
+---
+title: Talent Acquisition Market Intelligence Dashboard
+date: 2026-03-14
+---
+
+## Project #3 in queue... a living map of the recruiting talent market
+
+The goal: turn raw job posting data into an interactive, always-fresh intelligence dashboard — so recruiters and talent operators can see *where* the market is moving, not just what's on a job board.
+
+---
+
+## Overview
+
+A full-stack talent market analytics platform that scrapes, stores, and visualizes job posting data across the US in near real time. Think of it as a talent market pulse: an interactive map and dashboard that updates weekly, automatically.
+
+---
+
+## The Architecture
+
+```
+Hetzner VPS (weekly scraper)
+        ↓
+PostgreSQL on Hetzner (job data store)
+        ↓
+REST API on Hetzner (serves data)
+        ↓
+Next.js on Vercel (dashboard UI)
+```
+
+---
+
+## What the Dashboard Will Show
+
+- **Interactive US map** — job density by city
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Scraper | Python (scheduled cron on Hetzner VPS) |
+| Database | PostgreSQL (hosted on Hetzner) |
+| API | REST endpoint on Hetzner (serves JSON to frontend) |
+| Frontend | Next.js on Vercel |
+| Charts | D3.js or Recharts |
+| Map | React Simple Maps (US choropleth) |
+
+---
+
+## Build Order
+
+1. Set up scraper on Hetzner VPS + store results in PostgreSQL
+2. Build a lightweight REST API on Hetzner to serve job data
+3. Build the dashboard page in Next.js (map + charts)
+4. Deploy to Vercel and wire up the API
+
+---
+
+## Status
+
+> 🗂️ **Planned** 
