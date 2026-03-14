@@ -1,0 +1,87 @@
+---
+title: AI Literacy, locating AI fluent talent
+date: 2026-03-14
+---
+
+## Project #4 in queue... mapping AI literate talent across the US
+
+This project maps GitHub activity from open source AI projects, in theory producing an AI literacy score for every county in the country.
+
+**Talent Intelligence**
+
+---
+
+## Overview
+
+A personal data project that analyzes billions of GitHub Archive events through BigQuery, geocodes user profiles to county level FIPS codes, and generates a population normalized AI literacy score for every US county. The output is a monthly updated interactive heatmap that highlights where AI literate talent is most concentrated.
+---
+
+## How It Works (in theory)
+
+**01 · GitHub Archive**
+Query AI repo events via BigQuery
+
+**02 · Geocode Profiles**
+Map user locations to county FIPS codes
+
+**03 · Score & Normalize**
+Weighted signals ÷ population × 10,000
+
+**04 · Heatmap**
+Interactive county map, updated monthly
+
+---
+
+## Signals Used to Score AI Literacy
+
+| Signal | Points |
+|---|---|
+| Contributor to AI repo | 10 pts |
+| Works at AI company | 6 pts |
+| Forks AI repo | 5 pts |
+| Bio mentions AI / ML / LLM | 3 pts |
+| Primary language Python or R | 4 pts |
+| Stars AI repo | 2 pts |
+
+**AI Literacy Score formula:** (thanks AI, for being a math wiz)
+
+$$
+\text{Score}_{county} = \frac{\sum_{i=1}^{n} w_i \cdot s_i}{\text{population}} \times 10{,}000
+$$
+
+Where $w_i$ is the point weight for signal $i$ and $s_i$ is the count of users in that county exhibiting that signal.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Event Data | GitHub Archive |
+| Query Engine | BigQuery |
+| Population Data | US Census API |
+| Database | PostgreSQL (Hetzner VPS) |
+| Backend / ETL | Python |
+| Frontend | Next.js |
+| Map / Visualization | D3.js (county choropleth) |
+| Infrastructure | Hetzner VPS |
+
+---
+
+## Build Order
+
+1. Query GitHub Archive via BigQuery — pull AI repo events (stars, forks, commits, contributors)
+2. Geocode profile locations to county FIPS codes
+3. Pull US Census population data per county
+4. Compute weighted AI literacy score per county, normalized by population
+5. Store results in PostgreSQL on Hetzner (monthly snapshots)
+6. Build interactive D3.js county heatmap in Next.js
+7. Deploy to Vercel, wire up API from Hetzner
+
+**vibe coded**
+
+---
+
+## Status
+
+> 🔄 **In progress...**
