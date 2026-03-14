@@ -19,39 +19,29 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme | undefined>(undefined);
+  // Default is always dark. The inline script in layout.tsx already applied
+  // the correct class before React hydrates, so there is no FOUC.
+  const [theme, setTheme] = useState<Theme>("dark");
 
-  // On mount, read persisted preference
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
+    // Read only from localStorage — never from prefers-color-scheme —
+    // so dark is always the default regardless of OS/browser setting.
     const stored = localStorage.getItem("theme") as Theme | null;
-    let resolvedTheme: Theme = "dark";
+    const resolved: Theme = stored === "light" ? "light" : "dark";
 
-    if (stored === "light" || stored === "dark") {
-      resolvedTheme = stored;
-    }
-
-    setTheme(resolvedTheme);
-    document.documentElement.classList.toggle("light", resolvedTheme === "light");
+    setTheme(resolved);
+    document.documentElement.classList.toggle("light", resolved === "light");
   }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => {
-      const current = prev ?? "dark";
-      const next: Theme = current === "dark" ? "light" : "dark";
+      const next: Theme = prev === "dark" ? "light" : "dark";
       document.documentElement.classList.toggle("light", next === "light");
       localStorage.setItem("theme", next);
       return next;
     });
   };
 
-  if (theme === undefined) {
-    // Avoid rendering until theme is resolved on the client to prevent hydration mismatches.
-    return null;
-  }
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
