@@ -23,16 +23,29 @@ export async function generateMetadata({
   const project = findProject(slug);
   if (!project) return undefined;
 
+  const description: string | undefined = (project as any).description ?? undefined;
   return {
     title: project.title,
+    description,
     openGraph: {
       title: project.title,
+      description,
       type: "article",
-      url: `${CONFIG.baseURL}/${project.slug}`,
+      url: `${CONFIG.baseURL}/projects/${project.slug}`,
+      images: [
+        {
+          url: `${CONFIG.baseURL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
+      description,
+      images: [`${CONFIG.baseURL}/opengraph-image`],
     },
   };
 }

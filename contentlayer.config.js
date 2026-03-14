@@ -12,6 +12,7 @@ export const Post = defineDocumentType(() => ({
     title: { type: "string", required: true },
     date: { type: "string", required: true },
     draft: { type: "boolean", required: true },
+    description: { type: "string", required: false },
   },
   computedFields: {
     slug: {
@@ -53,6 +54,7 @@ export const Projects = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "string", required: true },
+    description: { type: "string", required: false },
   },
   computedFields: {
     slug: {

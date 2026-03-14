@@ -1,10 +1,39 @@
 import { allProjects } from "@/.contentlayer/generated";
 import { Metadata } from "next";
 import PostSection from "@/app/components/PostSection";
+import { CONFIG } from "@/blog.config";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "A list of my personal projects",
+  description:
+    "Explore talent acquisition tools, AI recruiting systems, and HR technology projects built by The Talent Operator.",
+  openGraph: {
+    title: `Projects | ${CONFIG.title}`,
+    description:
+      "Explore talent acquisition tools, AI recruiting systems, and HR technology projects built by The Talent Operator.",
+    url: `${CONFIG.baseURL}/projects`,
+    siteName: CONFIG.title,
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: `${CONFIG.baseURL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: CONFIG.title,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Projects | ${CONFIG.title}`,
+    description:
+      "Explore talent acquisition tools, AI recruiting systems, and HR technology projects built by The Talent Operator.",
+    images: [`${CONFIG.baseURL}/opengraph-image`],
+  },
+  alternates: {
+    canonical: `${CONFIG.baseURL}/projects`,
+  },
 };
 
 type Project = {

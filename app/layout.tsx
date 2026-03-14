@@ -19,8 +19,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(CONFIG.baseURL),
   openGraph: {
     title: CONFIG.title,
+    description: CONFIG.description,
     url: CONFIG.baseURL,
-    siteName: `${CONFIG.title}'s website`,
+    siteName: CONFIG.title,
     locale: "en_US",
     type: "website",
     images: [
@@ -28,9 +29,21 @@ export const metadata: Metadata = {
         url: `${CONFIG.baseURL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${CONFIG.title}'s website`,
+        alt: CONFIG.title,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: CONFIG.title,
+    description: CONFIG.description,
+    images: [`${CONFIG.baseURL}/opengraph-image`],
+  },
+  alternates: {
+    canonical: CONFIG.baseURL,
+    types: {
+      "application/rss+xml": `${CONFIG.baseURL}/rss.xml`,
+    },
   },
   robots: {
     index: true,
@@ -52,11 +65,6 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-  alternates: {
-    types: {
-      "application/rss+xml": `${CONFIG.baseURL}/rss.xml`,
-    },
-  },
 };
 
 export default function RootLayout({
