@@ -26,9 +26,8 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
+          alignItems: "center",
+          justifyContent: "space-between",
           fontFamily: "Roboto",
           padding: "60px 80px",
           position: "relative",
@@ -65,7 +64,8 @@ export default async function Image() {
             display: "flex",
             flexDirection: "column",
             zIndex: 1,
-            maxWidth: "900px",
+            maxWidth: "650px",
+            flex: 1,
           }}
         >
           {/* Accent bar */}
@@ -102,7 +102,7 @@ export default async function Image() {
               marginBottom: 40,
               padding: 0,
               lineHeight: 1.5,
-              maxWidth: "850px",
+              maxWidth: "600px",
             }}
           >
             {CONFIG.description}
@@ -129,6 +129,58 @@ export default async function Image() {
               {CONFIG.baseURL}
             </p>
           </div>
+        </div>
+
+        {/* Bison Logo */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+            marginLeft: 40,
+          }}
+        >
+          <svg
+            viewBox="0 0 256 256"
+            width="280"
+            height="280"
+            style={{
+              filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))",
+            }}
+          >
+            {/* Bison body - dark navy */}
+            <g>
+              {/* Back leg */}
+              <rect x="160" y="180" width="24" height="76" fill="#0f172a" />
+              {/* Back leg teal accent */}
+              <rect x="168" y="180" width="16" height="76" fill="#4a7c7e" />
+              {/* Front leg */}
+              <rect x="72" y="180" width="24" height="76" fill="#0f172a" />
+              {/* Torso - navy */}
+              <ellipse cx="128" cy="130" rx="60" ry="50" fill="#0f172a" />
+              {/* Torso - teal upper section */}
+              <path
+                d="M 80 100 Q 80 80 128 75 Q 170 80 170 100 Q 170 120 155 135 Q 128 145 100 135 Q 80 120 80 100"
+                fill="#4a7c7e"
+              />
+              {/* Head/Shoulder - coral */}
+              <ellipse cx="60" cy="100" rx="42" ry="48" fill="#d9826d" />
+              {/* Head darker shading */}
+              <ellipse cx="50" cy="95" rx="28" ry="30" fill="#c56d54" />
+              {/* Horn - yellow */}
+              <rect x="165" y="60" width="16" height="40" fill="#f4d35e" rx="2" />
+              {/* Horn darker edge */}
+              <rect x="169" y="60" width="8" height="40" fill="#e8c940" rx="2" />
+              {/* Ear - dark */}
+              <ellipse cx="175" cy="110" rx="12" ry="18" fill="#0f172a" />
+              {/* Front face detail - dark */}
+              <ellipse cx="20" cy="120" rx="18" ry="22" fill="#0f172a" />
+            </g>
+            {/* Eyes */}
+            <rect x="35" y="85" width="12" height="12" fill="#0f172a" rx="1" />
+            <rect x="45" y="95" width="12" height="12" fill="#0f172a" rx="1" />
+          </svg>
         </div>
       </div>
     ),
