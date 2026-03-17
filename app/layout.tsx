@@ -93,7 +93,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <Analytics />
-        <GoogleAnalytics measurementId={CONFIG.googleAnalyticsId} />
+        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
       </body>
     </html>
   );
