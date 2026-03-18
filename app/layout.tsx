@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { CONFIG } from "@/blog.config";
 import { ThemeProvider } from "./components/ThemeProvider";
 
@@ -93,7 +92,6 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <Analytics />
-        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
       </body>
     </html>
   );
