@@ -1,0 +1,59 @@
+---
+title: The State of AI in Talent Acquisition
+date: 2026-03-23
+---
+
+## A self-hosted TA research survey — no SaaS, no subscriptions
+
+Wanted to run a Talent Acquisition research survey without paying for Qualtrics or similar tools. Built the entire stack on a single Linux server using open source software.
+
+Contact list sourced from 1st connections on LinkedIn, with 2nd and 3rd connections enriched via Apollo.
+
+---
+
+## Overview
+
+A self-hosted survey and email distribution stack built for Talent Acquisition research — no SaaS subscriptions, no per-seat pricing.
+
+---
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Survey Builder | Formbricks (self-hosted) |
+| Email Campaigns | Listmonk (self-hosted) |
+| File Storage | MinIO (self-hosted) |
+| Email Delivery | Amazon SES |
+| Infrastructure | Hetzner VPS |
+
+---
+
+## How It Works
+
+**01 · Build**
+Survey built and published in Formbricks
+
+**02 · Source**
+Contact list sourced via LinkedIn and Apollo
+
+**03 · Manage**
+Subscribers managed in Listmonk
+
+**04 · Deliver**
+Personalized survey link delivered per subscriber via email
+
+**05 · Analyze**
+Responses captured and analyzed
+
+---
+
+## Source
+
+[github.com/brownmd/ta-pulse](https://github.com/brownmd/ta-pulse)
+
+---
+
+## Status
+
+> In progress...
