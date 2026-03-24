@@ -59,8 +59,22 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   if (!post) return notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Person", name: "David Brown", url: baseURL + "/about" },
+    publisher: { "@type": "Person", name: "David Brown", url: baseURL },
+    url: baseURL + post.url,
+    description: (post as any).description ?? "",
+    mainEntityOfPage: { "@type": "WebPage", "@id": baseURL + post.url },
+  };
+
   return (
     <section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
       <div className="flex space-x-2 text-[var(--fg-subtle)]">
         <span>{format(new Date(post.date), "MM/dd/yyyy")}</span>

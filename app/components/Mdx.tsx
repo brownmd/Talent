@@ -33,7 +33,12 @@ type RoundedImageProps = ImageProps & {
 
 function RoundedImage(props: RoundedImageProps) {
   return (
-    <Image {...props} alt={props.alt || "Blog image"} className="rounded-lg" />
+    <Image
+      {...props}
+      alt={props.alt || "Blog image"}
+      className="rounded-lg"
+      sizes="(max-width: 672px) 100vw, 672px"
+    />
   );
 }
 

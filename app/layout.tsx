@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { CONFIG } from "@/blog.config";
 import { ThemeProvider } from "./components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: {
@@ -66,6 +66,20 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: CONFIG.title,
+  url: CONFIG.baseURL,
+  description: CONFIG.description,
+  author: {
+    "@type": "Person",
+    name: "David Brown",
+    url: CONFIG.baseURL + "/about",
+    jobTitle: "Talent Acquisition Professional",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -74,6 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
         {/* Inline script runs synchronously before paint to prevent FOUC.
             Dark is always the default; only switch to light if the user
             has explicitly saved "light" in localStorage. */}
