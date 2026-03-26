@@ -111,7 +111,7 @@ Wire 3.3V FTDI → Mini-DIN → Roomba service port. 10 lines of pyserial. Send 
 whisper hears you → Groq responds as pet personality → Piper speaks it back. Full voice conversation before any robot movement.
 
 **Phase 5 · Add vision**
-Install Moondream. Add look() function. Wire into Groq prompt: "You can see: {room_description}."
+Install Moondream. Add look() function. Wire into Groq prompt: `"You can see: {room_description}."`
 
 **Phase 6 · Action parsing**
 Groq appends action tags: [DRIVE_FORWARD], [SPIN_LEFT], [DOCK], [NONE]. Parse in Python, execute matching serial command.
