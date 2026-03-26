@@ -89,14 +89,6 @@ export default function RootLayout({
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
-        {/* Inline script runs synchronously before paint to prevent FOUC.
-            Dark is always the default; only switch to light if the user
-            has explicitly saved "light" in localStorage. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('light');}}catch(e){}})();`,
-          }}
-        />
       </head>
       <body className="max-w-2xl mb-40 flex flex-col mt-4 mx-auto">
         <ThemeProvider>

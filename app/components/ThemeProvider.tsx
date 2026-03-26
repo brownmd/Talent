@@ -1,48 +1,25 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-
-type Theme = "dark" | "light";
-
-interface ThemeContextValue {
-  theme: Theme;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextValue>({
-  theme: "dark",
-  toggleTheme: () => {},
-});
+import { ThemeProvider as NextThemesProvider, useTheme as useNextTheme } from "next-themes";
+import React from "react";
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  const { resolvedTheme, setTheme } = useNextTheme();
+  const theme = (resolvedTheme ?? "dark") as "dark" | "light";
+  return {
+    theme,
+    toggleTheme: () => setTheme(theme === "dark" ? "light" : "dark"),
+  };
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Default is always dark. The inline script in layout.tsx already applied
-  // the correct class before React hydrates, so there is no FOUC.
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => {
-    // Read only from localStorage — never from prefers-color-scheme —
-    // so dark is always the default regardless of OS/browser setting.
-    const stored = localStorage.getItem("theme") as Theme | null;
-    const resolved: Theme = stored === "light" ? "light" : "dark";
-
-    setTheme(resolved);
-    document.documentElement.classList.toggle("light", resolved === "light");
-  }, []);
-
-  const toggleTheme = () => {
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.classList.toggle("light", next === "light");
-    localStorage.setItem("theme", next);
-  };
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem={false}
+    >
       {children}
-    </ThemeContext.Provider>
+    </NextThemesProvider>
   );
 }
