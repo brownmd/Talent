@@ -4,210 +4,189 @@ date: 2026-03-25
 description: "Our new family pet! a roomba vacuum robot!"
 ---
 
-# Robot Pet Roomba | In progress...
+## Robot Pet v3 — Hybrid Design
+
+Roomba 960 · Pi 5 · Hybrid local+cloud · Pure Python · $0/month
 
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robot Pet v3 — Hybrid Design</title>
-<style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; margin: 0; padding: 1.5rem; }
-  * { box-sizing: border-box; }
-  .header { margin-bottom: 1.5rem; }
-  .header h1 { font-size: 18px; font-weight: 500; margin: 0 0 4px; }
-  .header p { font-size: 13px; color: #888; margin: 0; }
-  .nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .btn { padding: 6px 14px; border-radius: 20px; border: 0.5px solid #ccc; background: transparent; color: #666; font-size: 13px; cursor: pointer; transition: all .15s; }
-  .btn.active { background: #f5f5f5; color: #1a1a1a; border-color: #999; font-weight: 500; }
-  .btn:hover:not(.active) { background: #f5f5f5; }
-  .panel { display: none; }
-  .panel.active { display: block; }
-  .card { background: #fff; border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 12px; }
-  .card-title { font-size: 14px; font-weight: 500; color: #1a1a1a; margin: 0 0 4px; }
-  .card-sub { font-size: 12px; color: #666; margin: 0; line-height: 1.6; }
-  .grid2 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
-  .badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-bottom: 6px; font-weight: 500; }
-  .b-teal { background: #E1F5EE; color: #0F6E56; }
-  .b-purple { background: #EEEDFE; color: #534AB7; }
-  .b-coral { background: #FAECE7; color: #993C1D; }
-  .b-amber { background: #FAEEDA; color: #854F0B; }
-  .b-gray { background: #F1EFE8; color: #5F5E5A; }
-  .b-red { background: #FCEBEB; color: #A32D2D; }
-  .b-green { background: #EAF3DE; color: #3B6D11; }
-  .b-blue { background: #E6F1FB; color: #185FA5; }
-  .warn { background: #FFFBEB; border: 0.5px solid #F59E0B; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: #92400E; line-height: 1.6; }
-  .success { background: #F0FDF4; border: 0.5px solid #22C55E; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: #166534; line-height: 1.6; }
-  .info { background: #EFF6FF; border: 0.5px solid #3B82F6; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: #1E40AF; line-height: 1.6; }
-  .danger { background: #FEF2F2; border: 0.5px solid #EF4444; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: #991B1B; line-height: 1.6; }
-  .step-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
-  .step-num { width: 28px; height: 28px; border-radius: 50%; border: 0.5px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: #666; flex-shrink: 0; }
-  .step-body { flex: 1; }
-  .step-title { font-size: 14px; font-weight: 500; color: #1a1a1a; margin: 0 0 2px; }
-  .step-desc { font-size: 12px; color: #666; margin: 0; line-height: 1.6; }
-  .mono { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; background: #f5f5f5; padding: 2px 6px; border-radius: 4px; color: #1a1a1a; }
-  .rule-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 0.5px solid #e5e5e5; font-size: 13px; }
-  .rule-row:last-child { border-bottom: none; }
-  .pill-on { background: #EAF3DE; color: #3B6D11; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 500; }
-  .pill-off { background: #FCEBEB; color: #A32D2D; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 500; }
-  .pill-cloud { background: #E6F1FB; color: #185FA5; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 500; }
-  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12px; color: #666; margin-bottom: 8px; }
-  .flow-arrow { color: #aaa; font-size: 14px; }
-</style>
-</head>
-<body>
+## Overview
 
-<div class="header">
-  <h1>Robot Pet v3 — Hybrid Design</h1>
-  <p>Roomba 960 · Pi 5 · Hybrid local+cloud · Pure Python · $0/month</p>
-</div>
+Hybrid architecture — private data stays local, only conversation text goes to Groq. Result: Llama 3.1 70B intelligence at 500+ tok/s for $0/month.
 
-<div class="nav">
-  <button class="btn active" onclick="show('overview')">Overview</button>
-  <button class="btn" onclick="show('hardware')">Hardware</button>
-  <button class="btn" onclick="show('software')">Software stack</button>
-  <button class="btn" onclick="show('build')">Build order</button>
-  <button class="btn" onclick="show('behaviors')">Behaviors</button>
-  <button class="btn" onclick="show('security')">Security</button>
-  <button class="btn" onclick="show('costs')">Costs</button>
-</div>
+**The data flow — one conversation loop**
 
-<!-- OVERVIEW -->
-<div id="overview" class="panel active">
-  <div class="success">Hybrid architecture — private data stays local, only conversation text goes to Groq. Result: Llama 3.1 70B intelligence at 500+ tok/s for $0/month.</div>
-  <div class="card">
-    <div class="card-title" style="margin-bottom:10px;">The data flow — one conversation loop</div>
-    <div class="flow-row"><span class="badge b-teal">You speak</span><span class="flow-arrow">→</span><span class="badge b-teal">whisper.cpp hears (local)</span><span class="flow-arrow">→</span><span class="badge b-blue">Groq API thinks (cloud, text only)</span></div>
-    <div class="flow-row"><span class="badge b-blue">Groq responds</span><span class="flow-arrow">→</span><span class="badge b-coral">Piper TTS speaks (local)</span><span class="flow-arrow">+</span><span class="badge b-coral">pyserial moves robot (local)</span></div>
-    <div class="flow-row"><span class="badge b-purple">Moondream sees room (local)</span><span class="flow-arrow">→</span><span class="badge b-blue">description sent to Groq as context</span></div>
-  </div>
-  <div class="grid2">
-    <div class="card"><div class="badge b-gray">Base robot</div><div class="card-title">Roomba 960 · $75</div><div class="card-sub">vSLAM navigation · Full OI serial port · WiFi · rubber brushrolls · Roseville CA marketplace</div></div>
-    <div class="card"><div class="badge b-purple">Brain hardware</div><div class="card-title">Raspberry Pi 5 · 8GB</div><div class="card-sub">Runs audio, vision, speech, Python loop. NVMe SSD via PCIe HAT. No heavy local LLM needed — Groq handles thinking.</div></div>
-    <div class="card"><div class="badge b-blue">Cloud brain (free)</div><div class="card-title">Groq · Llama 3.1 70B</div><div class="card-sub">500+ tok/s · 6,000 req/day free · Only transcribed text leaves your house · No audio · No video · No robot control</div></div>
-    <div class="card"><div class="badge b-teal">Orchestration</div><div class="card-title">Pure Python · ~300 lines</div><div class="card-sub">No frameworks. No npm. No daemon. A while-True loop with four function calls. Claude Code writes the hard parts.</div></div>
-  </div>
-  <div class="card">
-    <div class="card-title" style="margin-bottom:8px;">What stays local vs what goes to cloud</div>
-    <div class="rule-row"><span>Your voice audio</span><span class="pill-on">Always local</span></div>
-    <div class="rule-row"><span>Webcam video / images</span><span class="pill-on">Always local</span></div>
-    <div class="rule-row"><span>Robot movement commands</span><span class="pill-on">Always local</span></div>
-    <div class="rule-row"><span>Memory file</span><span class="pill-on">Always local</span></div>
-    <div class="rule-row"><span>Transcribed text of what you said</span><span class="pill-cloud">Groq (text only)</span></div>
-    <div class="rule-row"><span>Moondream room description (text)</span><span class="pill-cloud">Groq (text only)</span></div>
-  </div>
-</div>
+You speak → whisper.cpp hears (local) → Groq API thinks (cloud, text only) → Groq responds → Piper TTS speaks (local) + pyserial moves robot (local)
 
-<!-- HARDWARE -->
-<div id="hardware" class="panel">
-  <div class="info">Pi 5 no longer needs to run a local LLM. This means less thermal stress, faster boot, and more RAM free for audio + vision processing.</div>
-  <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="step-title">Roomba 960 · $75</div><div class="step-desc">The base. vSLAM navigation, full OI serial port, WiFi. Run one full stock cleaning cycle before any modifications. Check for error codes on the CLEAN button.</div></div></div>
-  <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="step-title">Raspberry Pi 5 · 8GB · ~$80</div><div class="step-desc">Required for simultaneous whisper + Moondream + Python loop. Do not use Pi 4 — not enough RAM once Moondream is loaded.</div></div></div>
-  <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="step-title">M.2 NVMe SSD + PCIe HAT · ~$35</div><div class="step-desc">256GB+. Moondream (1.8GB) and whisper models load from NVMe in seconds. Pimoroni NVMe Base or Pineberry HatDrive recommended.</div></div></div>
-  <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="step-title">3.3V FTDI USB serial adapter · ~$12</div><div class="step-desc">CRITICAL: must be 3.3V logic. The Roomba OI runs at 3.3V — a 5V adapter damages the OI board.</div></div></div>
-  <div class="step-row"><div class="step-num">5</div><div class="step-body"><div class="step-title">7-pin Mini-DIN cable · ~$10</div><div class="step-desc">Plugs into Roomba service port under the handle flap. Route through handle arch, not around outside.</div></div></div>
-  <div class="step-row"><div class="step-num">6</div><div class="step-body"><div class="step-title">USB-C power bank · 25W PD min · ~$45</div><div class="step-desc">Pi 5 draws up to 5A under load. Must be a verified PD chip at 25W+. Anker 737 confirmed.</div></div></div>
-  <div class="step-row"><div class="step-num">7</div><div class="step-body"><div class="step-title">1080p USB webcam · ~$30</div><div class="step-desc">Forward-facing, 110°+ FOV. Logitech C270 or C920. Tilted slightly down. Mounted on front lip with velcro.</div></div></div>
-  <div class="step-row"><div class="step-num">8</div><div class="step-body"><div class="step-title">USB conference speaker/mic · ~$35</div><div class="step-desc">Single USB device for both in and out. Anker PowerConf S330 or similar. High-gain mic for wake word detection.</div></div></div>
-  <div class="step-row"><div class="step-num">9</div><div class="step-body"><div class="step-title">Momentary push button · ~$3</div><div class="step-desc">Physical emergency stop. Wired to Pi GPIO. Sends Roomba OI STOP byte (173) instantly. Non-negotiable.</div></div></div>
-  <div class="step-row"><div class="step-num">10</div><div class="step-body"><div class="step-title">Heavy-duty velcro + cable ties · ~$8</div><div class="step-desc">Stack: power bank center-over-axle → Pi 5 case on top → webcam front lip.</div></div></div>
-  <div class="success">Total one-time cost: ~$333. Monthly cost after: ~$1.50 electricity. No subscriptions. No API bills.</div>
-</div>
+Moondream sees room (local) → description sent to Groq as context
 
-<!-- SOFTWARE -->
-<div id="software" class="panel">
-  <div class="card"><div class="badge b-teal">Hearing · local · free</div><div class="card-title">whisper.cpp · tiny.en model</div><div class="card-sub">Offline speech-to-text on Pi. Transcribes in ~1–2 seconds. 150MB model. Audio never leaves the house. Install: <span class="mono">pip install openai-whisper</span></div></div>
-  <div class="card"><div class="badge b-purple">Seeing · local · free</div><div class="card-title">Moondream 0.5B</div><div class="card-sub">Webcam snapshot → natural language description in ~1–2 seconds. Text description (not image) sent to Groq as context. Install: <span class="mono">pip install moondream</span>. Model is 1.8GB on NVMe.</div></div>
-  <div class="card"><div class="badge b-blue">Thinking · cloud · free</div><div class="card-title">Groq API · Llama 3.1 70B</div><div class="card-sub">500+ tok/s. Receives transcribed text + room description. Returns personality response + action tag. Free tier: 6,000 req/day. Install: <span class="mono">pip install groq</span>. Needs free Groq API key in <span class="mono">.env</span>.</div></div>
-  <div class="card"><div class="badge b-coral">Speaking · local · free</div><div class="card-title">Piper TTS</div><div class="card-sub">Fast offline text-to-speech. Generates audio in ~200ms. Pipes to USB speaker. Install: <span class="mono">pip install piper-tts</span>. Voices are ~60MB each.</div></div>
-  <div class="card"><div class="badge b-coral">Moving · local · free</div><div class="card-title">pyserial · Roomba OI protocol</div><div class="card-sub">Python sends drive commands over 3.3V serial. Baud 115200. START (128) + SAFE (131) on every wake. Speed hard-capped at 200mm/s. Install: <span class="mono">pip install pyserial</span></div></div>
-  <div class="card"><div class="badge b-gray">Memory · local · free</div><div class="card-title">SQLite · persistent memory</div><div class="card-sub">Stores conversation history, learned facts, reminders. Retrieves relevant context before each Groq call. Built into Python — <span class="mono">import sqlite3</span>. No install needed.</div></div>
-  <div class="card"><div class="badge b-gray">Orchestration · local · free</div><div class="card-title">Python state machine · ~300 lines</div><div class="card-sub">Three states: idle roam, listening/responding, proactive. Runs as systemd service on boot. Claude Code writes it. You own every line.</div></div>
-  <div class="success">No npm. No Node.js. No OpenClaw. No cloud audio. No cloud video. No cloud robot control. Just Python + one free API key.</div>
-</div>
+| Component | Details |
+|---|---|
+| Base robot | Roomba 960 · $75 · vSLAM navigation · Full OI serial port · WiFi |
+| Brain | Raspberry Pi 5 · 8GB · Runs audio, vision, speech, Python loop |
+| Cloud brain (free) | Groq · Llama 3.1 70B · 500+ tok/s · 6,000 req/day free |
+| Orchestration | Pure Python · ~300 lines · No frameworks |
 
-<!-- BUILD ORDER -->
-<div id="build" class="panel">
-  <div class="info">Build in strict phase order. Each phase must work independently before adding the next.</div>
-  <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="step-title">Phase 1 · Verify the Roomba</div><div class="step-desc">Run the 960 stock for one full cleaning cycle. Confirm it docks and navigates without error codes.</div></div></div>
-  <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="step-title">Phase 2 · Flash and boot Pi 5</div><div class="step-desc">Flash Pi OS Lite 64-bit to NVMe. Boot, SSH in, <span class="mono">sudo apt update && sudo apt upgrade -y</span>. Confirm NVMe is boot device.</div></div></div>
-  <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="step-title">Phase 3 · Serial connection</div><div class="step-desc">Wire 3.3V FTDI → Mini-DIN → Roomba service port. 10 lines of pyserial. Send START (128) + SAFE (131) + DRIVE. Roomba moves. First milestone.</div></div></div>
-  <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="step-title">Phase 4 · Groq voice loop</div><div class="step-desc">whisper hears you → Groq responds as pet personality → Piper speaks it back. Full voice conversation before any robot movement.</div></div></div>
-  <div class="step-row"><div class="step-num">5</div><div class="step-body"><div class="step-title">Phase 5 · Add vision</div><div class="step-desc">Install Moondream. Add look() function. Wire into Groq prompt: "You can see: {room_description}." Robot answers "what do you see?" accurately.</div></div></div>
-  <div class="step-row"><div class="step-num">6</div><div class="step-body"><div class="step-title">Phase 6 · Action parsing</div><div class="step-desc">Groq appends action tags: [DRIVE_FORWARD], [SPIN_LEFT], [DOCK], [NONE]. Parse in Python, execute matching serial command. Robot moves in response to conversation.</div></div></div>
-  <div class="step-row"><div class="step-num">7</div><div class="step-body"><div class="step-title">Phase 7 · SQLite memory</div><div class="step-desc">Store every conversation turn. Retrieve 5 most relevant past memories before each Groq call. Robot remembers you across sessions.</div></div></div>
-  <div class="step-row"><div class="step-num">8</div><div class="step-body"><div class="step-title">Phase 8 · State machine + idle behaviors</div><div class="step-desc">Wrap in three-state loop: idle roam, listening, proactive. Add bump reaction, low battery dock, morning check-in.</div></div></div>
-  <div class="step-row"><div class="step-num">9</div><div class="step-body"><div class="step-title">Phase 9 · Physical mount + systemd</div><div class="step-desc">Mount hardware on Roomba. Register Python script as systemd service. Add GPIO kill switch. First untethered run.</div></div></div>
-  <div class="step-row"><div class="step-num">10</div><div class="step-body"><div class="step-title">Phase 10 · Personality tuning</div><div class="step-desc">Iterate on the Groq system prompt. Name, backstory, speech patterns, emotional responses. This is what makes it feel alive.</div></div></div>
-</div>
+**What stays local vs what goes to cloud**
 
-<!-- BEHAVIORS -->
-<div id="behaviors" class="panel">
-  <p style="font-size:13px;color:#666;margin:0 0 1rem;">All behaviors are Python functions in the state machine. Just functions you can read and modify.</p>
-  <div class="grid2">
-    <div class="card"><div class="badge b-teal">Passive</div><div class="card-title">Idle roam</div><div class="card-sub">Robot wanders in slow arcs when no one is talking. Roomba's vSLAM avoids obstacles. Python drives at 150mm/s with random turn intervals.</div></div>
-    <div class="card"><div class="badge b-teal">Passive</div><div class="card-title">Greet on sound</div><div class="card-sub">Whisper detects audio above threshold. Robot turns, Groq generates a greeting in character, Piper speaks it. No wake word needed.</div></div>
-    <div class="card"><div class="badge b-purple">Active</div><div class="card-title">Voice conversation</div><div class="card-sub">You talk → whisper transcribes locally → Groq Llama 3.1 70B responds at 500+ tok/s → Piper speaks back. SQLite memory makes every conversation contextual.</div></div>
-    <div class="card"><div class="badge b-purple">Active</div><div class="card-title">Describe the room</div><div class="card-sub">"What do you see?" → Moondream snapshots locally → text sent to Groq → robot narrates in personality. Image never leaves the house.</div></div>
-    <div class="card"><div class="badge b-purple">Active</div><div class="card-title">Follow me</div><div class="card-sub">Moondream identifies a person in frame. Robot drives toward them at 150mm/s, re-scans every 2 seconds. Triggered by voice: "come here."</div></div>
-    <div class="card"><div class="badge b-coral">Reactive</div><div class="card-title">Bump reaction</div><div class="card-sub">OI bump sensor triggers instantly. Robot backs up, spins slightly, Groq generates an in-character comment about what just happened.</div></div>
-    <div class="card"><div class="badge b-coral">Reactive</div><div class="card-title">Low battery dock</div><div class="card-sub">OI battery below 20% → Groq generates "going to sleep" phrase → Piper speaks it → DOCK command (143) sent → navigates home autonomously.</div></div>
-    <div class="card"><div class="badge b-amber">Scheduled</div><div class="card-title">Morning check-in</div><div class="card-sub">Python schedule library fires at 8am. Robot scans, pulls last night's SQLite memory, Groq generates morning greeting referencing yesterday's conversations.</div></div>
-    <div class="card"><div class="badge b-amber">Scheduled</div><div class="card-title">Reminder delivery</div><div class="card-sub">You say "remind me at 3pm to call the doctor." Python parses time, stores in SQLite. At 3pm robot drives to wherever you are and delivers it in character.</div></div>
-    <div class="card"><div class="badge b-amber">Proactive</div><div class="card-title">Unprompted speech</div><div class="card-sub">If robot hasn't spoken in 2 hours, Groq generates an unprompted thought based on memory and current room state. Makes it feel like a creature, not a device.</div></div>
-  </div>
-</div>
+| Data | Where |
+|---|---|
+| Your voice audio | Always local |
+| Webcam video / images | Always local |
+| Robot movement commands | Always local |
+| Memory file | Always local |
+| Transcribed text of what you said | Groq (text only) |
+| Moondream room description (text) | Groq (text only) |
 
-<!-- SECURITY -->
-<div id="security" class="panel">
-  <div class="info">The hybrid model reduces security risk vs full OpenClaw significantly. Attack surface: one API key, one serial port, one Python process.</div>
-  <div class="card"><div class="badge b-red">Top risk · API key</div><div class="card-title">Protect the Groq API key</div><div class="card-sub">Store in <span class="mono">/etc/environment</span> or <span class="mono">.env</span> with <span class="mono">chmod 600</span>. Never hardcode in Python. Never commit to GitHub. The key only allows text generation — it cannot access your network, files, or robot.</div></div>
-  <div class="card"><div class="badge b-red">Top risk · Serial</div><div class="card-title">Hard-cap all serial commands</div><div class="card-sub">Maintain an explicit allowlist: <span class="mono">DRIVE_FORWARD</span>, <span class="mono">SPIN_LEFT</span>, <span class="mono">SPIN_RIGHT</span>, <span class="mono">STOP</span>, <span class="mono">DOCK</span>. Anything else is silently dropped. Speed hard-capped at 200mm/s. The LLM never touches serial directly.</div></div>
-  <div class="card"><div class="badge b-amber">Hardware</div><div class="card-title">GPIO emergency stop button</div><div class="card-sub">Wire momentary button to GPIO pin 17. When pressed: send STOP byte (173), kill drive thread, log event. Costs $3. Non-negotiable safety hardware.</div></div>
-  <div class="card"><div class="badge b-amber">SSH</div><div class="card-title">Key auth only, no passwords</div><div class="card-sub">Set <span class="mono">PasswordAuthentication no</span> in <span class="mono">/etc/ssh/sshd_config</span>. Copy your SSH public key first with <span class="mono">ssh-copy-id</span>.</div></div>
-  <div class="card"><div class="badge b-amber">Network</div><div class="card-title">Robot on IoT VLAN</div><div class="card-sub">Dedicated guest/IoT WiFi with client isolation. Robot reaches Groq API but cannot reach your laptop, phone, or NAS.</div></div>
-  <div class="card"><div class="badge b-amber">Firewall</div><div class="card-title">ufw — allow only what you need</div><div class="card-sub"><span class="mono">sudo ufw default deny outgoing</span> then allow: NTP (123), Groq (api.groq.com:443), SSH (22). Block everything else.</div></div>
-  <div class="card"><div class="badge b-green">Privacy</div><div class="card-title">What Groq never receives</div><div class="card-sub">Your voice audio · webcam images · network details · location · robot sensor data. Only transcribed conversation text — same as a web search.</div></div>
-  <div class="success">No Node.js attack surface · No gateway port · No skill injection · No cloud audio or video · No messaging channel to hijack. Security posture is genuinely good.</div>
-</div>
-
-<!-- COSTS -->
-<div id="costs" class="panel">
-  <div class="grid2">
-    <div class="card"><div class="badge b-gray">One-time hardware</div><div class="card-title">~$333 total</div><div class="card-sub">Roomba 960 $75 · Pi 5 8GB $80 · NVMe+HAT $35 · FTDI $12 · Mini-DIN $10 · Power bank $45 · Webcam $30 · Speaker/mic $35 · Button+velcro $11</div></div>
-    <div class="card"><div class="badge b-green">Monthly ongoing</div><div class="card-title">~$1.50/month</div><div class="card-sub">Electricity only. Pi 5 at ~6W · 24/7 · Sacramento PG&amp;E ~$0.30/kWh · $1.30–$1.75/month total.</div></div>
-  </div>
-  <div class="card">
-    <div class="card-title" style="margin-bottom:10px;">Every service cost breakdown</div>
-    <div class="rule-row"><span>Groq API · Llama 3.1 70B</span><span class="pill-on">$0/month · 6K req/day free</span></div>
-    <div class="rule-row"><span>whisper.cpp</span><span class="pill-on">$0 · local</span></div>
-    <div class="rule-row"><span>Moondream 0.5B</span><span class="pill-on">$0 · local</span></div>
-    <div class="rule-row"><span>Piper TTS</span><span class="pill-on">$0 · local</span></div>
-    <div class="rule-row"><span>SQLite memory</span><span class="pill-on">$0 · local</span></div>
-    <div class="rule-row"><span>Python + all libraries</span><span class="pill-on">$0 · open source</span></div>
-    <div class="rule-row"><span>Home WiFi</span><span class="pill-on">$0 · already paying</span></div>
-  </div>
-  <div class="card">
-    <div class="card-title" style="margin-bottom:6px;">Groq free tier — will you hit the limit?</div>
-    <div class="card-sub">6,000 requests/day free. A typical conversation turn is 1 request. Even with proactive check-ins every 10 minutes plus 50 daily conversations, you'll use under 200 requests. You have 30x headroom on the free tier.</div>
-  </div>
-  <div class="success">After the one-time hardware purchase, this robot costs less per month than a single cup of coffee — forever.</div>
-</div>
-
-<script>
-function show(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
-</body>
-</html>
-
-
-:)
 ---
+
+## Hardware
+
+Pi 5 no longer needs to run a local LLM — less thermal stress, faster boot, more RAM free for audio and vision processing.
+
+**01 · Roomba 960 · $75**
+The base. vSLAM navigation, full OI serial port, WiFi. Run one full stock cleaning cycle before any modifications.
+
+**02 · Raspberry Pi 5 · 8GB · ~$80**
+Required for simultaneous whisper + Moondream + Python loop. Do not use Pi 4 — not enough RAM once Moondream is loaded.
+
+**03 · M.2 NVMe SSD + PCIe HAT · ~$35**
+256GB+. Moondream (1.8GB) and whisper models load from NVMe in seconds. Pimoroni NVMe Base or Pineberry HatDrive recommended.
+
+**04 · 3.3V FTDI USB serial adapter · ~$12**
+CRITICAL: must be 3.3V logic. The Roomba OI runs at 3.3V — a 5V adapter damages the OI board.
+
+**05 · 7-pin Mini-DIN cable · ~$10**
+Plugs into Roomba service port under the handle flap. Route through handle arch, not around outside.
+
+**06 · USB-C power bank · 25W PD min · ~$45**
+Pi 5 draws up to 5A under load. Must be a verified PD chip at 25W+. Anker 737 confirmed.
+
+**07 · 1080p USB webcam · ~$30**
+Forward-facing, 110°+ FOV. Logitech C270 or C920. Tilted slightly down. Mounted on front lip with velcro.
+
+**08 · USB conference speaker/mic · ~$35**
+Single USB device for both in and out. Anker PowerConf S330 or similar. High-gain mic for wake word detection.
+
+**09 · Momentary push button · ~$3**
+Physical emergency stop. Wired to Pi GPIO. Sends Roomba OI STOP byte (173) instantly. Non-negotiable.
+
+**10 · Heavy-duty velcro + cable ties · ~$8**
+Stack: power bank center-over-axle → Pi 5 case on top → webcam front lip.
+
+Total one-time cost: ~$333. Monthly cost after: ~$1.50 electricity. No subscriptions. No API bills.
+
+---
+
+## Software Stack
+
+| Layer | Tool | Cost |
+|---|---|---|
+| Hearing | whisper.cpp · tiny.en model — offline STT on Pi, ~1–2s, audio never leaves the house | Free · local |
+| Seeing | Moondream 0.5B — webcam snapshot → text description in ~1–2s, 1.8GB on NVMe | Free · local |
+| Thinking | Groq API · Llama 3.1 70B — 500+ tok/s, receives text only, 6K req/day free | Free · cloud |
+| Speaking | Piper TTS — offline TTS, ~200ms, pipes to USB speaker | Free · local |
+| Moving | pyserial · Roomba OI protocol — baud 115200, speed hard-capped at 200mm/s | Free · local |
+| Memory | SQLite — conversation history, learned facts, reminders | Free · local |
+| Orchestration | Python state machine · ~300 lines — runs as systemd service on boot | Free · local |
+
+No npm. No Node.js. No cloud audio. No cloud video. No cloud robot control. Just Python + one free API key.
+
+---
+
+## Build Order
+
+Build in strict phase order. Each phase must work independently before adding the next.
+
+**Phase 1 · Verify the Roomba**
+Run the 960 stock for one full cleaning cycle. Confirm it docks and navigates without error codes.
+
+**Phase 2 · Flash and boot Pi 5**
+Flash Pi OS Lite 64-bit to NVMe. Boot, SSH in, `sudo apt update && sudo apt upgrade -y`. Confirm NVMe is boot device.
+
+**Phase 3 · Serial connection**
+Wire 3.3V FTDI → Mini-DIN → Roomba service port. 10 lines of pyserial. Send START (128) + SAFE (131) + DRIVE. Roomba moves. First milestone.
+
+**Phase 4 · Groq voice loop**
+whisper hears you → Groq responds as pet personality → Piper speaks it back. Full voice conversation before any robot movement.
+
+**Phase 5 · Add vision**
+Install Moondream. Add look() function. Wire into Groq prompt: "You can see: {room_description}."
+
+**Phase 6 · Action parsing**
+Groq appends action tags: [DRIVE_FORWARD], [SPIN_LEFT], [DOCK], [NONE]. Parse in Python, execute matching serial command.
+
+**Phase 7 · SQLite memory**
+Store every conversation turn. Retrieve 5 most relevant past memories before each Groq call. Robot remembers you across sessions.
+
+**Phase 8 · State machine + idle behaviors**
+Wrap in three-state loop: idle roam, listening, proactive. Add bump reaction, low battery dock, morning check-in.
+
+**Phase 9 · Physical mount + systemd**
+Mount hardware on Roomba. Register Python script as systemd service. Add GPIO kill switch. First untethered run.
+
+**Phase 10 · Personality tuning**
+Iterate on the Groq system prompt. Name, backstory, speech patterns, emotional responses. This is what makes it feel alive.
+
+---
+
+## Behaviors
+
+| Type | Behavior | Description |
+|---|---|---|
+| Passive | Idle roam | Wanders in slow arcs at 150mm/s with random turn intervals |
+| Passive | Greet on sound | Whisper detects audio, robot turns, Groq generates a greeting, Piper speaks it |
+| Active | Voice conversation | You talk → whisper transcribes → Groq responds at 500+ tok/s → Piper speaks back |
+| Active | Describe the room | "What do you see?" → Moondream snapshots → text sent to Groq → robot narrates |
+| Active | Follow me | Moondream identifies a person, robot drives toward them at 150mm/s, re-scans every 2s |
+| Reactive | Bump reaction | OI bump sensor triggers, robot backs up, Groq generates an in-character comment |
+| Reactive | Low battery dock | Battery below 20% → "going to sleep" phrase → DOCK command (143) → navigates home |
+| Scheduled | Morning check-in | Fires at 8am, scans, pulls last night's SQLite memory, Groq generates morning greeting |
+| Scheduled | Reminder delivery | "Remind me at 3pm" → stored in SQLite → robot delivers it in character at the right time |
+| Proactive | Unprompted speech | If robot hasn't spoken in 2 hours, Groq generates an unprompted thought based on memory |
+
+---
+
+## Security
+
+The hybrid model reduces security risk significantly. Attack surface: one API key, one serial port, one Python process.
+
+**Protect the Groq API key**
+Store in `/etc/environment` or `.env` with `chmod 600`. Never hardcode in Python. Never commit to GitHub.
+
+**Hard-cap all serial commands**
+Maintain an explicit allowlist: `DRIVE_FORWARD`, `SPIN_LEFT`, `SPIN_RIGHT`, `STOP`, `DOCK`. Anything else is silently dropped. Speed hard-capped at 200mm/s. The LLM never touches serial directly.
+
+**GPIO emergency stop button**
+Wire momentary button to GPIO pin 17. When pressed: send STOP byte (173), kill drive thread, log event. Costs $3. Non-negotiable.
+
+**SSH key auth only**
+Set `PasswordAuthentication no` in `/etc/ssh/sshd_config`. Copy your SSH public key first with `ssh-copy-id`.
+
+**Robot on IoT VLAN**
+Dedicated guest/IoT WiFi with client isolation. Robot reaches Groq API but cannot reach your laptop, phone, or NAS.
+
+**ufw firewall**
+`sudo ufw default deny outgoing` then allow: NTP (123), Groq (api.groq.com:443), SSH (22). Block everything else.
+
+Groq never receives: your voice audio · webcam images · network details · location · robot sensor data. Only transcribed conversation text.
+
+---
+
+## Costs
+
+| Item | Cost |
+|---|---|
+| Roomba 960 | $75 |
+| Raspberry Pi 5 8GB | $80 |
+| NVMe SSD + PCIe HAT | $35 |
+| 3.3V FTDI adapter | $12 |
+| Mini-DIN cable | $10 |
+| USB-C power bank | $45 |
+| 1080p webcam | $30 |
+| USB speaker/mic | $35 |
+| Button + velcro | $11 |
+| **Total one-time** | **~$333** |
+| **Monthly ongoing** | **~$1.50 (electricity only)** |
+
+All software is free. Groq free tier gives 6,000 requests/day — a typical day uses under 200. You have 30x headroom. After the one-time hardware purchase, this robot costs less per month than a single cup of coffee — forever.
