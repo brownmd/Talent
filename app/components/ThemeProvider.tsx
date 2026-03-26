@@ -34,12 +34,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => {
-      const next: Theme = prev === "dark" ? "light" : "dark";
-      document.documentElement.classList.toggle("light", next === "light");
-      localStorage.setItem("theme", next);
-      return next;
-    });
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.classList.toggle("light", next === "light");
+    localStorage.setItem("theme", next);
   };
 
   return (
