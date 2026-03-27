@@ -1,6 +1,6 @@
 # David Brown
 
-A personal website dedicated to projects and ideas around Talent Acquisition, built and owned by me.
+A personal website dedicated to projects and ideas around Talent Acquisition.
 
 ---
 
