@@ -6,7 +6,7 @@ import { Footer } from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { CONFIG } from "@/blog.config";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
@@ -63,8 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="bg-dark text-white max-w-2xl mb-40 flex flex-col mt-4 mx-auto">
+    <html lang="en" className={inter.variable}>
+      <body className="bg-dark text-white max-w-2xl mb-40 flex flex-col mt-4 mx-auto font-sans">
         <Navbar />
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
           {children}
