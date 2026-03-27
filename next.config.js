@@ -1,17 +1,6 @@
 /** @type {import('next').NextConfig} */
 const { withContentlayer } = require("next-contentlayer");
 
-const CSP = [
-    "default-src 'self'",
-    "script-src 'self' 'sha256-SybvIg0tjqXTvIQ4v9e22JAwSyYO2yklVSWqSOwIYO0=' https://va.vercel-scripts.com",
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https:",
-    "font-src 'self'",
-    "connect-src 'self' https://vitals.vercel-insights.com",
-    "frame-ancestors 'none'",
-    "base-uri 'self'",
-    "form-action 'self'",
-].join("; ");
 
 const nextConfig = {
     reactStrictMode: true,
@@ -34,7 +23,6 @@ const nextConfig = {
                     { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
                     { key: "X-DNS-Prefetch-Control", value: "on" },
                     { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
-                    { key: "Content-Security-Policy", value: CSP },
                 ],
             },
             {
