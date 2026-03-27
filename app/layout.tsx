@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { CONFIG } from "@/blog.config";
 import { ThemeProvider } from "./components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
@@ -86,11 +86,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
       </head>
-      <body className="max-w-2xl mb-40 flex flex-col mt-4 mx-auto">
+      <body className={`${inter.variable} max-w-2xl mb-40 flex flex-col mt-4 mx-auto`}>
         <ThemeProvider>
           <Navbar />
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
