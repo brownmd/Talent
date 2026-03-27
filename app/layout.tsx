@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { CONFIG } from "@/blog.config";
 import { ThemeProvider } from "./components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
@@ -72,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <head>
         {/* Inline script runs synchronously before paint to prevent FOUC.
             Dark is always the default; only switch to light if the user
@@ -83,7 +83,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="max-w-2xl mb-40 flex flex-col mt-4 mx-auto">
+      <body className={`${inter.variable} font-sans max-w-2xl mb-40 flex flex-col mt-4 mx-auto`}>
         <ThemeProvider>
           <Navbar />
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
