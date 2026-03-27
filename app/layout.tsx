@@ -89,6 +89,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('light');}}catch(e){}})();`,
+          }}
+        />
       </head>
       <body className={`${inter.variable} max-w-2xl mb-40 flex flex-col mt-4 mx-auto`}>
         <ThemeProvider>
