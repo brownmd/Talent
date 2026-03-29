@@ -83,7 +83,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       </div>
 
       {/* Post Content */}
-      <article className="my-10 prose prose-invert">
+      <article className="my-10 prose prose-invert prose-headings:font-bold prose-a:underline prose-a:underline-offset-4 prose-blockquote:border-l-4 prose-blockquote:border-[var(--fg)] prose-blockquote:bg-[var(--separator)] prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:rounded prose-blockquote:not-italic prose-table:text-center prose-th:font-bold prose-th:text-lg prose-td:text-sm prose-td:text-[var(--fg-muted)] prose-hr:border-[var(--border)] max-w-none">
         <MdxRenderer source={post.body.code} />
       </article>
 
