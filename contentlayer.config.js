@@ -32,7 +32,12 @@ export const Post = defineDocumentType(() => ({
     },
     readingTime: {
       type: "json",
-      resolve: (post) => readingTime(post.body.raw),
+      resolve: (post) => {
+        const stripped = post.body.raw
+          .replace(/<img[^>]*>/g, "")
+          .replace(/!\[.*?\]\(.*?\)/g, "");
+        return readingTime(stripped);
+      },
     },
   },
 }));
