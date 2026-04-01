@@ -4,6 +4,20 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import readingTime from "reading-time";
 
+function stripContentForReadingTime(raw) {
+  return raw
+    .replace(/^---[\s\S]*?---/, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<img[^>]*>/gi, " ")
+    .replace(/!\[.*?\]\(.*?\)/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/^\s*(import|export)\s.+$/gm, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export const Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `posts/*.mdx`,
@@ -33,10 +47,7 @@ export const Post = defineDocumentType(() => ({
     readingTime: {
       type: "json",
       resolve: (post) => {
-        const stripped = post.body.raw
-          .replace(/<img[^>]*>/g, "")
-          .replace(/!\[.*?\]\(.*?\)/g, "");
-        return readingTime(stripped);
+        return readingTime(stripContentForReadingTime(post.body.raw));
       },
     },
   },
