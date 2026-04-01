@@ -27,7 +27,9 @@ body {
   background-color: var(--bg);
   color: var(--fg);
   transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
 }
+
 
 /* Social icons: white on dark, dark on light */
 .dark-icon {
