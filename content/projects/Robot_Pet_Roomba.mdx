@@ -1,38 +1,36 @@
 ---
 title: Robot Pet Roomba
 date: 2026-03-25
-description: "A Roomba 960 converted into a voice controlled AI companion."
+description: "A Roomba 960 converted into a Python controlled pet companion."
 ---
 
-## Robot Pet Project Status: TBD
-
-Roomba 960, Raspberry Pi 5, Llama 3.1 70B, and zero monthly cost after hardware.
+Project Status: TBD
 
 ---
 
 ## Overview
 
-A Roomba 960 converted into a voice controlled AI companion. It wanders the house, sees through a webcam, hears you speak, and responds with personality. Audio and video stay inside the house. Only transcribed conversation text is sent to the cloud.
+A Roomba 960 converted into a Python controlled companion. It wanders the house, reacts to simple triggers, and behaves more like a playful home robot than a vacuum. The system stays local and avoids cloud dependencies.
 
-The goal was to build something more physical and more playful than a chatbot on a laptop. This project brings together speech, vision, memory, and movement in a single system built from relatively accessible hardware.
+The goal was to build something more physical and more playful than software on a screen. Instead of layering on AI services, the project focuses on reliable robot behavior, clear state transitions, and straightforward Python control over movement, audio, and simple interaction.
 
 ---
 
 ## Data Flow
 
 <div style={{display: "flex", alignItems: "center", gap: "0", flexWrap: "wrap", rowGap: "8px", margin: "28px 0"}}>
-	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg-muted)", whiteSpace: "nowrap"}}>you speak</div>
+	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg-muted)", whiteSpace: "nowrap"}}>input or schedule</div>
 	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
-	<div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>whisper.cpp hears</div>
+	<div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>python state machine</div>
 	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
-	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>Groq thinks</div>
+	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>behavior rules</div>
 	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
-	<div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>Piper speaks</div>
+	<div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>audio or leds</div>
 	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
 	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>robot moves</div>
 </div>
 
-Moondream adds room awareness by turning webcam images into short descriptions that can be passed into the prompt as context. The design goal is simple. Keep the interaction responsive and expressive enough to feel alive, while keeping the system practical to build and run at home.
+The design goal is simple. Keep the interaction responsive and expressive enough to feel alive, while making the system dependable and easy to reason about. Python handles the orchestration, and explicit rules determine how the robot reacts.
 
 ---
 
@@ -40,13 +38,13 @@ Moondream adds room awareness by turning webcam images into short descriptions t
 
 | Data or Function | Where it runs |
 |---|---|
-| Voice audio | Local |
+| Input handling | Local |
 | Webcam video and images | Local |
-| Speech to text with whisper.cpp | Local |
-| Text to speech with Piper | Local |
+| Audio playback | Local |
+| Motion control | Local |
 | Robot movement commands | Local |
-| Conversation memory | Local |
-| LLM inference on transcribed text | Cloud |
+| State and behavior rules | Local |
+| Event logging | Local |
 
 ---
 
@@ -77,12 +75,12 @@ Moondream adds room awareness by turning webcam images into short descriptions t
 	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
 		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Camera</div>
 		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>1080p USB webcam</div>
-		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Logitech C270 or C920</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Optional for monitoring and scripted reactions</div>
 	</div>
 	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
 		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Audio</div>
 		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>USB speakerphone</div>
-		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Anker PowerConf S330</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>For local sounds, cues, or simple prerecorded speech</div>
 	</div>
 	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
 		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Power</div>
@@ -105,23 +103,8 @@ The 3.3V serial adapter is critical. A 5V adapter can damage the Roomba OI board
 <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px"}}>Software stack</div>
 <div style={{display: "flex", flexDirection: "column", gap: "1px", backgroundColor: "var(--border)", border: "0.5px solid var(--border)", borderRadius: "6px", overflow: "hidden", marginBottom: "32px"}}>
 	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
-		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Hearing</div>
-		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>whisper.cpp <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>offline speech to text</span></div>
-		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
-	</div>
-	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
-		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Vision</div>
-		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Moondream 0.5B <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>webcam scene descriptions</span></div>
-		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
-	</div>
-	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
-		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Reasoning</div>
-		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Groq running Llama 3.1 70B <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>text only inference</span></div>
-		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#1a1400", color: "#f0a500", border: "0.5px solid #3a2800"}}>cloud</div>
-	</div>
-	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
-		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Speech</div>
-		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Piper TTS <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>offline voice output</span></div>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Control</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Python <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>main control loop and orchestration</span></div>
 		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
 	</div>
 	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
@@ -130,13 +113,28 @@ The 3.3V serial adapter is critical. A 5V adapter can damage the Roomba OI board
 		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
 	</div>
 	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
-		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Memory</div>
-		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>SQLite <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>conversation history and reminders</span></div>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Audio</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>pygame or WAV playback <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>local sounds and cues</span></div>
 		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
 	</div>
 	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
-		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Control</div>
-		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Python state machine <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>systemd service</span></div>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Vision</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>OpenCV <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>optional camera triggers</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>State</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Python state machine <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>idle, roam, dock, react</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Memory</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>SQLite <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>event logs and schedules</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Startup</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>systemd service <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>boot and supervision</span></div>
 		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
 	</div>
 </div>
@@ -149,11 +147,11 @@ The 3.3V serial adapter is critical. A 5V adapter can damage the Roomba OI board
 |---|---|
 | 01 | Verify the Roomba with a full stock cleaning cycle and confirm navigation works normally |
 | 02 | Set up the Pi 5 with NVMe boot, SSH, and the serial connection to the Roomba |
-| 03 | Build the voice loop so whisper hears, Groq responds, and Piper speaks |
-| 04 | Add vision so Moondream can describe the room and provide context |
-| 05 | Parse action tags from the model response and translate them into movement commands |
-| 06 | Store conversations and learned facts in SQLite so the robot can retain memory across sessions |
+| 03 | Build the Python control loop for motion, timing, and event handling |
+| 04 | Add local audio cues and simple scripted reactions |
+| 05 | Add optional camera triggers for dock, obstacle, or room monitoring |
+| 06 | Store events and schedules in SQLite so behavior persists across sessions |
 | 07 | Mount the hardware on the Roomba and run the system untethered |
-| 08 | Tune the robot personality, name, and response style |
+| 08 | Tune the behavior rules, sounds, and interaction style |
 
 ---
