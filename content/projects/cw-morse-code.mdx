@@ -1,0 +1,92 @@
+---
+title: CW Morse Code
+date: 2026-04-06
+---
+
+## Home Telegraph
+
+Two station Morse code communicator with WiFi, long range radio, and open source hardware
+
+---
+
+## Overview
+
+I was inspired to build this after visiting the Exploratorium in San Francisco with my three boys. They had a CW machine with an LCD screen, and it was one of the most fun exhibits in the building, alongside everything else spanning physics, science, art, and more.
+
+Two physical telegraph stations let two people communicate across the house or across a field using Morse code. Tap a paddle key, watch your message appear on a color screen, and hear it beep out of the other station's speaker. It works over home WiFi and can switch automatically to direct long range radio with no internet required.
+
+---
+
+## Data Flow
+
+<div style={{display: "flex", alignItems: "center", gap: "0", flexWrap: "wrap", rowGap: "8px", margin: "28px 0"}}>
+  <div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg-muted)", whiteSpace: "nowrap"}}>tap the key</div>
+  <div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+  <div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>decode dit / dah</div>
+  <div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+  <div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>letter appears on screen</div>
+  <div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+  <div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>send over WiFi or radio</div>
+  <div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+  <div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>beeps out on other station</div>
+</div>
+
+---
+
+## Hardware, identical per station x 2
+
+<div style={{display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", backgroundColor: "var(--border)", border: "0.5px solid var(--border)", borderRadius: "6px", overflow: "hidden", margin: "28px 0"}}>
+  <div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Telegraph key</div>
+    <div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Paddle key</div>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>cwmorse.us outdoor double paddle</div>
+  </div>
+  <div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Computer chip</div>
+    <div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>ESP32 with built-in radio</div>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Heltec ESP32 LoRa V3</div>
+  </div>
+  <div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Color screen</div>
+    <div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>2″ TFT display</div>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>ST7789 320×240 IPS SPI</div>
+  </div>
+  <div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Speaker</div>
+    <div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Amp + 8Ω speaker</div>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>PAM8403 + 8Ω 0.5W</div>
+  </div>
+  <div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Connector</div>
+    <div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Stereo jack</div>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>3.5mm TRS panel mount</div>
+  </div>
+  <div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Power</div>
+    <div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>USB-C adapter</div>
+    <div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>5V 2A wall adapter</div>
+  </div>
+</div>
+
+---
+
+## Software, all free and open source
+
+| Layer | Tool | Hosting |
+|---|---|---|
+| Input | Iambic paddle decoder, reads dit, dah, and squeeze timing in real time | local |
+| Display | TFT_eSPI, fast SPI color screen driver | local |
+| Network | ESPAsyncWebServer, receives messages over WiFi | local |
+| Radio | RadioLib, LoRa packet send and receive with automatic fallback | local |
+| IDE | Arduino IDE + Heltec board package | free |
+
+---
+
+## Build Phases
+
+| Phase | Description |
+|---|---|
+| 01 | Wire one station, paddle, screen, and speaker working together |
+| 02 | Add WiFi, two stations talking across the house |
+| 03 | Add LoRa radio, off grid mode that switches when WiFi is unavailable |
+| 04 | Enclosure, 3D printed or project box |

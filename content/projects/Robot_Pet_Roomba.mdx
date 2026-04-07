@@ -1,192 +1,89 @@
 ---
 title: Robot Pet Roomba
 date: 2026-03-25
-description: "Our new family pet! a roomba vacuum robot!"
+description: "A Roomba 960 converted into a voice controlled AI companion."
 ---
 
-## Robot Pet v3 — Hybrid Design
+## Robot Pet
 
-Roomba 960 · Pi 5 · Hybrid local+cloud · Pure Python · $0/month
+Roomba 960, Raspberry Pi 5, Llama 3.1 70B, and zero monthly cost after hardware.
 
 ---
 
 ## Overview
 
-Hybrid architecture — private data stays local, only conversation text goes to Groq. Result: Llama 3.1 70B intelligence at 500+ tok/s for $0/month.
+A Roomba 960 converted into a voice controlled AI companion. It wanders the house, sees through a webcam, hears you speak, and responds with personality. Audio and video stay inside the house. Only transcribed conversation text is sent to the cloud.
 
-**The data flow — one conversation loop**
+The goal was to build something more physical and more playful than a chatbot on a laptop. This project combines speech, vision, memory, and movement into a single system built from relatively accessible hardware.
 
-You speak → whisper.cpp hears (local) → Groq API thinks (cloud, text only) → Groq responds → Piper TTS speaks (local) + pyserial moves robot (local)
+---
 
-Moondream sees room (local) → description sent to Groq as context
+## Conversation Loop
 
-| Component | Details |
+You speak, whisper.cpp transcribes locally, Groq runs the reasoning step using text only, Piper speaks the response locally, and Python sends movement commands to the Roomba over serial.
+
+Moondream adds room awareness by turning webcam images into short descriptions that can be passed into the prompt as context.
+
+---
+
+## What Stays Local
+
+| Data or Function | Where it runs |
 |---|---|
-| Base robot | Roomba 960 · $75 · vSLAM navigation · Full OI serial port · WiFi |
-| Brain | Raspberry Pi 5 · 8GB · Runs audio, vision, speech, Python loop |
-| Cloud brain (free) | Groq · Llama 3.1 70B · 500+ tok/s · 6,000 req/day free |
-| Orchestration | Pure Python · ~300 lines · No frameworks |
-
-**What stays local vs what goes to cloud**
-
-| Data | Where |
-|---|---|
-| Your voice audio | Always local |
-| Webcam video / images | Always local |
-| Robot movement commands | Always local |
-| Memory file | Always local |
-| Transcribed text of what you said | Groq (text only) |
-| Moondream room description (text) | Groq (text only) |
+| Voice audio | Local |
+| Webcam video and images | Local |
+| Speech to text with whisper.cpp | Local |
+| Text to speech with Piper | Local |
+| Robot movement commands | Local |
+| Conversation memory | Local |
+| LLM inference on transcribed text | Cloud |
 
 ---
 
 ## Hardware
 
-Pi 5 no longer needs to run a local LLM — less thermal stress, faster boot, more RAM free for audio and vision processing.
+| Component | Details |
+|---|---|
+| Base robot | Roomba 960 with vSLAM, Open Interface serial port, and WiFi |
+| Main computer | Raspberry Pi 5 with 8GB RAM |
+| Storage | 256GB or larger M.2 NVMe SSD with PCIe HAT |
+| Serial adapter | 3.3V FTDI USB serial adapter |
+| Camera | 1080p USB webcam such as a Logitech C270 or C920 |
+| Audio | USB speakerphone such as the Anker PowerConf S330 |
+| Power | USB C power bank with 25W PD output |
+| Safety | Emergency stop button on GPIO pin 17 |
 
-**01 · Roomba 960 · $75**
-The base. vSLAM navigation, full OI serial port, WiFi. Run one full stock cleaning cycle before any modifications.
-
-**02 · Raspberry Pi 5 · 8GB · ~$80**
-Required for simultaneous whisper + Moondream + Python loop. Do not use Pi 4 — not enough RAM once Moondream is loaded.
-
-**03 · M.2 NVMe SSD + PCIe HAT · ~$35**
-256GB+. Moondream (1.8GB) and whisper models load from NVMe in seconds. Pimoroni NVMe Base or Pineberry HatDrive recommended.
-
-**04 · 3.3V FTDI USB serial adapter · ~$12**
-CRITICAL: must be 3.3V logic. The Roomba OI runs at 3.3V — a 5V adapter damages the OI board.
-
-**05 · 7-pin Mini-DIN cable · ~$10**
-Plugs into Roomba service port under the handle flap. Route through handle arch, not around outside.
-
-**06 · USB-C power bank · 25W PD min · ~$45**
-Pi 5 draws up to 5A under load. Must be a verified PD chip at 25W+. Anker 737 confirmed.
-
-**07 · 1080p USB webcam · ~$30**
-Forward-facing, 110°+ FOV. Logitech C270 or C920. Tilted slightly down. Mounted on front lip with velcro.
-
-**08 · USB conference speaker/mic · ~$35**
-Single USB device for both in and out. Anker PowerConf S330 or similar. High-gain mic for wake word detection.
-
-**09 · Momentary push button · ~$3**
-Physical emergency stop. Wired to Pi GPIO. Sends Roomba OI STOP byte (173) instantly. Non-negotiable.
-
-**10 · Heavy-duty velcro + cable ties · ~$8**
-Stack: power bank center-over-axle → Pi 5 case on top → webcam front lip.
-
-Total one-time cost: ~$333. Monthly cost after: ~$1.50 electricity. No subscriptions. No API bills.
+The 3.3V serial adapter is critical. A 5V adapter can damage the Roomba OI board.
 
 ---
 
 ## Software Stack
 
-| Layer | Tool | Cost |
-|---|---|---|
-| Hearing | whisper.cpp · tiny.en model — offline STT on Pi, ~1–2s, audio never leaves the house | Free · local |
-| Seeing | Moondream 0.5B — webcam snapshot → text description in ~1–2s, 1.8GB on NVMe | Free · local |
-| Thinking | Groq API · Llama 3.1 70B — 500+ tok/s, receives text only, 6K req/day free | Free · cloud |
-| Speaking | Piper TTS — offline TTS, ~200ms, pipes to USB speaker | Free · local |
-| Moving | pyserial · Roomba OI protocol — baud 115200, speed hard-capped at 200mm/s | Free · local |
-| Memory | SQLite — conversation history, learned facts, reminders | Free · local |
-| Orchestration | Python state machine · ~300 lines — runs as systemd service on boot | Free · local |
-
-No npm. No Node.js. No cloud audio. No cloud video. No cloud robot control. Just Python + one free API key.
-
----
-
-## Build Order
-
-Build in strict phase order. Each phase must work independently before adding the next.
-
-**Phase 1 · Verify the Roomba**
-Run the 960 stock for one full cleaning cycle. Confirm it docks and navigates without error codes.
-
-**Phase 2 · Flash and boot Pi 5**
-Flash Pi OS Lite 64-bit to NVMe. Boot, SSH in, `sudo apt update && sudo apt upgrade -y`. Confirm NVMe is boot device.
-
-**Phase 3 · Serial connection**
-Wire 3.3V FTDI → Mini-DIN → Roomba service port. 10 lines of pyserial. Send START (128) + SAFE (131) + DRIVE. Roomba moves. First milestone.
-
-**Phase 4 · Groq voice loop**
-whisper hears you → Groq responds as pet personality → Piper speaks it back. Full voice conversation before any robot movement.
-
-**Phase 5 · Add vision**
-Install Moondream. Add look() function. Wire into Groq prompt: `"You can see: {room_description}."`
-
-**Phase 6 · Action parsing**
-Groq appends action tags: [DRIVE_FORWARD], [SPIN_LEFT], [DOCK], [NONE]. Parse in Python, execute matching serial command.
-
-**Phase 7 · SQLite memory**
-Store every conversation turn. Retrieve 5 most relevant past memories before each Groq call. Robot remembers you across sessions.
-
-**Phase 8 · State machine + idle behaviors**
-Wrap in three-state loop: idle roam, listening, proactive. Add bump reaction, low battery dock, morning check-in.
-
-**Phase 9 · Physical mount + systemd**
-Mount hardware on Roomba. Register Python script as systemd service. Add GPIO kill switch. First untethered run.
-
-**Phase 10 · Personality tuning**
-Iterate on the Groq system prompt. Name, backstory, speech patterns, emotional responses. This is what makes it feel alive.
-
----
-
-## Behaviors
-
-| Type | Behavior | Description |
-|---|---|---|
-| Passive | Idle roam | Wanders in slow arcs at 150mm/s with random turn intervals |
-| Passive | Greet on sound | Whisper detects audio, robot turns, Groq generates a greeting, Piper speaks it |
-| Active | Voice conversation | You talk → whisper transcribes → Groq responds at 500+ tok/s → Piper speaks back |
-| Active | Describe the room | "What do you see?" → Moondream snapshots → text sent to Groq → robot narrates |
-| Active | Follow me | Moondream identifies a person, robot drives toward them at 150mm/s, re-scans every 2s |
-| Reactive | Bump reaction | OI bump sensor triggers, robot backs up, Groq generates an in-character comment |
-| Reactive | Low battery dock | Battery below 20% → "going to sleep" phrase → DOCK command (143) → navigates home |
-| Scheduled | Morning check-in | Fires at 8am, scans, pulls last night's SQLite memory, Groq generates morning greeting |
-| Scheduled | Reminder delivery | "Remind me at 3pm" → stored in SQLite → robot delivers it in character at the right time |
-| Proactive | Unprompted speech | If robot hasn't spoken in 2 hours, Groq generates an unprompted thought based on memory |
-
----
-
-## Security
-
-The hybrid model reduces security risk significantly. Attack surface: one API key, one serial port, one Python process.
-
-**Protect the Groq API key**
-Store in `/etc/environment` or `.env` with `chmod 600`. Never hardcode in Python. Never commit to GitHub.
-
-**Hard-cap all serial commands**
-Maintain an explicit allowlist: `DRIVE_FORWARD`, `SPIN_LEFT`, `SPIN_RIGHT`, `STOP`, `DOCK`. Anything else is silently dropped. Speed hard-capped at 200mm/s. The LLM never touches serial directly.
-
-**GPIO emergency stop button**
-Wire momentary button to GPIO pin 17. When pressed: send STOP byte (173), kill drive thread, log event. Costs $3. Non-negotiable.
-
-**SSH key auth only**
-Set `PasswordAuthentication no` in `/etc/ssh/sshd_config`. Copy your SSH public key first with `ssh-copy-id`.
-
-**Robot on IoT VLAN**
-Dedicated guest/IoT WiFi with client isolation. Robot reaches Groq API but cannot reach your laptop, phone, or NAS.
-
-**ufw firewall**
-`sudo ufw default deny outgoing` then allow: NTP (123), Groq (api.groq.com:443), SSH (22). Block everything else.
-
-Groq never receives: your voice audio · webcam images · network details · location · robot sensor data. Only transcribed conversation text.
-
----
-
-## Costs
-
-| Item | Cost |
+| Layer | Technology |
 |---|---|
-| Roomba 960 | $75 |
-| Raspberry Pi 5 8GB | $80 |
-| NVMe SSD + PCIe HAT | $35 |
-| 3.3V FTDI adapter | $12 |
-| Mini-DIN cable | $10 |
-| USB-C power bank | $45 |
-| 1080p webcam | $30 |
-| USB speaker/mic | $35 |
-| Button + velcro | $11 |
-| **Total one-time** | **~$333** |
-| **Monthly ongoing** | **~$1.50 (electricity only)** |
+| Hearing | whisper.cpp for offline speech to text |
+| Vision | Moondream 0.5B for webcam scene descriptions |
+| Reasoning | Groq running Llama 3.1 70B |
+| Speech | Piper TTS for offline voice output |
+| Motion | pyserial controlling the Roomba OI at 115200 baud |
+| Memory | SQLite for conversation history, learned facts, and reminders |
+| Control | Python state machine running as a systemd service |
 
-All software is free. Groq free tier gives 6,000 requests/day — a typical day uses under 200. You have 30x headroom. After the one-time hardware purchase, this robot costs less per month than a single cup of coffee — forever.
+---
+
+## Build Phases
+
+1. Verify the Roomba by running a full stock cleaning cycle and confirming navigation works normally.
+2. Set up the Pi 5 with NVMe boot, SSH, and the serial connection to the Roomba.
+3. Build the voice loop so whisper hears, Groq responds, and Piper speaks.
+4. Add vision so Moondream can describe the room and provide context.
+5. Parse action tags from the model response and translate them into movement commands.
+6. Store conversations and learned facts in SQLite so the robot can retain memory across sessions.
+7. Mount the hardware on the Roomba and run the system untethered.
+8. Tune the robot personality, name, and response style.
+
+---
+
+## Why This Build Matters
+
+This project was a practical way to learn how local AI, cloud inference, physical hardware, and autonomous behavior fit together. It also showed that a fun home robot can be built without expensive robotics hardware or ongoing subscription costs.
