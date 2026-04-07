@@ -4,7 +4,7 @@ date: 2026-03-25
 description: "A Roomba 960 converted into a voice controlled AI companion."
 ---
 
-## Robot Pet
+## Robot Pet Project Status: TBD
 
 Roomba 960, Raspberry Pi 5, Llama 3.1 70B, and zero monthly cost after hardware.
 
@@ -14,15 +14,25 @@ Roomba 960, Raspberry Pi 5, Llama 3.1 70B, and zero monthly cost after hardware.
 
 A Roomba 960 converted into a voice controlled AI companion. It wanders the house, sees through a webcam, hears you speak, and responds with personality. Audio and video stay inside the house. Only transcribed conversation text is sent to the cloud.
 
-The goal was to build something more physical and more playful than a chatbot on a laptop. This project combines speech, vision, memory, and movement into a single system built from relatively accessible hardware.
+The goal was to build something more physical and more playful than a chatbot on a laptop. This project brings together speech, vision, memory, and movement in a single system built from relatively accessible hardware.
 
 ---
 
-## Conversation Loop
+## Data Flow
 
-You speak, whisper.cpp transcribes locally, Groq runs the reasoning step using text only, Piper speaks the response locally, and Python sends movement commands to the Roomba over serial.
+<div style={{display: "flex", alignItems: "center", gap: "0", flexWrap: "wrap", rowGap: "8px", margin: "28px 0"}}>
+	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg-muted)", whiteSpace: "nowrap"}}>you speak</div>
+	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+	<div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>whisper.cpp hears</div>
+	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>Groq thinks</div>
+	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+	<div style={{backgroundColor: "var(--separator)", border: "1px solid var(--fg)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>Piper speaks</div>
+	<div style={{fontFamily: "monospace", fontSize: "12px", color: "var(--fg-subtle)", padding: "0 6px"}}>→</div>
+	<div style={{backgroundColor: "var(--separator)", border: "0.5px solid var(--border)", borderRadius: "4px", padding: "8px 14px", fontSize: "12px", fontFamily: "monospace", color: "var(--fg)", whiteSpace: "nowrap"}}>robot moves</div>
+</div>
 
-Moondream adds room awareness by turning webcam images into short descriptions that can be passed into the prompt as context.
+Moondream adds room awareness by turning webcam images into short descriptions that can be passed into the prompt as context. The design goal is simple. Keep the interaction responsive and expressive enough to feel alive, while keeping the system practical to build and run at home.
 
 ---
 
@@ -42,16 +52,49 @@ Moondream adds room awareness by turning webcam images into short descriptions t
 
 ## Hardware
 
-| Component | Details |
-|---|---|
-| Base robot | Roomba 960 with vSLAM, Open Interface serial port, and WiFi |
-| Main computer | Raspberry Pi 5 with 8GB RAM |
-| Storage | 256GB or larger M.2 NVMe SSD with PCIe HAT |
-| Serial adapter | 3.3V FTDI USB serial adapter |
-| Camera | 1080p USB webcam such as a Logitech C270 or C920 |
-| Audio | USB speakerphone such as the Anker PowerConf S330 |
-| Power | USB C power bank with 25W PD output |
-| Safety | Emergency stop button on GPIO pin 17 |
+<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px"}}>Hardware</div>
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "1px", backgroundColor: "var(--border)", border: "0.5px solid var(--border)", borderRadius: "6px", overflow: "hidden", marginBottom: "32px"}}>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Base robot</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Roomba 960</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>vSLAM, Open Interface serial port, WiFi</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Main computer</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Raspberry Pi 5</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>8GB RAM</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Storage</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>M.2 NVMe SSD</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>256GB+ with PCIe HAT</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Serial adapter</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>3.3V FTDI adapter</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>5V can damage the OI board</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Camera</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>1080p USB webcam</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Logitech C270 or C920</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Audio</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>USB speakerphone</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Anker PowerConf S330</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Power</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>USB C power bank</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>25W PD output</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Safety</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Emergency stop button</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>GPIO pin 17</div>
+	</div>
+</div>
 
 The 3.3V serial adapter is critical. A 5V adapter can damage the Roomba OI board.
 
@@ -59,31 +102,58 @@ The 3.3V serial adapter is critical. A 5V adapter can damage the Roomba OI board
 
 ## Software Stack
 
-| Layer | Technology |
-|---|---|
-| Hearing | whisper.cpp for offline speech to text |
-| Vision | Moondream 0.5B for webcam scene descriptions |
-| Reasoning | Groq running Llama 3.1 70B |
-| Speech | Piper TTS for offline voice output |
-| Motion | pyserial controlling the Roomba OI at 115200 baud |
-| Memory | SQLite for conversation history, learned facts, and reminders |
-| Control | Python state machine running as a systemd service |
+<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px"}}>Software stack</div>
+<div style={{display: "flex", flexDirection: "column", gap: "1px", backgroundColor: "var(--border)", border: "0.5px solid var(--border)", borderRadius: "6px", overflow: "hidden", marginBottom: "32px"}}>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Hearing</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>whisper.cpp <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>offline speech to text</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Vision</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Moondream 0.5B <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>webcam scene descriptions</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Reasoning</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Groq running Llama 3.1 70B <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>text only inference</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#1a1400", color: "#f0a500", border: "0.5px solid #3a2800"}}>cloud</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Speech</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Piper TTS <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>offline voice output</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Motion</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>pyserial <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>Roomba OI at 115200 baud</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Memory</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>SQLite <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>conversation history and reminders</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "90px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Control</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Python state machine <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>systemd service</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+</div>
 
 ---
 
 ## Build Phases
 
-1. Verify the Roomba by running a full stock cleaning cycle and confirming navigation works normally.
-2. Set up the Pi 5 with NVMe boot, SSH, and the serial connection to the Roomba.
-3. Build the voice loop so whisper hears, Groq responds, and Piper speaks.
-4. Add vision so Moondream can describe the room and provide context.
-5. Parse action tags from the model response and translate them into movement commands.
-6. Store conversations and learned facts in SQLite so the robot can retain memory across sessions.
-7. Mount the hardware on the Roomba and run the system untethered.
-8. Tune the robot personality, name, and response style.
+| Phase | Description |
+|---|---|
+| 01 | Verify the Roomba with a full stock cleaning cycle and confirm navigation works normally |
+| 02 | Set up the Pi 5 with NVMe boot, SSH, and the serial connection to the Roomba |
+| 03 | Build the voice loop so whisper hears, Groq responds, and Piper speaks |
+| 04 | Add vision so Moondream can describe the room and provide context |
+| 05 | Parse action tags from the model response and translate them into movement commands |
+| 06 | Store conversations and learned facts in SQLite so the robot can retain memory across sessions |
+| 07 | Mount the hardware on the Roomba and run the system untethered |
+| 08 | Tune the robot personality, name, and response style |
 
 ---
-
-## Why This Build Matters
-
-This project was a practical way to learn how local AI, cloud inference, physical hardware, and autonomous behavior fit together. It also showed that a fun home robot can be built without expensive robotics hardware or ongoing subscription costs.

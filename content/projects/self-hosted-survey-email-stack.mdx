@@ -23,17 +23,84 @@ A self hosted survey and email distribution stack built for Talent Acquisition r
 
 ---
 
+## Core Components
+
+<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px"}}>Platform components</div>
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "1px", backgroundColor: "var(--border)", border: "0.5px solid var(--border)", borderRadius: "6px", overflow: "hidden", marginBottom: "32px"}}>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Survey builder</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Formbricks</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Self hosted survey collection</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Email campaigns</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Listmonk</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Newsletter and campaign orchestration</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>File storage</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>MinIO</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Object storage for project assets</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Database</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>PostgreSQL</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Primary application data store</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Email delivery</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Amazon SES</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Outbound email infrastructure</div>
+	</div>
+	<div style={{backgroundColor: "var(--separator)", padding: "14px 16px"}}>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px"}}>Infrastructure</div>
+		<div style={{fontSize: "13px", fontWeight: 500, color: "var(--fg)", marginBottom: "3px"}}>Hetzner VPS</div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-subtle)"}}>Self hosted deployment environment</div>
+	</div>
+</div>
+
+---
+
 ## Stack
 
-| Layer | Technology |
-|---|---|
-| Survey Builder | Formbricks (self-hosted) |
-| Email Campaigns | Listmonk (self-hosted) |
-| File Storage | MinIO (self-hosted) |
-| Database | PostgreSQL |
-| Email Delivery | Amazon SES |
-| DNS | Cloudflare |
-| Infrastructure | Hetzner VPS |
+<div style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px"}}>Software stack</div>
+<div style={{display: "flex", flexDirection: "column", gap: "1px", backgroundColor: "var(--border)", border: "0.5px solid var(--border)", borderRadius: "6px", overflow: "hidden", marginBottom: "32px"}}>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Survey</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Formbricks <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>self hosted survey builder</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Email</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Listmonk <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>self hosted campaign engine</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Storage</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>MinIO <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>object storage for files and assets</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Database</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>PostgreSQL <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>application data and state</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Delivery</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Amazon SES <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>outbound email sending</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#1a1400", color: "#f0a500", border: "0.5px solid #3a2800"}}>cloud</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>DNS</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Cloudflare <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>DNS and edge routing</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#1a1400", color: "#f0a500", border: "0.5px solid #3a2800"}}>cloud</div>
+	</div>
+	<div style={{display: "flex", alignItems: "baseline", gap: 0, backgroundColor: "var(--separator)"}}>
+		<div style={{width: "120px", flexShrink: 0, fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em", padding: "10px 14px", borderRight: "0.5px solid var(--border)"}}>Hosting</div>
+		<div style={{flex: 1, fontSize: "13px", color: "var(--fg)", padding: "10px 14px"}}>Hetzner VPS <span style={{fontFamily: "monospace", fontSize: "10px", color: "var(--fg-muted)", marginLeft: "8px"}}>self hosted runtime environment</span></div>
+		<div style={{fontFamily: "monospace", fontSize: "10px", padding: "2px 8px", borderRadius: "3px", marginLeft: "auto", marginRight: "14px", whiteSpace: "nowrap", alignSelf: "center", background: "#0d2218", color: "#00c896", border: "0.5px solid #003d2e"}}>local</div>
+	</div>
+</div>
 
 
 ---
