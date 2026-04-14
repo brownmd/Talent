@@ -12,7 +12,7 @@ const navItems = {
   "/": { name: "blog" },
   "/projects": { name: "projects" },
   "/about": { name: "about" },
-  "/resume.pdf": { name: "resume" },
+  "/Resume.docx": { name: "resume" },
 } as const;
 
 interface NavItemProps {
@@ -22,7 +22,7 @@ interface NavItemProps {
 }
 
 const NavItem = ({ path, name, pathname }: NavItemProps) => {
-  const isResume = path === "/resume.pdf";
+  const isResume = path === "/Resume.docx";
 
   if (isResume) {
     return (

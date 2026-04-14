@@ -5,7 +5,7 @@ export const CONFIG = {
   baseURL: "https://talentoperatoros.io",
   darkBackground: "#1a1a1a",
   resume: {
-    link: "/resume.pdf",
+    link: "/Resume.docx",
     show: true,
   },
 };
