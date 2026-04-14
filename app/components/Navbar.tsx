@@ -8,12 +8,12 @@ import React from "react";
 import { resume } from "@/blog.config";
 import { useTheme } from "./ThemeProvider";
 
-const navItems = {
+const navItems: Record<string, { name: string }> = {
   "/": { name: "blog" },
   "/projects": { name: "projects" },
   "/about": { name: "about" },
-  "/Resume.pdf": { name: "resume" },
-} as const;
+  [resume.link]: { name: "resume" },
+};
 
 interface NavItemProps {
   path: string;
@@ -22,7 +22,7 @@ interface NavItemProps {
 }
 
 const NavItem = ({ path, name, pathname }: NavItemProps) => {
-  const isResume = path === "/Resume.pdf";
+  const isResume = path === resume.link;
 
   if (isResume) {
     return (
@@ -84,7 +84,7 @@ export function Navbar() {
           <React.Fragment key={index}>
             <NavItem
               path={path}
-              name={navItems[path as keyof typeof navItems].name}
+              name={navItems[path].name}
               pathname={pathname}
             />
             {index < paths.length - 1 && (
