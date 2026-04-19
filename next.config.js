@@ -42,16 +42,6 @@ const nextConfig = {
     async redirects() {
         return [
             {
-                source: "/Resume.pdf",
-                destination: "/resume.pdf",
-                permanent: true,
-            },
-            {
-                source: "/resume",
-                destination: "/resume.pdf",
-                permanent: true,
-            },
-            {
                 source: "/projects/AI%20Talent%20Operator%20Operating%20System",
                 destination: "/projects/ai-powered-talent-operator-operating-system",
                 permanent: true,
