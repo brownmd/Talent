@@ -13,7 +13,7 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = (allPosts ?? []).find((post) => post.slug === slug);
+  const post = (allPosts ?? []).find((post) => post.slug === slug && !post.draft);
 
   const robotoMedium = await fetch(
     new URL("../fonts/Roboto-Medium.ttf", import.meta.url)

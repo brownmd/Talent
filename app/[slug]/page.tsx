@@ -7,11 +7,11 @@ import { format } from "date-fns";
 import { baseURL } from "@/blog.config";
 
 function findPost(slug: string) {
-  return (allPosts ?? []).find((p) => p.slug === slug);
+  return (allPosts ?? []).find((p) => p.slug === slug && !p.draft);
 }
 
 export function generateStaticParams() {
-  return (allPosts ?? []).map((post) => ({
+  return (allPosts ?? []).filter((post) => !post.draft).map((post) => ({
     slug: post.slug,
   }));
 }
