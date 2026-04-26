@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BigQuery Scoring Query Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #1a1a1a;
+      --fg: #ffffff;
+      --fg-muted: #A3A3A3;
+      --fg-subtle: #656565;
+      --fg-faint: #525252;
+      --border: #2a2a2a;
+      --separator: #242424;
+      --accent: #D97757;
+      --accent-hover: #E8926F;
+      --accent-subtle: rgba(217, 119, 87, 0.08);
+      --code-bg: #111111;
+    }
+
+    .light {
+      --bg: #F0F0F0;
+      --fg: #1a1a1a;
+      --fg-muted: #525252;
+      --fg-subtle: #858585;
+      --fg-faint: #A3A3A3;
+      --border: #D0D0D0;
+      --separator: #E2E2E2;
+      --accent: #D97757;
+      --accent-hover: #C45A3F;
+      --accent-subtle: rgba(217, 119, 87, 0.08);
+      --code-bg: #e4e4e4;
+    }
+
+    body {
+      font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      padding: 3rem 1rem 4rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .page-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 0.4rem;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--fg-subtle);
+    }
+
+    .subtitle code {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: var(--separator);
+      border: 1px solid var(--border);
+      color: var(--fg-muted);
+      font-size: 0.75rem;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .theme-toggle:hover { color: var(--fg); border-color: var(--fg-muted); }
+
+    /* Section headings */
+    h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fg-subtle);
+      margin: 2.25rem 0 0.9rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      color: var(--fg-muted);
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* Summary cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card {
+      background: var(--separator);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.9rem 1rem;
+    }
+
+    .stat-card .label {
+      font-size: 10px;
+      color: var(--fg-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-card .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.55rem 0.9rem;
+      background: var(--separator);
+      color: var(--fg-subtle);
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    td {
+      padding: 0.55rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-muted);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--separator); }
+
+    td code, th code {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.8rem;
+      color: var(--fg);
+    }
+
+    /* Tier badges */
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-elite    { background: var(--accent-subtle); color: var(--accent); border: 1px solid rgba(217,119,87,0.25); }
+    .badge-agentic  { background: rgba(255,255,255,0.05); color: var(--fg); border: 1px solid var(--border); }
+    .badge-builder  { background: rgba(255,255,255,0.03); color: var(--fg-muted); border: 1px solid var(--border); }
+    .badge-user     { background: transparent; color: var(--fg-muted); border: 1px solid var(--border); }
+    .badge-baseline { background: transparent; color: var(--fg-faint); border: 1px solid var(--border); }
+
+    .light .badge-agentic  { background: rgba(0,0,0,0.04); color: var(--fg); }
+    .light .badge-builder  { background: rgba(0,0,0,0.03); color: var(--fg-muted); }
+
+    /* Repo group cards */
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .group-card {
+      background: var(--separator);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+    }
+
+    .group-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--fg-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+    .tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.12rem 0.4rem;
+      font-size: 0.72rem;
+      color: var(--fg-muted);
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+
+    /* Code block */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-size: 0.8rem;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    code {
+      font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+      color: var(--fg-muted);
+    }
+
+    .kw  { color: var(--fg); font-weight: 600; }
+    .fn  { color: var(--accent); }
+    .str { color: var(--fg-muted); }
+    .num { color: var(--fg); }
+    .cm  { color: var(--fg-faint); font-style: italic; }
+
+    /* Callout */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-subtle);
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+      line-height: 1.65;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--fg-faint);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">Light</button>
+
+<div class="container">
+
+  <div class="page-header">
+    <div class="page-label">Query Reference</div>
+    <h1>BigQuery Scoring Query</h1>
+    <p class="subtitle">
+      <code>sql/validation/query_github_profiles.sql</code> &nbsp;·&nbsp;
+      GitHub Archive &nbsp;·&nbsp; 2021-01 – 2026-03
+    </p>
+  </div>
+
+  <!-- Quick stats -->
+  <div class="summary-grid">
+    <div class="stat-card">
+      <div class="label">Source</div>
+      <div class="value" style="font-size:0.9rem; color: var(--fg-muted);">githubarchive.month.*</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Date range</div>
+      <div class="value">2021 – 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Granularity</div>
+      <div class="value">User × Month</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Repo groups</div>
+      <div class="value">12 + 2 isolated</div>
+    </div>
+  </div>
+
+  <!-- What it does -->
+  <h2>What it does</h2>
+  <p>
+    Scans every GitHub event from January 2021 through March 2026, keeps only
+    events touching AI-relevant repositories matched by repo name via regex,
+    then aggregates per user per calendar month into a weighted score.
+  </p>
+  <div class="callout">
+    Final score = <strong style="color:var(--fg)">sum of (event-type weight × repo-tier multiplier)</strong>
+    across all matching events in that month. The result is streamed into
+    PostgreSQL by <code>load_scores.py</code>.
+  </div>
+
+  <!-- Output columns -->
+  <h2>Output columns</h2>
+  <table>
+    <thead>
+      <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>username</code></td><td>STRING</td><td>GitHub actor login</td></tr>
+      <tr><td><code>period</code></td><td>DATE</td><td>First day of the calendar month</td></tr>
+      <tr><td><code>score</code></td><td>FLOAT</td><td>Sum of event weight × repo multiplier</td></tr>
+      <tr><td><code>total_events</code></td><td>INT</td><td>Raw event count for that user-month</td></tr>
+      <tr><td><code>unique_repos</code></td><td>INT</td><td>Distinct repos touched</td></tr>
+      <tr><td><code>event_variety</code></td><td>INT</td><td>Distinct event types used</td></tr>
+      <tr><td><code>efficiency</code></td><td>FLOAT</td><td>Average weighted score per event (score / total_events)</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Event type weights -->
+  <h2>Event-type weights</h2>
+  <table>
+    <thead>
+      <tr><th>Event type</th><th>Weight</th><th>Rationale</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ReleaseEvent</code></td><td style="color:var(--fg);font-weight:600">30</td><td>Shipping software publicly</td></tr>
+      <tr><td><code>PullRequestReviewEvent</code></td><td style="color:var(--fg);font-weight:600">25</td><td>High-effort code review</td></tr>
+      <tr><td><code>DeploymentEvent</code></td><td style="color:var(--fg);font-weight:600">25</td><td>Production deployment</td></tr>
+      <tr><td><code>PullRequestEvent</code></td><td style="color:var(--fg);font-weight:600">20</td><td>Substantive contribution</td></tr>
+      <tr><td><code>CreateEvent</code></td><td style="color:var(--fg);font-weight:600">15</td><td>Branch / tag / repo creation</td></tr>
+      <tr><td><code>CheckRunEvent</code></td><td style="color:var(--fg);font-weight:600">15</td><td>CI automation</td></tr>
+      <tr><td><code>PushEvent</code></td><td style="color:var(--fg);font-weight:600">10</td><td>Code commit</td></tr>
+      <tr><td><code>WorkflowRunEvent</code></td><td style="color:var(--fg);font-weight:600">10</td><td>Workflow execution</td></tr>
+      <tr><td><code>MemberEvent</code></td><td style="color:var(--fg);font-weight:600">10</td><td>Team management</td></tr>
+      <tr><td><code>IssuesEvent</code></td><td style="color:var(--fg);font-weight:600">5</td><td>Issue opened/closed</td></tr>
+      <tr><td><code>IssueCommentEvent</code></td><td style="color:var(--fg);font-weight:600">4</td><td>Discussion participation</td></tr>
+      <tr><td><code>ForkEvent</code></td><td style="color:var(--fg);font-weight:600">2</td><td>Passive interest</td></tr>
+      <tr><td><code>WatchEvent</code></td><td style="color:var(--fg);font-weight:600">1</td><td>Star / watch</td></tr>
+      <tr><td><em>all others</em></td><td style="color:var(--fg-muted)">1</td><td>Baseline</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Repo tier multipliers -->
+  <h2>Repo-tier multipliers</h2>
+  <table>
+    <thead>
+      <tr><th>Tier</th><th>Multiplier</th><th>Pattern examples</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-elite">ELITE L5-L6</span></td>
+        <td style="color:var(--accent);font-weight:700">5.0×</td>
+        <td>grpo, vllm, sglang, triton-lang, sae-lens, unsloth, deepseek-r1, transformer-lens, cuda-mode</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-agentic">AGENTIC L4</span></td>
+        <td style="color:var(--fg);font-weight:600">3.5×</td>
+        <td>langgraph, pydantic-ai, mcp-server, model-context-protocol, fastmcp, crewai, dspy, dify, langflow</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-builder">BUILDER L3</span></td>
+        <td style="color:var(--fg-muted);font-weight:600">2.0×</td>
+        <td>vercel-ai, ai-sdk, langchain, llamaindex, huggingface, trl, axolotl, llama-factory, ragas, deepeval</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-user">VIBE/USER L1-L2</span></td>
+        <td style="color:var(--fg-muted)">1.5×</td>
+        <td>cursor, aider, bolt-new, ollama, open-webui, lm-studio, lmstudio</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-baseline">BASELINE</span></td>
+        <td style="color:var(--fg-faint)">1.0×</td>
+        <td>everything else that passes the WHERE filter</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Repo filter groups -->
+  <h2>Repository filter — 12 groups</h2>
+  <p>Any event whose <code>repo.name</code> matches at least one of these patterns is included. Two patterns are isolated for correct dot-escaping (<code>llama\.cpp</code>, <code>llm\.c</code>).</p>
+
+  <div class="group-grid">
+    <div class="group-card">
+      <div class="group-title">1 · Core Ecosystem</div>
+      <div class="tag-list">
+        <span class="tag">huggingface</span><span class="tag">transformers</span><span class="tag">diffusers</span>
+        <span class="tag">peft</span><span class="tag">accelerate</span><span class="tag">safetensors</span>
+        <span class="tag">hf-datasets</span><span class="tag">tokenizers</span><span class="tag">hf-hub</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">2 · Agents &amp; Orchestration</div>
+      <div class="tag-list">
+        <span class="tag">langgraph</span><span class="tag">crewai</span><span class="tag">pydantic-ai</span>
+        <span class="tag">autogen</span><span class="tag">memgpt</span><span class="tag">browser-use</span>
+        <span class="tag">smolagents</span><span class="tag">phidata</span><span class="tag">agno</span>
+        <span class="tag">openhands</span><span class="tag">e2b</span><span class="tag">agentic</span>
+        <span class="tag">langchain</span><span class="tag">llamaindex</span><span class="tag">haystack</span>
+        <span class="tag">dify</span><span class="tag">langflow</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">3 · Reasoning &amp; Advanced Models</div>
+      <div class="tag-list">
+        <span class="tag">deepseek-v3</span><span class="tag">deepseek-r1</span><span class="tag">open-r1</span>
+        <span class="tag">grpo</span><span class="tag">verifiers</span><span class="tag">prm</span>
+        <span class="tag">reasoning-trace</span><span class="tag">meta-llama</span><span class="tag">mistral-ai</span>
+        <span class="tag">google-gemini</span><span class="tag">anthropic-sdk</span><span class="tag">claude-code</span>
+        <span class="tag">gemma</span><span class="tag">phi-</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">4 · Interpretability &amp; Alignment</div>
+      <div class="tag-list">
+        <span class="tag">transformer-lens</span><span class="tag">nnsight</span><span class="tag">sae-lens</span>
+        <span class="tag">sparse-autoencoder</span><span class="tag">logit-lens</span><span class="tag">activation-patching</span>
+        <span class="tag">alignment-handbook</span><span class="tag">dpo-trainer</span><span class="tag">rlhf</span>
+        <span class="tag">reward-model</span><span class="tag">math-verify</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">5 · Training &amp; Hardware Kernels</div>
+      <div class="tag-list">
+        <span class="tag">unsloth</span><span class="tag">axolotl</span><span class="tag">llama-factory</span>
+        <span class="tag">torchtune</span><span class="tag">torchao</span><span class="tag">trl</span>
+        <span class="tag">qlora</span><span class="tag">bitnet</span><span class="tag">triton-lang</span>
+        <span class="tag">modular-mojo</span><span class="tag">cuda-mode</span><span class="tag">nanogpt</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">6 · Protocols &amp; Infra</div>
+      <div class="tag-list">
+        <span class="tag">model-context-protocol</span><span class="tag">mcp-server</span><span class="tag">fastmcp</span>
+        <span class="tag">vllm</span><span class="tag">sglang</span><span class="tag">tensorrt-llm</span>
+        <span class="tag">gguf</span><span class="tag">exl2</span><span class="tag">mlx-lm</span>
+        <span class="tag">ollama</span><span class="tag">open-webui</span><span class="tag">litellm</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">7 · Vector Stores &amp; RAG</div>
+      <div class="tag-list">
+        <span class="tag">lancedb</span><span class="tag">chromadb</span><span class="tag">pgvector</span>
+        <span class="tag">weaviate</span><span class="tag">qdrant</span><span class="tag">milvus</span>
+        <span class="tag">graphrag</span><span class="tag">lightrag</span><span class="tag">colpali</span>
+        <span class="tag">ragatouille</span><span class="tag">colbert</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">8 · Evaluation &amp; Observability</div>
+      <div class="tag-list">
+        <span class="tag">ragas</span><span class="tag">deepeval</span><span class="tag">promptfoo</span>
+        <span class="tag">langsmith</span><span class="tag">lm-evaluation-harness</span><span class="tag">lighteval</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">9 · Generative Media</div>
+      <div class="tag-list">
+        <span class="tag">flux-1</span><span class="tag">black-forest-labs</span><span class="tag">stable-diffusion</span>
+        <span class="tag">comfyui</span><span class="tag">kokoro</span><span class="tag">mochi</span>
+        <span class="tag">ltx-video</span><span class="tag">whisper</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">10 · AI Coding Tools</div>
+      <div class="tag-list">
+        <span class="tag">aider</span><span class="tag">continue-dev</span><span class="tag">tabbyml</span>
+        <span class="tag">coderabbit</span><span class="tag">greptile</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">11 · Qwen &amp; Chinese Ecosystem</div>
+      <div class="tag-list">
+        <span class="tag">qwen</span><span class="tag">chatglm</span><span class="tag">cogvlm</span>
+        <span class="tag">codegeex</span><span class="tag">zhipu</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">12 · MLOps &amp; Deployment</div>
+      <div class="tag-list">
+        <span class="tag">modal-labs</span><span class="tag">groq-api</span>
+        <span class="tag">bentoml</span><span class="tag">replicate-ai</span>
+      </div>
+    </div>
+    <div class="group-card">
+      <div class="group-title">Isolated (dot-escaped)</div>
+      <div class="tag-list">
+        <span class="tag">llama.cpp</span><span class="tag">llm.c</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Raw SQL -->
+  <h2>Full query</h2>
+  <pre><code><span class="cm">-- GitHub AI Talent - BigQuery Aggregated Monthly Scores</span>
+<span class="cm">-- Source: githubarchive.month.* | Range: 202101–202603</span>
+
+<span class="kw">SELECT</span>
+  actor.login                                       <span class="kw">AS</span> username,
+  <span class="fn">DATE_TRUNC</span>(<span class="fn">DATE</span>(created_at), MONTH)               <span class="kw">AS</span> period,
+
+  <span class="cm">-- score = SUM(event_weight × repo_multiplier)</span>
+  <span class="fn">SUM</span>(
+    <span class="kw">CASE</span>
+      <span class="kw">WHEN</span> type = <span class="str">'ReleaseEvent'</span>           <span class="kw">THEN</span> <span class="num">30</span>
+      <span class="kw">WHEN</span> type = <span class="str">'PullRequestReviewEvent'</span> <span class="kw">THEN</span> <span class="num">25</span>
+      <span class="kw">WHEN</span> type = <span class="str">'DeploymentEvent'</span>        <span class="kw">THEN</span> <span class="num">25</span>
+      <span class="kw">WHEN</span> type = <span class="str">'PullRequestEvent'</span>       <span class="kw">THEN</span> <span class="num">20</span>
+      <span class="kw">WHEN</span> type = <span class="str">'CreateEvent'</span>            <span class="kw">THEN</span> <span class="num">15</span>
+      <span class="kw">WHEN</span> type = <span class="str">'PushEvent'</span>              <span class="kw">THEN</span> <span class="num">10</span>
+      <span class="kw">WHEN</span> type = <span class="str">'IssuesEvent'</span>            <span class="kw">THEN</span> <span class="num">5</span>
+      <span class="kw">WHEN</span> type = <span class="str">'IssueCommentEvent'</span>      <span class="kw">THEN</span> <span class="num">4</span>
+      <span class="kw">WHEN</span> type = <span class="str">'ForkEvent'</span>              <span class="kw">THEN</span> <span class="num">2</span>
+      <span class="kw">WHEN</span> type = <span class="str">'WatchEvent'</span>             <span class="kw">THEN</span> <span class="num">1</span>
+      <span class="kw">ELSE</span> <span class="num">1</span>
+    <span class="kw">END</span>
+    *
+    <span class="kw">CASE</span>
+      <span class="kw">WHEN</span> <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="str">r'grpo|vllm|triton-lang|...'</span>) <span class="kw">THEN</span> <span class="num">5.0</span>  <span class="cm">-- ELITE</span>
+      <span class="kw">WHEN</span> <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="str">r'langgraph|crewai|...'</span>)     <span class="kw">THEN</span> <span class="num">3.5</span>  <span class="cm">-- AGENTIC</span>
+      <span class="kw">WHEN</span> <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="str">r'langchain|llamaindex|...'</span>)  <span class="kw">THEN</span> <span class="num">2.0</span>  <span class="cm">-- BUILDER</span>
+      <span class="kw">WHEN</span> <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="str">r'cursor|aider|ollama|...'</span>)  <span class="kw">THEN</span> <span class="num">1.5</span>  <span class="cm">-- VIBE/USER</span>
+      <span class="kw">ELSE</span> <span class="num">1.0</span>
+    <span class="kw">END</span>
+  )                                                 <span class="kw">AS</span> score,
+
+  <span class="fn">COUNT</span>(*)                                          <span class="kw">AS</span> total_events,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> repo.name)                         <span class="kw">AS</span> unique_repos,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> type)                              <span class="kw">AS</span> event_variety,
+  <span class="fn">ROUND</span>(score / total_events, <span class="num">2</span>)                    <span class="kw">AS</span> efficiency
+
+<span class="kw">FROM</span> <span class="str">`githubarchive.month.*`</span>
+
+<span class="kw">WHERE</span> _TABLE_SUFFIX <span class="kw">BETWEEN</span> <span class="str">'202101'</span> <span class="kw">AND</span> <span class="str">'202603'</span>
+  <span class="kw">AND</span> (
+    <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="str">r'llama\.cpp'</span>)
+    <span class="kw">OR</span> <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="str">r'llm\.c'</span>)
+    <span class="kw">OR</span> <span class="fn">REGEXP_CONTAINS</span>(<span class="fn">LOWER</span>(repo.name), <span class="cm">/* 12-group pattern */</span>)
+  )
+
+<span class="kw">GROUP BY</span> actor.login, <span class="fn">DATE_TRUNC</span>(<span class="fn">DATE</span>(created_at), MONTH)
+<span class="kw">ORDER BY</span> username, period;</code></pre>
+
+  <footer>
+    <span>AI Data Literacy &nbsp;·&nbsp; query_github_profiles.sql</span>
+    <span style="color:var(--fg-faint)">Generated 2026-04-19</span>
+  </footer>
+
+</div>
+
+<script>
+  (function() {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.classList.add('light');
+      document.getElementById('theme-btn').textContent = 'Dark';
+    }
+  })();
+
+  function toggleTheme() {
+    var btn = document.getElementById('theme-btn');
+    var isLight = document.documentElement.classList.toggle('light');
+    btn.textContent = isLight ? 'Dark' : 'Light';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+</script>
+</body>
+</html>

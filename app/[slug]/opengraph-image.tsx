@@ -2,6 +2,9 @@ import { ImageResponse } from "next/og";
 import { allPosts } from "@/.contentlayer/generated";
 import { CONFIG } from "@/blog.config";
 
+const showDrafts =
+  process.env.NODE_ENV !== "production" || process.env.SHOW_DRAFTS === "true";
+
 export const runtime = "edge";
 
 export const alt = "Blog Post";
@@ -13,7 +16,9 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = (allPosts ?? []).find((post) => post.slug === slug && !post.draft);
+  const post = (allPosts ?? []).find(
+    (post) => post.slug === slug && (showDrafts || !post.draft)
+  );
 
   const robotoMedium = await fetch(
     new URL("../fonts/Roboto-Medium.ttf", import.meta.url)

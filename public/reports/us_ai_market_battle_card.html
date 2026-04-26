@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US AI Talent Market Battle Card</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --paper: #f8fbff;
+      --ink: #162235;
+      --muted: #4a5f79;
+      --line: #c9d8ea;
+      --accent: #0e7490;
+      --accent-soft: #99d5e5;
+      --accent-deep: #155e75;
+      --panel: #e5eef9;
+      --success: #0f766e;
+      --shadow: 0 20px 60px rgba(22, 34, 53, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(14, 116, 144, 0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(21, 94, 117, 0.11), transparent 25%),
+        linear-gradient(180deg, #f5f9ff 0%, #eef3f9 45%, #e4edf8 100%);
+      padding: 28px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid rgba(21, 94, 117, 0.10);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      padding: 34px 34px 26px;
+      background: linear-gradient(135deg, rgba(229, 238, 249, 0.92), rgba(248, 251, 255, 0.98));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--accent-deep);
+      margin-bottom: 12px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 0.95;
+      font-weight: 700;
+    }
+
+    .hero-copy {
+      font-size: 17px;
+      line-height: 1.5;
+      max-width: 58ch;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .signal-box {
+      background: linear-gradient(180deg, rgba(200, 92, 56, 0.09), rgba(200, 92, 56, 0.02));
+      border: 1px solid rgba(200, 92, 56, 0.18);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .signal-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      font-family: Arial, sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .signal-value {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .signal-text {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+      font-family: Arial, sans-serif;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      padding: 24px 34px;
+    }
+
+    .metric-card {
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(143, 52, 23, 0.08);
+    }
+
+    .metric-label, .section-label, .footnote {
+      font-family: Arial, sans-serif;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .metric-detail {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      padding: 0 34px 34px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      background: rgba(255, 250, 243, 0.88);
+    }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-deep);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      line-height: 1.05;
+      margin: 0 0 8px;
+    }
+
+    .section-copy {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .num {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .positive {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(200, 92, 56, 0.12);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+    }
+
+    .takeaways {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .takeaway {
+      background: var(--panel);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .takeaway-title {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 8px;
+    }
+
+    .takeaway p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .playbook {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #201b17;
+      color: #f8eee2;
+    }
+
+    .playbook h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .playbook ul {
+      margin: 0;
+      padding-left: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(248, 238, 226, 0.86);
+    }
+
+    .footnote {
+      padding: 0 34px 28px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 960px) {
+      .hero, .content {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 14px; }
+      .hero, .metrics, .content, .footnote { padding-left: 18px; padding-right: 18px; }
+      .metrics { grid-template-columns: 1fr; }
+      .signal-grid { grid-template-columns: 1fr; }
+      th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Talent Intelligence Battle Card</div>
+        <h1>US AI Talent Market</h1>
+        <p class="hero-copy">A one-page market brief built from the repository's verified 2021-2026 GitHub AI activity dataset. This view packages the existing report data into a decision surface: scale, momentum, and where to focus market coverage next.</p>
+        <div class="signal-box">
+          <div class="signal-label">Executive Signal</div>
+          <div class="signal-grid">
+            <div>
+              <div class="signal-value">Bay Area</div>
+              <div class="signal-text">Still the structural center of gravity for US AI talent, with both the largest scale market and a second premium node in San Jose.</div>
+            </div>
+            <div>
+              <div class="signal-value">Austin</div>
+              <div class="signal-text">Best expansion bet if you want both growth and engagement intensity, not just more users.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="section-label">Market Snapshot</div>
+        <h2 class="section-title">Where the signal is strongest</h2>
+        <p class="section-copy">The US is the largest national cohort in the located slice, but metro analysis still comes from a filtered city-resolved base. Use this as a market map, not an absolute labor census.</p>
+        <div class="signal-grid">
+          <div>
+            <div class="signal-value">2.58M</div>
+            <div class="signal-text">global AI-active users in the full dataset</div>
+          </div>
+          <div>
+            <div class="signal-value">~16%</div>
+            <div class="signal-text">US share of users with parseable locations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric-card">
+  <div class="metric-label">US AI-active users</div>
+  <div class="metric-value">51,913</div>
+  <div class="metric-detail">largest single-country cohort in the located slice</div>
+</div>
+<div class="metric-card">
+  <div class="metric-label">Estimated true US total</div>
+  <div class="metric-value">~385K</div>
+  <div class="metric-detail">if the US mirrors the 13.5% global profile-fill rate</div>
+</div>
+<div class="metric-card">
+  <div class="metric-label">Location normalization success</div>
+  <div class="metric-value">92.4%</div>
+  <div class="metric-detail">share of users with a location string resolved to at least country</div>
+</div>
+<div class="metric-card">
+  <div class="metric-label">City-level market base</div>
+  <div class="metric-value">235,054</div>
+  <div class="metric-detail">users available for city and metro analysis</div>
+</div>
+    </section>
+
+    <section class="content">
+      <div class="panel">
+        <div class="section-label">Scale Markets</div>
+        <h2 class="section-title">Top US metros by all-time AI users</h2>
+        <p class="section-copy">These are cumulative unique users across the full 64-month dataset. The bar at right is a relative share indicator against the top metro in the set.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Metro</th>
+              <th class="num">Users</th>
+              <th class="num">Avg Score</th>
+              <th>Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+  <td>1</td>
+  <td>San Francisco-Oakland-Fremont, CA</td>
+  <td class="num">5,172</td>
+  <td class="num">365.78</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>New York-Newark-Jersey City, NY-NJ</td>
+  <td class="num">3,309</td>
+  <td class="num">109.56</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:64%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Seattle-Tacoma-Bellevue, WA</td>
+  <td class="num">2,603</td>
+  <td class="num">198.13</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Los Angeles-Long Beach-Anaheim, CA</td>
+  <td class="num">2,420</td>
+  <td class="num">106.97</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:47%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>Boston-Cambridge-Newton, MA-NH</td>
+  <td class="num">1,916</td>
+  <td class="num">103.53</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:37%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>San Jose-Sunnyvale-Santa Clara, CA</td>
+  <td class="num">1,710</td>
+  <td class="num">293.08</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>Chicago-Naperville-Elgin, IL-IN</td>
+  <td class="num">1,417</td>
+  <td class="num">207.05</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:27%"></div></div>
+  </td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>Austin-Round Rock-San Marcos, TX</td>
+  <td class="num">1,221</td>
+  <td class="num">276.78</td>
+  <td>
+    <div class="bar-track"><div class="bar-fill" style="width:24%"></div></div>
+  </td>
+</tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="panel" style="margin-bottom: 20px;">
+          <div class="section-label">Actionable Readout</div>
+          <h2 class="section-title">What to do with this</h2>
+          <div class="takeaways">
+            <div class="takeaway">
+  <div class="takeaway-title">Scale market</div>
+  <p>The Bay Area remains the anchor market. San Francisco alone accounts for roughly 10% of located US AI users, with San Jose adding a second high-intensity node.</p>
+</div>
+<div class="takeaway">
+  <div class="takeaway-title">Momentum market</div>
+  <p>Raleigh-Durham has the fastest percentage expansion, while Dallas and Denver combine large absolute gains with sustained growth.</p>
+</div>
+<div class="takeaway">
+  <div class="takeaway-title">Premium market</div>
+  <p>Austin is the clearest high-intensity expansion market: not just more users, but the strongest 2025+ average score among top-growth metros.</p>
+</div>
+<div class="takeaway">
+  <div class="takeaway-title">Operating constraint</div>
+  <p>City and metro views are built from the 235,054 users with city-level resolution, so this is a directional market map rather than a full census of AI labor supply.</p>
+</div>
+          </div>
+          <div class="playbook">
+            <h3>Coverage playbook</h3>
+            <ul>
+              <li>Use Bay Area and Seattle for scale hiring and competitor sensing.</li>
+              <li>Use Austin and Atlanta when you want higher-intensity ecosystems with room to gain share.</li>
+              <li>Build early pipeline in Raleigh-Durham, Dallas, and Denver before req pressure spikes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="section-label">Momentum Markets</div>
+          <h2 class="section-title">Fastest-growing metros since 2025</h2>
+          <p class="section-copy">Growth is measured as the change in average monthly active AI users between 2024 and 2025+ in the production historical data.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Metro</th>
+                <th class="num">Growth %</th>
+                <th class="num">User Gain</th>
+                <th class="num">Avg Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+  <td>Raleigh-Durham-Chapel Hill Area</td>
+  <td class="num positive">+64.7%</td>
+  <td class="num positive">+17.47</td>
+  <td class="num">76.32</td>
+</tr>
+<tr>
+  <td>Dallas-Fort Worth Metroplex</td>
+  <td class="num positive">+49.3%</td>
+  <td class="num positive">+27.08</td>
+  <td class="num">90.95</td>
+</tr>
+<tr>
+  <td>Portland, Oregon Area</td>
+  <td class="num positive">+46.1%</td>
+  <td class="num positive">+13.25</td>
+  <td class="num">75.60</td>
+</tr>
+<tr>
+  <td>Denver Metropolitan Area</td>
+  <td class="num positive">+45.4%</td>
+  <td class="num positive">+25.13</td>
+  <td class="num">53.92</td>
+</tr>
+<tr>
+  <td>Miami-Fort Lauderdale Area</td>
+  <td class="num positive">+45.1%</td>
+  <td class="num positive">+14.27</td>
+  <td class="num">116.91</td>
+</tr>
+<tr>
+  <td>Austin, Texas Area</td>
+  <td class="num positive">+36.4%</td>
+  <td class="num positive">+27.62</td>
+  <td class="num">519.84</td>
+</tr>
+<tr>
+  <td>Greater Seattle Area</td>
+  <td class="num positive">+32.7%</td>
+  <td class="num positive">+50.95</td>
+  <td class="num">271.69</td>
+</tr>
+<tr>
+  <td>Greater Chicago Area</td>
+  <td class="num positive">+31.6%</td>
+  <td class="num positive">+27.48</td>
+  <td class="num">222.62</td>
+</tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="footnote">
+      Source: repository article metrics in docs/talent_intelligence_article.md, covering January 2021 through March 2026 after bot cleanup. City and metro analysis uses the city-resolved subset of users and should be interpreted as directional talent intelligence rather than a complete census.
+    </div>
+  </div>
+</body>
+</html>

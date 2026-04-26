@@ -6,14 +6,21 @@ import { ShareBar } from "../components/ShareBar";
 import { format } from "date-fns";
 import { baseURL } from "@/blog.config";
 
+const showDrafts =
+  process.env.NODE_ENV !== "production" || process.env.SHOW_DRAFTS === "true";
+
 function findPost(slug: string) {
-  return (allPosts ?? []).find((p) => p.slug === slug && !p.draft);
+  return (allPosts ?? []).find(
+    (p) => p.slug === slug && (showDrafts || !p.draft)
+  );
 }
 
 export function generateStaticParams() {
-  return (allPosts ?? []).filter((post) => !post.draft).map((post) => ({
-    slug: post.slug,
-  }));
+  return (allPosts ?? [])
+    .filter((post) => showDrafts || !post.draft)
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({

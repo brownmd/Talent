@@ -8,12 +8,15 @@ type Post = {
   draft: boolean;
 };
 
+const showDrafts =
+  process.env.NODE_ENV !== "production" || process.env.SHOW_DRAFTS === "true";
+
 export const organizeAndSortPosts = (
   posts: Post[]
 ): { [year: string]: Post[] }[] => {
   const organizedPosts = posts.reduce(
     (acc: { [year: string]: Post[] }, post: Post) => {
-      if (!post.draft) {
+      if (showDrafts || !post.draft) {
         const year = new Date(post.date).getFullYear().toString();
         if (!acc[year]) {
           acc[year] = [];
