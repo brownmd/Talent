@@ -1,0 +1,7 @@
+﻿year,unique_users,total_score,avg_score_per_user_month,user_month_rows,months_covered,yoy_users_pct,yoy_total_score_pct,yoy_avg_score_per_user_month_pct,year_completeness
+2021,139852,20436250.50,102.89,198614,12,,,,full_year
+2022,266203,30180230.50,78.33,385291,12,90.3,47.7,-23.9,full_year
+2023,665690,52795072.50,46.56,1133979,12,150.1,74.9,-40.6,full_year
+2024,851973,94320842.00,62.65,1505607,12,28.0,78.7,34.6,full_year
+2025,1299354,151263267.50,69.55,2174915,12,52.5,60.4,11.0,full_year
+2026,345890,32848873.50,79.65,412392,3,-73.4,-78.3,14.5,partial_year

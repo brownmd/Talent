@@ -1,0 +1,612 @@
+rank,metro_area,metro_type,ai_literate_users,avg_score_per_user,centroid_lat,centroid_lon
+1,"San Francisco-Oakland-Fremont, CA",Metropolitan,5154,365.82,37.7741,-122.2741
+2,"New York-Newark-Jersey City, NY-NJ",Metropolitan,3287,111.84,40.7364,-73.8036
+3,"Seattle-Tacoma-Bellevue, WA",Metropolitan,2598,198.83,47.5575,-121.8814
+4,"Los Angeles-Long Beach-Anaheim, CA",Metropolitan,2420,106.98,34.1118,-118.1808
+5,"Boston-Cambridge-Newton, MA-NH",Metropolitan,1909,103.34,42.5179,-71.0219
+6,"San Jose-Sunnyvale-Santa Clara, CA",Metropolitan,1709,293.11,36.9103,-121.3769
+7,"Chicago-Naperville-Elgin, IL-IN",Metropolitan,1414,206.83,41.7596,-87.8449
+8,"Austin-Round Rock-San Marcos, TX",Metropolitan,1221,276.78,30.2622,-97.6544
+9,"Atlanta-Sandy Springs-Roswell, GA",Metropolitan,1019,302.9,33.7338,-84.3922
+10,"Dallas-Fort Worth-Arlington, TX",Metropolitan,936,189.68,32.8495,-96.9704
+11,"San Diego-Chula Vista-Carlsbad, CA",Metropolitan,828,61.84,33.0282,-116.7702
+12,"Denver-Aurora-Centennial, CO",Metropolitan,828,166.29,39.4337,-104.8944
+13,"Washington-Arlington-Alexandria, DC-VA-MD-WV",Metropolitan,817,130.34,38.8324,-77.498
+14,"Houston-Pasadena-The Woodlands, TX",Metropolitan,616,87.4,29.8021,-95.3423
+15,"Pittsburgh, PA",Metropolitan,588,58.2,40.4744,-79.8632
+16,"Miami-Fort Lauderdale-West Palm Beach, FL",Metropolitan,559,212.08,26.1353,-80.4686
+17,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",Metropolitan,557,294.87,39.8958,-75.3117
+18,"Portland-Vancouver-Hillsboro, OR-WA",Metropolitan,542,176.31,45.5984,-122.4783
+19,"Riverside-San Bernardino-Ontario, CA",Metropolitan,407,95.53,34.5517,-116.1297
+20,"Phoenix-Mesa-Chandler, AZ",Metropolitan,386,124.9,33.1859,-112.0707
+21,"Raleigh-Cary, NC",Metropolitan,346,129.5,35.7573,-78.4608
+22,"Minneapolis-St. Paul-Bloomington, MN-WI",Metropolitan,341,146.63,45.1034,-93.2753
+23,"Orlando-Kissimmee-Sanford, FL",Metropolitan,301,125.83,28.4343,-81.3631
+24,"Charlotte-Concord-Gastonia, NC-SC",Metropolitan,266,64.43,35.1686,-80.7954
+25,"Tampa-St. Petersburg-Clearwater, FL",Metropolitan,265,73.79,28.1234,-82.5285
+26,"Salt Lake City-Murray, UT",Metropolitan,260,28.69,40.4706,-113.0105
+27,"Baltimore-Columbia-Towson, MD",Metropolitan,259,40.03,39.3055,-76.551
+28,"Columbus, OH",Metropolitan,255,123.09,39.9681,-82.8369
+29,"Ann Arbor, MI",Metropolitan,238,62.25,42.2532,-83.8388
+30,"St. Louis, MO-IL",Metropolitan,232,181.49,38.7352,-90.3501
+31,"Detroit-Warren-Dearborn, MI",Metropolitan,230,256.6,42.7162,-83.2058
+32,"Nashville-Davidson--Murfreesboro--Franklin, TN",Metropolitan,217,42.9,36.0891,-86.7244
+33,"Boulder, CO",Metropolitan,213,995.7,40.0925,-105.3577
+34,"Sacramento-Roseville-Folsom, CA",Metropolitan,205,130.36,38.7805,-120.9972
+35,"Durham-Chapel Hill, NC",Metropolitan,197,131.65,35.9911,-79.0996
+36,"Las Vegas-Henderson-North Las Vegas, NV",Metropolitan,187,43.08,36.2152,-115.0136
+37,"Madison, WI",Metropolitan,177,90.3,43.0802,-89.5922
+38,"Champaign-Urbana, IL",Metropolitan,177,191.07,40.2267,-88.2945
+39,"Kansas City, MO-KS",Metropolitan,166,196.95,38.9371,-94.4444
+40,"Indianapolis-Carmel-Greenwood, IN",Metropolitan,162,51.54,39.7929,-86.1216
+41,"Cincinnati, OH-KY-IN",Metropolitan,162,46.09,39.0811,-84.4646
+42,"Oklahoma City, OK",Metropolitan,158,57.88,35.4299,-97.5039
+43,"Rochester, NY",Metropolitan,148,34.8,43.1885,-77.5539
+44,"San Antonio-New Braunfels, TX",Metropolitan,143,144.87,29.4288,-98.6023
+45,"Cleveland, OH",Metropolitan,139,75.19,41.6704,-81.4294
+46,"Lafayette-West Lafayette, IN",Metropolitan,125,49.95,40.4772,-87.0234
+47,"Richmond, VA",Metropolitan,109,74.7,37.4125,-77.4462
+48,"Tulsa, OK",Metropolitan,106,57.06,36.2504,-96.1662
+49,"Buffalo-Cheektowaga, NY",Metropolitan,104,25.4,43.0379,-78.7754
+50,"Milwaukee-Waukesha, WI",Metropolitan,101,30.33,43.1804,-87.797
+51,"Providence-Warwick, RI-MA",Metropolitan,98,23.72,41.6449,-71.3897
+52,"Provo-Orem-Lehi, UT",Metropolitan,91,123.96,39.8645,-112.3526
+53,"Ithaca, NY",Metropolitan,90,289.6,42.452,-76.4737
+54,"Tucson, AZ",Metropolitan,86,46.6,32.0974,-111.7899
+55,"Grand Rapids-Wyoming-Kentwood, MI",Metropolitan,85,85.62,42.9784,-85.7142
+56,"Jacksonville, FL",Metropolitan,83,50.06,30.2341,-81.7575
+57,"Boise City, ID",Metropolitan,83,36.1,43.016,-116.1432
+58,"Santa Maria-Santa Barbara, CA",Metropolitan,82,109.8,34.5383,-120.031
+59,"Trenton-Princeton, NJ",Metropolitan,82,43.43,40.2834,-74.7018
+60,"Knoxville, TN",Metropolitan,80,28.35,36.0447,-84.1375
+61,"New Haven, CT",Metropolitan,76,39.73,41.2945,-72.8337
+62,"Louisville/Jefferson County, KY-IN",Metropolitan,76,74.92,38.2244,-85.7025
+63,"Virginia Beach-Chesapeake-Norfolk, VA-NC",Metropolitan,75,87.46,36.8403,-76.396
+64,"Greenville-Anderson-Greer, SC",Metropolitan,72,65.74,34.6851,-82.4139
+65,"Albany-Schenectady-Troy, NY",Metropolitan,71,132.03,42.7885,-73.942
+66,"Albuquerque, NM",Metropolitan,70,213.2,35.1223,-106.4716
+67,"Gainesville, FL",Metropolitan,70,152.7,29.4562,-82.6693
+68,"College Station-Bryan, TX",Metropolitan,68,36.0,30.7565,-96.489
+69,"Blacksburg-Christiansburg-Radford, VA",Metropolitan,66,37.3,37.1209,-80.5329
+70,"Palestine, TX",Micropolitan,63,62.3,31.8133,-95.6525
+71,"Memphis, TN-MS-AR",Metropolitan,63,27.4,35.0074,-89.8147
+72,"Hagerstown-Martinsburg, MD-WV",Metropolitan,63,95.85,39.5499,-77.9814
+73,"New Orleans-Metairie, LA",Metropolitan,61,186.1,29.7118,-89.6674
+74,"Charleston-North Charleston, SC",Metropolitan,59,110.48,33.0166,-80.0086
+75,"Bloomington, IN",Metropolitan,57,99.1,39.2347,-86.6759
+76,"Huntsville, AL",Metropolitan,56,442.47,34.7832,-86.7346
+77,"Worcester, MA",Metropolitan,56,62.92,42.3514,-71.9077
+78,"Lansing-East Lansing, MI",Metropolitan,56,143.45,42.7133,-84.607
+79,"Birmingham, AL",Metropolitan,55,10.95,33.4638,-86.8139
+80,"Urban Honolulu, HI",Metropolitan,55,70.9,23.7186,-164.7367
+81,"Santa Cruz-Watsonville, CA",Metropolitan,54,153.28,37.0216,-122.0098
+82,"Des Moines-West Des Moines, IA",Metropolitan,54,223.22,41.5757,-93.7618
+83,"Charlottesville, VA",Metropolitan,54,78.5,37.9501,-78.5929
+84,"Syracuse, NY",Metropolitan,52,25.15,43.201,-76.077
+85,"Colorado Springs, CO",Metropolitan,52,22.25,38.8426,-104.6579
+86,"Dayton-Kettering-Beavercreek, OH",Metropolitan,48,30.64,39.8295,-84.1419
+87,"Hartford-West Hartford-East Hartford, CT",Metropolitan,47,66.9,41.6874,-72.5458
+88,"Fayetteville-Springdale-Rogers, AR",Metropolitan,46,106.94,36.1083,-94.0755
+89,"Omaha, NE-IA",Metropolitan,46,34.7,41.2901,-95.9991
+90,"State College, PA",Metropolitan,45,95.7,40.919,-77.82
+91,"Chattanooga, TN-GA",Metropolitan,44,230.3,35.052,-85.3601
+92,"Fort Collins-Loveland, CO",Metropolitan,43,79.5,40.6664,-105.4611
+93,"Spokane-Spokane Valley, WA",Metropolitan,42,36.45,48.0811,-117.6708
+94,"Salina, KS",Micropolitan,42,84.9,38.9586,-97.6501
+95,"South Bend-Mishawaka, IN-MI",Metropolitan,42,164.73,41.7736,-86.1341
+96,"Baton Rouge, LA",Metropolitan,42,168.24,30.5173,-91.127
+97,"Lincoln, NE",Metropolitan,40,32.8,40.8199,-96.8708
+98,"Portland-South Portland, ME",Metropolitan,39,56.6,43.653,-70.4169
+99,"North Port-Bradenton-Sarasota, FL",Metropolitan,39,52.05,27.3274,-82.4136
+100,"Iowa City, IA",Metropolitan,38,187.3,41.5113,-91.65
+101,"Missoula, MT",Metropolitan,38,113.1,47.0718,-114.2665
+102,"Reno, NV",Metropolitan,37,48.57,40.2588,-119.5532
+103,"Laramie, WY",Micropolitan,36,625.4,41.6545,-105.7239
+104,"Beaumont-Port Arthur, TX",Metropolitan,36,63.6,30.0765,-94.2014
+105,"Asheville, NC",Metropolitan,36,75.85,35.6172,-82.571
+106,"Little Rock-North Little Rock-Conway, AR",Metropolitan,35,22.93,34.7573,-92.3972
+107,"Bridgeport-Stamford-Danbury, CT",Metropolitan,35,43.79,41.2553,-73.383
+108,"Akron, OH",Metropolitan,34,43.28,41.1487,-81.3495
+109,"Columbia, SC",Metropolitan,33,26.9,34.0918,-81.0424
+110,"Bend, OR",Metropolitan,33,27.1,44.1663,-120.8839
+111,"Burlington-South Burlington, VT",Metropolitan,32,114.9,44.6868,-73.0315
+112,"Eugene-Springfield, OR",Metropolitan,32,174.4,43.9416,-122.8766
+113,"Olympia-Lacey-Tumwater, WA",Metropolitan,32,32.45,46.9296,-122.8323
+114,"Ames, IA",Metropolitan,31,107.2,42.0364,-93.6983
+115,"Allentown-Bethlehem-Easton, PA-NJ",Metropolitan,31,73.7,40.7894,-75.4039
+116,"Lexington-Fayette, KY",Metropolitan,31,56.65,38.0905,-84.4331
+117,"Salem, OR",Metropolitan,31,883.28,44.9034,-122.9033
+118,"Amherst Town-Northampton, MA",Metropolitan,29,19.27,42.3402,-72.6638
+119,"San Luis Obispo-Paso Robles, CA",Metropolitan,28,40.83,35.3874,-120.4522
+120,"Fort Wayne, IN",Metropolitan,28,75.3,41.0054,-85.2168
+121,"Wichita, KS",Metropolitan,27,92.62,37.6387,-97.2454
+122,"Springfield, MO",Metropolitan,27,36.77,37.3617,-93.1771
+123,"Fresno, CA",Metropolitan,27,36.72,36.88,-119.6793
+124,"Greensboro-High Point, NC",Metropolitan,26,16.7,36.0259,-79.7916
+125,"Bellingham, WA",Metropolitan,26,43.2,48.8296,-121.8728
+126,"Lubbock, TX",Metropolitan,26,42.3,33.4636,-101.8807
+127,"Bakersfield-Delano, CA",Metropolitan,25,123.47,35.3426,-118.73
+128,"Tallahassee, FL",Metropolitan,25,40.1,30.3491,-84.2757
+129,"Talladega-Sylacauga, AL",Micropolitan,25,255.1,33.1733,-86.204
+130,"Miami, OK",Micropolitan,24,55.8,36.8355,-94.8104
+131,"Santa Fe, NM",Metropolitan,24,44.3,35.5069,-105.9763
+132,"Silver City, NM",Micropolitan,22,39.1,32.739,-108.3825
+133,"Beckley, WV",Metropolitan,22,687.7,37.9062,-81.1609
+134,"Corvallis, OR",Metropolitan,22,100.4,44.4918,-123.4292
+135,"Manchester-Nashua, NH",Metropolitan,22,133.7,42.9153,-71.7161
+136,"Pensacola-Ferry Pass-Brent, FL",Metropolitan,22,10.47,30.605,-87.1569
+137,"Fargo, ND-MN",Metropolitan,22,58.0,46.9178,-96.9655
+138,"Harrisburg-Carlisle, PA",Metropolitan,22,26.3,40.3267,-77.1012
+139,"Oxnard-Thousand Oaks-Ventura, CA",Metropolitan,21,21.5,34.3571,-119.126
+140,"Bozeman, MT",Metropolitan,21,47.9,45.5404,-111.1704
+141,"Casper, WY",Metropolitan,21,49.1,42.9622,-106.7985
+142,"Odessa, TX",Metropolitan,21,49.7,31.8692,-102.5427
+143,"El Paso, TX",Metropolitan,21,10.7,31.5131,-105.541
+144,"Toledo, OH",Metropolitan,21,35.98,41.5406,-83.6934
+145,"Palm Bay-Melbourne-Titusville, FL",Metropolitan,21,127.35,28.3003,-80.7012
+146,"Yakima, WA",Metropolitan,21,184.4,46.457,-120.7385
+147,"Ogden, UT",Metropolitan,20,25.16,41.119,-111.8702
+148,"Columbia, MO",Metropolitan,19,312.3,38.9838,-92.5793
+149,"Kennewick-Richland, WA",Metropolitan,18,18.02,46.3636,-119.2543
+150,"Cape Coral-Fort Myers, FL",Metropolitan,18,15.15,26.5635,-81.9848
+151,"Panama City-Panama City Beach, FL",Metropolitan,18,237.4,30.2743,-85.6427
+152,"Lawrence, KS",Metropolitan,18,126.6,38.8847,-95.2926
+153,"Kiryas Joel-Poughkeepsie-Newburgh, NY",Metropolitan,18,87.73,41.5828,-74.0256
+154,"Lafayette, LA",Metropolitan,17,77.3,30.019,-92.1334
+155,"Youngstown-Warren, OH",Metropolitan,17,11.57,41.1962,-80.7673
+156,"Visalia, CA",Metropolitan,17,313.9,36.2202,-118.8005
+157,"Lewiston-Auburn, ME",Metropolitan,17,58.0,44.1658,-70.2064
+158,"Anchorage, AK",Metropolitan,17,317.8,62.2244,-149.5544
+159,"Mankato, MN",Metropolitan,16,71.6,44.1544,-94.1356
+160,"Deltona-Daytona Beach-Ormond Beach, FL",Metropolitan,16,32.17,29.1799,-81.1898
+161,"Winston-Salem, NC",Metropolitan,16,183.6,36.0767,-80.3458
+162,"Peoria, IL",Metropolitan,15,36.67,40.7892,-89.5159
+163,"Lakeland-Winter Haven, FL",Metropolitan,15,13.43,27.9489,-81.6977
+164,"Hilo-Kailua, HI",Micropolitan,15,28.35,19.6024,-155.5229
+165,"Salinas, CA",Metropolitan,15,132.5,36.2398,-121.3089
+166,"Wilmington, NC",Metropolitan,14,28.6,34.2521,-78.0386
+167,"Merced, CA",Metropolitan,14,20.4,37.1919,-120.7177
+168,"Logan, UT-ID",Metropolitan,14,648.4,41.8896,-111.769
+169,"Athens-Clarke County, GA",Metropolitan,14,123.0,33.949,-83.2138
+170,"Lancaster, PA",Metropolitan,14,27.77,40.0424,-76.2477
+171,"Savannah, GA",Metropolitan,14,51.4,32.1069,-81.2713
+172,"Tuscaloosa, AL",Metropolitan,13,84.65,33.1098,-87.7645
+173,"Galesburg, IL",Micropolitan,13,17.8,40.9318,-90.2132
+174,"Utica-Rome, NY",Metropolitan,13,10.8,43.3372,-75.1814
+175,"Waterbury-Shelton, CT",Metropolitan,13,62.74,41.5232,-73.086
+176,"Lynchburg, VA",Metropolitan,13,6.3,37.365,-79.2197
+177,"Bremerton-Silverdale-Port Orchard, WA",Metropolitan,13,72.12,47.6396,-122.6492
+178,"Rochester, MN",Metropolitan,12,358.4,43.956,-92.3381
+179,"Flagstaff, AZ",Metropolitan,12,44.6,35.8387,-111.7705
+180,"Macon-Bibb County, GA",Metropolitan,12,51.3,32.8577,-83.7149
+181,"Parkersburg-Vienna, WV",Metropolitan,12,12.1,39.1388,-81.4627
+182,"Erie, PA",Metropolitan,12,66.1,42.1175,-80.0982
+183,"Morgantown, WV",Metropolitan,12,55.6,39.5273,-79.8045
+184,"Binghamton, NY",Metropolitan,11,22.55,42.1645,-76.0251
+185,"Roanoke, VA",Metropolitan,11,460.6,37.2861,-79.9466
+186,"Vallejo, CA",Metropolitan,11,8.57,38.2669,-121.94
+187,"Bloomington, IL",Metropolitan,11,45.15,40.4909,-88.8473
+188,"Idaho Falls, ID",Metropolitan,11,89.0,43.6225,-112.4279
+189,"Jackson, MS",Metropolitan,11,193.47,32.4277,-90.136
+190,"Chico, CA",Metropolitan,11,34.4,39.6669,-121.6007
+191,"Davenport-Moline-Rock Island, IA-IL",Metropolitan,11,120.86,41.3969,-90.4659
+192,"Pullman, WA",Micropolitan,10,72.8,46.9012,-117.5231
+193,"Durango, CO",Micropolitan,10,71.3,37.2866,-107.8433
+194,"Columbus, GA-AL",Metropolitan,10,43.3,32.4182,-84.8439
+195,"Terre Haute, IN",Metropolitan,10,115.8,39.3919,-87.344
+196,"Bartlesville, OK",Micropolitan,10,105.9,36.7152,-95.9044
+197,"Muskogee, OK",Micropolitan,10,22.5,35.6161,-95.3795
+198,"Augusta-Richmond County, GA-SC",Metropolitan,10,30.95,33.461,-81.9829
+199,"Santa Rosa-Petaluma, CA",Metropolitan,10,49.38,38.5254,-122.9227
+200,"Las Cruces, NM",Metropolitan,10,356.6,32.3526,-106.8327
+201,"Scranton--Wilkes-Barre, PA",Metropolitan,10,25.85,41.3232,-75.8957
+202,"Auburn-Opelika, AL",Metropolitan,10,21.85,32.4939,-85.5236
+203,"Gainesville, GA",Metropolitan,10,19.2,34.3171,-83.8196
+204,"Mobile, AL",Metropolitan,10,334.8,30.6852,-88.1975
+205,"Sioux Falls, SD-MN",Metropolitan,10,108.6,43.5273,-96.8739
+206,"Monroe, MI",Metropolitan,10,65.9,41.9214,-83.4943
+207,"Shreveport-Bossier City, LA",Metropolitan,10,212.1,32.4388,-93.7451
+208,"Billings, MT",Metropolitan,9,12.9,45.64,-108.8219
+209,"McAllen-Edinburg-Mission, TX",Metropolitan,9,16.35,26.3967,-98.1811
+210,"Waco, TX",Metropolitan,9,32.8,31.5945,-97.2829
+211,"Bowling Green, KY",Metropolitan,9,6.1,37.0387,-86.4071
+212,"Burlington, NC",Metropolitan,9,16.5,36.0437,-79.3994
+213,"Cedar Rapids, IA",Metropolitan,9,826.65,42.0915,-91.6313
+214,"Corpus Christi, TX",Metropolitan,9,17.15,27.8928,-97.4013
+215,"Coeur d'Alene, ID",Metropolitan,9,5.83,47.6744,-116.7018
+216,"Fairbanks-College, AK",Metropolitan,9,33.4,64.8078,-146.5654
+217,"Stockton-Lodi, CA",Metropolitan,9,7.76,37.9348,-121.2714
+218,"St. George, UT",Metropolitan,9,325.0,37.2804,-113.5047
+219,"Stillwater, OK",Micropolitan,9,24.2,36.0773,-96.9756
+220,"Port St. Lucie, FL",Metropolitan,9,15.77,27.2247,-80.421
+221,"Montgomery, AL",Metropolitan,8,171.6,32.3606,-86.4032
+222,"Redding, CA",Metropolitan,8,5.7,40.7638,-122.0405
+223,"Green Bay, WI",Metropolitan,8,68.3,44.6988,-87.8251
+224,"Mount Pleasant, TX",Micropolitan,8,11.1,33.1309,-94.9007
+225,"Longview, TX",Metropolitan,8,32.0,32.4311,-94.6752
+226,"Kingston, NY",Metropolitan,8,19.9,41.8881,-74.2586
+227,"Hattiesburg, MS",Metropolitan,8,97.9,31.1874,-89.2287
+228,"San Angelo, TX",Metropolitan,8,26.7,31.3637,-100.673
+229,"Cedar City, UT",Micropolitan,8,11.7,37.8592,-113.2895
+230,"Flint, MI",Metropolitan,8,12.55,43.0217,-83.7067
+231,"Springfield, IL",Metropolitan,8,42.8,39.8296,-89.6969
+232,"Duluth, MN-WI",Metropolitan,8,14.95,47.3185,-92.3928
+233,"Amarillo, TX",Metropolitan,8,12.6,35.2489,-101.9095
+234,"Sebring, FL",Metropolitan,7,3.5,27.3434,-81.341
+235,"Morristown, TN",Metropolitan,7,191.6,36.1107,-83.3818
+236,"Harrisonburg, VA",Metropolitan,7,26.6,38.5105,-78.8757
+237,"Manhattan, KS",Metropolitan,7,17.9,39.2714,-96.5594
+238,"Sioux City, IA-NE-SD",Metropolitan,7,1080.8,42.5189,-96.3088
+239,"Mexico, MO",Micropolitan,7,18.6,39.2158,-91.8416
+240,"Springfield, MA",Metropolitan,7,24.36,42.1351,-72.6316
+241,"Dover, DE",Metropolitan,7,9.1,39.096,-75.5046
+242,"Eau Claire, WI",Metropolitan,7,131.0,44.9388,-91.2822
+243,"Charleston, WV",Metropolitan,7,6.9,38.2717,-81.4917
+244,"Naples-Marco Island, FL",Metropolitan,7,618.7,26.1004,-81.4445
+245,"Mount Vernon-Anacortes, WA",Metropolitan,7,1795.55,48.4821,-121.8016
+246,"Rexburg, ID",Micropolitan,7,9.7,44.1405,-111.5172
+247,"Prescott Valley-Prescott, AZ",Metropolitan,6,42.85,34.5998,-112.5537
+248,"Topeka, KS",Metropolitan,6,37.3,39.0438,-95.8031
+249,"Crestview-Fort Walton Beach-Destin, FL",Metropolitan,6,154.03,30.592,-86.3711
+250,"Edwards, CO",Micropolitan,6,21.8,39.6278,-106.6953
+251,"Truckee-Grass Valley, CA",Micropolitan,6,438.15,39.3014,-120.7688
+252,"Grand Junction, CO",Metropolitan,6,335.85,39.0183,-108.4664
+253,"Carson City, NV",Metropolitan,6,15.5,39.1511,-119.7476
+254,"Monroe, LA",Metropolitan,6,51.77,32.6718,-92.0497
+255,"Starkville, MS",Micropolitan,6,12.0,33.515,-89.0734
+256,"Moscow, ID",Micropolitan,6,104.8,46.8162,-116.7117
+257,"Mount Pleasant, MI",Micropolitan,6,12.5,43.6406,-84.8468
+258,"Montrose, CO",Micropolitan,6,266.7,38.4022,-108.2695
+259,"Myrtle Beach-Conway-North Myrtle Beach, SC",Metropolitan,6,42.73,33.9045,-78.9762
+260,"Rapid City, SD",Metropolitan,6,666.8,44.1915,-102.8999
+261,"Modesto, CA",Metropolitan,6,11.93,37.5592,-120.9977
+262,"Lima, OH",Metropolitan,6,4.3,40.7715,-84.1058
+263,"Cape Girardeau, MO-IL",Metropolitan,6,61.8,37.3245,-89.7698
+264,"Killeen-Temple, TX",Metropolitan,6,11.6,31.2078,-97.7876
+265,"Hilton Head Island-Bluffton-Port Royal, SC",Metropolitan,6,209.52,32.3845,-80.8347
+266,"Brownsville-Harlingen, TX",Metropolitan,6,126.7,26.1509,-97.4521
+267,"Waterloo-Cedar Falls, IA",Metropolitan,6,8.2,42.5362,-92.4712
+268,"Rolla, MO",Micropolitan,6,69.5,37.8771,-91.7924
+269,"Valdosta, GA",Metropolitan,6,3.4,30.8295,-83.2416
+270,"Augusta-Waterville, ME",Micropolitan,5,18.35,44.4092,-69.7673
+271,"Marion-Herrin, IL",Micropolitan,5,127.95,37.7303,-88.9299
+272,"Jackson, MI",Metropolitan,5,108.6,42.2485,-84.4234
+273,"Medford, OR",Metropolitan,5,32.55,42.4322,-122.7285
+274,"Ruston, LA",Micropolitan,5,9.1,32.6016,-92.6649
+275,"Rutland, VT",Micropolitan,5,13.7,43.5802,-73.0364
+276,"Hickory-Lenoir-Morganton, NC",Metropolitan,5,1.33,35.8129,-81.4543
+277,"Kingsport-Bristol, TN-VA",Metropolitan,5,18.43,36.6078,-82.4426
+278,"Abilene, TX",Metropolitan,5,25.9,32.4497,-99.7177
+279,"Concord, NH",Micropolitan,5,76.1,43.2975,-71.6803
+280,"Tiffin, OH",Micropolitan,5,290.55,41.1239,-83.1277
+281,"Tyler, TX",Metropolitan,5,43.5,32.375,-95.2692
+282,"Somerset, KY",Micropolitan,5,65.5,37.1039,-84.5772
+283,"Muncie, IN",Metropolitan,5,62.9,40.2275,-85.3969
+284,"Appleton, WI",Metropolitan,5,21.6,44.289,-88.3712
+285,"Williamsport, PA",Metropolitan,5,89.1,41.3434,-77.0645
+286,"Gulfport-Biloxi, MS",Metropolitan,5,208.43,30.4836,-89.0006
+287,"Salisbury, MD",Metropolitan,5,81.9,38.1949,-75.7654
+288,"Sebastian-Vero Beach-West Vero Corridor, FL",Metropolitan,5,34.9,27.6965,-80.5741
+289,"Evansville, IN",Metropolitan,5,14.3,38.0488,-87.5818
+290,"Winchester, VA-WV",Metropolitan,4,6.0,39.2722,-78.4739
+291,"Olean, NY",Micropolitan,4,65.5,42.2487,-78.6788
+292,"Athens, OH",Micropolitan,4,24.4,39.3339,-82.0451
+293,"Andrews, TX",Micropolitan,4,10.5,32.305,-102.6378
+294,"Spearfish, SD",Micropolitan,4,2.5,44.3586,-103.7922
+295,"Punta Gorda, FL",Metropolitan,4,29.55,26.8967,-81.9974
+296,"Midland, MI",Metropolitan,4,161.4,43.6469,-84.3881
+297,"Española, NM",Micropolitan,4,7.1,36.5096,-106.6931
+298,"Stevens Point-Plover, WI",Micropolitan,4,154.4,44.476,-89.5014
+299,"Staunton-Stuarts Draft, VA",Metropolitan,4,20.6,38.1629,-79.1289
+300,"Fairmont, MN",Micropolitan,4,266.8,43.6744,-94.5511
+301,"Fayetteville, NC",Metropolitan,4,13.9,35.0371,-78.9804
+302,"Ellensburg, WA",Micropolitan,4,5.3,47.1243,-120.6797
+303,"Elizabethtown, KY",Metropolitan,4,30.9,37.6531,-85.8852
+304,"Batavia, NY",Micropolitan,4,19.3,43.0009,-78.1937
+305,"Greeley, CO",Metropolitan,4,75.4,40.5548,-104.3925
+306,"Sheridan, WY",Micropolitan,4,8.6,44.79,-106.8794
+307,"Bismarck, ND",Metropolitan,4,10.65,46.8841,-100.9786
+308,"Chambersburg, PA",Metropolitan,4,4.1,39.9274,-77.7213
+309,"Tupelo, MS",Micropolitan,4,631.1,34.3836,-88.5108
+310,"Key West-Key Largo, FL",Micropolitan,4,13.4,25.0391,-81.3642
+311,"Indiana, PA",Micropolitan,4,22.1,40.652,-79.0876
+312,"Hutchinson, KS",Micropolitan,4,5.6,37.953,-98.086
+313,"Jonesboro, AR",Metropolitan,4,38.0,35.6982,-90.6484
+314,"Johnson City, TN",Metropolitan,4,107.85,36.2537,-82.3344
+315,"Greenville, NC",Metropolitan,4,21.5,35.5933,-77.3745
+316,"Meadville, PA",Micropolitan,4,10.0,41.6847,-80.1062
+317,"Jackson, TN",Metropolitan,4,3.0,35.7463,-88.8811
+318,"Vermillion, SD",Micropolitan,4,12.5,42.9146,-96.9756
+319,"Kalamazoo-Portage, MI",Metropolitan,4,14.8,42.2455,-85.5312
+320,"Brainerd, MN",Micropolitan,4,4.0,46.7991,-94.2434
+321,"Los Alamos, NM",Micropolitan,4,70.0,35.8693,-106.3073
+322,"Albany, OR",Metropolitan,4,2.0,44.4887,-122.5344
+323,"Rockford, IL",Metropolitan,4,7.65,42.3316,-89.0421
+324,"Ocala, FL",Metropolitan,4,219.5,29.2102,-82.0567
+325,"Wenatchee-East Wenatchee, WA",Metropolitan,4,12.6,47.8185,-120.2656
+326,"Weirton-Steubenville, WV-OH",Metropolitan,3,89.3,40.388,-80.7043
+327,"Wausau, WI",Metropolitan,3,4.2,44.8983,-89.7591
+328,"Lake City, FL",Micropolitan,3,363.7,30.2242,-82.6215
+329,"Atlantic City-Hammonton, NJ",Metropolitan,3,293.75,39.2851,-74.7373
+330,"Laurinburg, NC",Micropolitan,3,12.7,34.8409,-79.4804
+331,"Lexington Park, MD",Metropolitan,3,7.25,38.3153,-76.5295
+332,"Lawton, OK",Metropolitan,3,99.0,34.5242,-98.4348
+333,"Huntington-Ashland, WV-KY-OH",Metropolitan,3,11.0,38.3587,-82.5685
+334,"Marquette, MI",Micropolitan,3,1.5,46.6629,-87.5735
+335,"Marietta, OH",Micropolitan,3,1.8,39.4553,-81.4953
+336,"Roseburg, OR",Micropolitan,3,43.7,43.2853,-123.1796
+337,"Boone, NC",Micropolitan,3,21.5,36.2311,-81.6964
+338,"Jackson, WY-ID",Micropolitan,3,21.0,43.9178,-110.6492
+339,"Huntsville, TX",Micropolitan,3,27.7,30.739,-95.5723
+340,"Joplin, MO-KS",Metropolitan,3,335.5,37.0924,-94.5011
+341,"Brookings, SD",Micropolitan,3,4.0,44.3697,-96.7904
+342,"Grand Forks, ND-MN",Metropolitan,3,177.3,47.836,-96.8444
+343,"Sherman-Denison, TX",Metropolitan,3,3.0,33.6268,-96.6777
+344,"Great Falls, MT",Metropolitan,3,142.3,47.308,-111.347
+345,"Sevierville, TN",Micropolitan,3,126.5,35.7847,-83.5242
+346,"Dubuque, IA",Metropolitan,3,397.7,42.4688,-90.8825
+347,"Dothan, AL",Metropolitan,3,3.0,31.2529,-85.4617
+348,"Sumter, SC",Metropolitan,3,29.0,33.9162,-80.3823
+349,"Portsmouth, OH",Micropolitan,3,48.7,38.8039,-82.9929
+350,"Newport, OR",Micropolitan,3,36.0,44.6458,-123.9077
+351,"St. Marys, PA",Micropolitan,3,144.0,41.4251,-78.6491
+352,"Pottsville, PA",Micropolitan,3,271.0,40.7058,-76.2159
+353,"Pocatello, ID",Metropolitan,3,8.7,42.6685,-112.2246
+354,"Clarksville, TN-KY",Metropolitan,3,12.0,36.6929,-87.6231
+355,"Canton-Massillon, OH",Metropolitan,3,29.7,40.7187,-81.2535
+356,"Bangor, ME",Metropolitan,3,8.5,45.4005,-68.6494
+357,"Cadillac, MI",Micropolitan,3,3.2,44.3378,-85.3369
+358,"Cookeville, TN",Micropolitan,3,2.8,36.1914,-85.4637
+359,"Cheyenne, WY",Metropolitan,3,264.3,41.3071,-104.6896
+360,"Oshkosh-Neenah, WI",Metropolitan,3,255.0,44.0689,-88.6447
+361,"Clovis, NM",Micropolitan,3,14.8,34.2237,-103.4313
+362,"Faribault-Northfield, MN",Micropolitan,3,1013.0,44.3543,-93.2967
+363,"Reading, PA",Metropolitan,3,10.7,40.4163,-75.926
+364,"Frankfort, KY",Micropolitan,3,1.7,38.1239,-84.9329
+365,"Spartanburg, SC",Metropolitan,3,48.8,34.8379,-81.8476
+366,"Elmira, NY",Metropolitan,3,20.8,42.1413,-76.76
+367,"Elkhart-Goshen, IN",Metropolitan,3,1.5,41.5974,-85.8588
+368,"Pahrump, NV",Micropolitan,2,98.0,38.0424,-116.4719
+369,"Alexandria, LA",Metropolitan,2,3.25,31.3306,-92.5418
+370,"Lake Charles, LA",Metropolitan,2,2.0,30.0358,-93.1774
+371,"Lake Havasu City-Kingman, AZ",Metropolitan,2,5.5,35.7041,-113.7579
+372,"Riverton, WY",Micropolitan,2,3.0,43.0405,-108.6304
+373,"Lewiston, ID-WA",Metropolitan,2,99.3,46.2692,-116.9437
+374,"Warner Robins, GA",Metropolitan,2,2.5,32.4903,-83.712
+375,"Oxford, MS",Micropolitan,2,3.5,34.2186,-89.5786
+376,"Aberdeen, WA",Micropolitan,2,4.0,47.1444,-123.8286
+377,"Warrensburg, MO",Micropolitan,2,45.8,38.7441,-93.8064
+378,"Celina, OH",Micropolitan,2,28.3,40.54,-84.6294
+379,"Richmond, IN",Micropolitan,2,1.3,39.8644,-85.0099
+380,"Richmond-Berea, KY",Micropolitan,2,8.5,37.6025,-84.2109
+381,"Bloomsburg-Berwick, PA",Micropolitan,2,10.8,41.0486,-76.4051
+382,"Sanford, NC",Micropolitan,2,7.3,35.4752,-79.1715
+383,"Hanford-Corcoran, CA",Metropolitan,2,1.5,36.0752,-119.8155
+384,"Janesville-Beloit, WI",Metropolitan,2,13.0,42.6712,-89.0716
+385,"Jasper, IN",Micropolitan,2,6.0,38.3643,-86.8798
+386,"Jacksonville, NC",Metropolitan,2,2.0,34.7098,-77.4158
+387,"Houma-Bayou Cane-Thibodaux, LA",Metropolitan,2,7.3,29.4048,-90.6575
+388,"Kirksville, MO",Micropolitan,2,176.3,40.289,-92.5726
+389,"Vernal, UT",Micropolitan,2,1.0,40.1248,-109.5186
+390,"Kahului-Wailuku, HI",Metropolitan,2,23.25,20.8752,-156.6243
+391,"Kalispell, MT",Micropolitan,2,4.8,48.2951,-114.0497
+392,"Logansport, IN",Micropolitan,2,1.0,40.7615,-86.3459
+393,"Madisonville, KY",Micropolitan,2,1.0,37.3088,-87.5408
+394,"LaGrange, GA-AL",Micropolitan,2,157.3,32.9651,-85.2373
+395,"Laconia, NH",Micropolitan,2,20.5,43.518,-71.4227
+396,"La Crosse-Onalaska, WI-MN",Metropolitan,2,4.8,43.6983,-91.1076
+397,"Saginaw, MI",Metropolitan,2,5.5,43.335,-84.0532
+398,"Roswell, NM",Micropolitan,2,6.0,33.3633,-104.4669
+399,"Brenham, TX",Micropolitan,2,4.0,30.2145,-96.4034
+400,"Rome, GA",Metropolitan,2,34.3,34.2632,-85.2143
+401,"York-Hanover, PA",Metropolitan,2,4562.5,39.92,-76.7265
+402,"Wheeling, WV-OH",Metropolitan,2,70.8,39.9748,-80.8413
+403,"Zanesville, OH",Micropolitan,2,4.0,39.9654,-81.9444
+404,"Farmington, MO",Micropolitan,2,4.3,37.8103,-90.4723
+405,"Farmington, NM",Metropolitan,2,80.8,36.5085,-108.3206
+406,"Twin Falls, ID",Metropolitan,2,20.5,42.4357,-114.5708
+407,"Fort Smith, AR-OK",Metropolitan,2,25.5,35.4392,-94.4484
+408,"Gadsden, AL",Metropolitan,2,1.5,34.0453,-86.0348
+409,"Carlsbad-Artesia, NM",Micropolitan,2,8.5,32.4715,-104.3045
+410,"Durant, OK",Micropolitan,2,110.5,33.9622,-96.2598
+411,"Dyersburg, TN",Micropolitan,2,8.5,36.0592,-89.4137
+412,"Eagle Pass, TX",Metropolitan,2,23.0,28.7426,-100.3145
+413,"New Philadelphia-Dover, OH",Micropolitan,2,21.0,40.4409,-81.4738
+414,"Nogales, AZ",Micropolitan,2,162.0,31.526,-110.8465
+415,"Mount Airy, NC",Micropolitan,2,38.0,36.4147,-80.6879
+416,"El Centro, CA",Metropolitan,2,8.25,33.0396,-115.3653
+417,"Eureka-Arcata, CA",Micropolitan,2,22.0,40.705,-123.9158
+418,"Fairmont, WV",Micropolitan,2,150.5,39.51,-80.2434
+419,"Enid, OK",Metropolitan,2,1.5,36.3791,-97.7827
+420,"St. Joseph, MO-KS",Metropolitan,2,894.0,39.8341,-94.7838
+421,"Pueblo, CO",Metropolitan,2,8.3,38.1734,-104.5128
+422,"Murray, KY",Micropolitan,2,1.0,36.6211,-88.2722
+423,"Findlay, OH",Micropolitan,2,5.8,41.0019,-83.6665
+424,"Napa, CA",Metropolitan,2,36.0,38.507,-122.3306
+425,"Dublin, GA",Micropolitan,2,2.8,32.5286,-82.8507
+426,"The Dalles, OR",Micropolitan,2,65.3,45.16,-121.1678
+427,"Tifton, GA",Micropolitan,2,2.0,31.592,-83.5773
+428,"Traverse City, MI",Metropolitan,2,33.5,44.9414,-85.9058
+429,"Pittsfield, MA",Metropolitan,2,5.0,42.3707,-73.2064
+430,"Port Angeles, WA",Micropolitan,2,1.0,48.1103,-123.9342
+431,"Plainview, TX",Micropolitan,2,1.5,34.0715,-101.5667
+432,"Nacogdoches, TX",Micropolitan,2,14.3,31.616,-94.6159
+433,"DeRidder, LA",Micropolitan,2,65.8,30.6486,-93.3432
+434,"Cortland, NY",Micropolitan,2,3.5,42.595,-76.0703
+435,"Decatur, IL",Metropolitan,2,971.3,39.86,-88.9616
+436,"Decatur, AL",Metropolitan,2,5.5,34.4906,-87.1026
+437,"Wisconsin Rapids-Marshfield, WI",Micropolitan,2,418.5,44.4553,-90.0415
+438,"Wichita Falls, TX",Metropolitan,2,1.5,33.7748,-98.4914
+439,"Winona, MN",Micropolitan,2,1.5,43.9868,-91.7792
+440,"Arkadelphia, AR",Micropolitan,2,33.0,34.0509,-93.1764
+441,"Barnstable Town, MA",Metropolitan,2,1.0,41.7734,-70.2381
+442,"Ada, OK",Micropolitan,1,1.0,34.728,-96.6844
+443,"Adrian, MI",Micropolitan,1,1.0,41.8951,-84.0664
+444,"Alamogordo, NM",Micropolitan,1,2.0,32.6131,-105.7414
+445,"Alexandria, MN",Micropolitan,1,790.5,45.9337,-95.4535
+446,"Alice, TX",Micropolitan,1,1.0,27.368,-98.1568
+447,"Alpena, MI",Micropolitan,1,1.0,45.0311,-83.1652
+448,"Willmar, MN",Micropolitan,1,8.5,45.1524,-95.0047
+449,"Wilmington, OH",Micropolitan,1,120.0,39.4149,-83.8084
+450,"Wooster, OH",Micropolitan,1,19.0,40.8289,-81.888
+451,"Yankton, SD",Micropolitan,1,1.0,43.009,-97.3948
+452,"Owensboro, KY",Metropolitan,1,7.0,37.661,-87.1488
+453,"Owosso, MI",Micropolitan,1,4.0,42.9537,-84.1467
+454,"Paris, TX",Micropolitan,1,1.0,33.6425,-95.2947
+455,"Payson, AZ",Micropolitan,1,20.0,33.7997,-110.8116
+456,"Peru, IN",Micropolitan,1,2.0,40.7695,-86.045
+457,"Ocean Pines, MD",Micropolitan,1,10.0,38.2165,-75.2967
+458,"Oil City, PA",Micropolitan,1,1.0,41.401,-79.758
+459,"Opelousas, LA",Micropolitan,1,9.0,30.5989,-92.0058
+460,"Oskaloosa, IA",Micropolitan,1,6.0,41.3352,-92.6409
+461,"Ottawa, IL",Micropolitan,1,85.0,41.357,-89.1733
+462,"Ottawa, KS",Micropolitan,1,1.0,38.5645,-95.2859
+463,"Ottumwa, IA",Micropolitan,1,335.0,41.0306,-92.4094
+464,"Pierre, SD",Micropolitan,1,440.0,44.4043,-100.4804
+465,"Pine Bluff, AR",Micropolitan,1,3.5,34.1224,-92.0308
+466,"Plattsburgh, NY",Micropolitan,1,310.0,44.7462,-73.6782
+467,"Natchez, MS-LA",Micropolitan,1,94.0,31.5426,-91.3801
+468,"New Bern, NC",Micropolitan,1,10.5,35.1029,-77.0253
+469,"Norwich-New London-Willimantic, CT",Metropolitan,1,70.0,41.4848,-72.1007
+470,"Oak Harbor, WA",Micropolitan,1,139.5,48.1629,-122.5753
+471,"Mount Vernon, OH",Micropolitan,1,1.0,40.3988,-82.4215
+472,"Muscatine, IA",Micropolitan,1,31.0,41.4839,-91.1128
+473,"Muskegon-Norton Shores, MI",Metropolitan,1,40.0,43.2899,-86.5352
+474,"Menomonie, WI",Micropolitan,1,30.0,44.9466,-91.8964
+475,"Minden, LA",Micropolitan,1,258.0,32.7135,-93.335
+476,"Mineral Wells, TX",Micropolitan,1,35.0,32.7532,-98.313
+477,"Minot, ND",Metropolitan,1,1.0,48.3188,-101.2077
+478,"Mitchell, SD",Micropolitan,1,7.0,43.8131,-98.0163
+479,"Racine-Mount Pleasant, WI",Metropolitan,1,80.0,42.7512,-87.6961
+480,"Red Bluff, CA",Micropolitan,1,1748.5,40.1257,-122.2339
+481,"Red Wing, MN",Micropolitan,1,1.5,44.4097,-92.7229
+482,"Rio Grande City-Roma, TX",Micropolitan,1,24.0,26.5621,-98.7384
+483,"Mansfield, OH",Metropolitan,1,84.0,40.7747,-82.5365
+484,"Marinette, WI-MI",Micropolitan,1,5.0,45.4318,-87.7736
+485,"Marion, OH",Micropolitan,1,67.0,40.5872,-83.1609
+486,"Maryville, MO",Micropolitan,1,6.5,40.3608,-94.8834
+487,"Massena-Ogdensburg, NY",Micropolitan,1,1.0,44.4964,-75.0689
+488,"Mayfield, KY",Micropolitan,1,4.0,36.7231,-88.6512
+489,"McAlester, OK",Micropolitan,1,48.0,34.9239,-95.7484
+490,"McMinnville, TN",Micropolitan,1,4.0,35.6787,-85.7785
+491,"Longview-Kelso, WA",Metropolitan,1,1.0,46.1932,-122.681
+492,"Lufkin, TX",Micropolitan,1,12.5,31.2548,-94.6119
+493,"Lumberton, NC",Micropolitan,1,5.0,34.6402,-79.1039
+494,"Laredo, TX",Metropolitan,1,4.0,27.7611,-99.3316
+495,"Lawrenceburg, TN",Micropolitan,1,12.0,35.2173,-87.3956
+496,"Lewisburg, TN",Micropolitan,1,1.0,35.4689,-86.765
+497,"Liberal, KS",Micropolitan,1,2.0,37.1933,-100.8513
+498,"Rocky Mount, NC",Metropolitan,1,231.5,35.941,-77.7985
+499,"Klamath Falls, OR",Micropolitan,1,105.0,42.6864,-121.6501
+500,"Kokomo, IN",Metropolitan,1,7.5,40.4836,-86.1169
+501,"La Grande, OR",Micropolitan,1,608.0,45.3102,-118.0088
+502,"Juneau, AK",Micropolitan,1,1.0,58.4443,-134.2314
+503,"Kankakee, IL",Metropolitan,1,20.0,41.1377,-87.8618
+504,"Kearney, NE",Micropolitan,1,776.0,40.7349,-99.0312
+505,"Kennett, MO",Micropolitan,1,45.0,36.2721,-90.0909
+506,"Kenosha, WI",Metropolitan,1,1.5,42.5785,-87.6531
+507,"Jamestown, ND",Micropolitan,1,502.0,46.9793,-98.9588
+508,"Jamestown-Dunkirk, NY",Micropolitan,1,2.0,42.3029,-79.4058
+509,"Jefferson City, MO",Metropolitan,1,20.0,38.6398,-92.0917
+510,"Johnstown, PA",Metropolitan,1,1.0,40.4952,-78.7134
+511,"Hermitage, PA",Micropolitan,1,3.0,41.3022,-80.2577
+512,"Hot Springs, AR",Metropolitan,1,5.0,34.5767,-93.1504
+513,"Huron, SD",Micropolitan,1,1.0,44.4145,-98.2781
+514,"Sandusky, OH",Metropolitan,1,1.0,41.5302,-82.7909
+515,"Greenville, OH",Micropolitan,1,1.0,40.1332,-84.6193
+516,"Greenwood, MS",Micropolitan,1,1.0,33.4984,-90.1064
+517,"Hammond, LA",Metropolitan,1,4.5,30.6266,-90.4057
+518,"Harrison, AR",Micropolitan,1,11.0,36.0846,-93.1643
+519,"Hastings, NE",Micropolitan,1,64.0,40.408,-98.3499
+520,"Hays, KS",Micropolitan,1,2.0,38.9148,-99.3172
+521,"Henderson, NC",Micropolitan,1,6.0,36.3649,-78.4079
+522,"Scottsbluff, NE",Micropolitan,1,10.0,41.6985,-103.7092
+523,"Seaford, DE",Micropolitan,1,262.5,38.6833,-75.3395
+524,"Selma, AL",Micropolitan,1,1.0,32.326,-87.1065
+525,"Seymour, IN",Micropolitan,1,52.5,38.9064,-86.0375
+526,"Sheboygan, WI",Metropolitan,1,3.5,43.7197,-87.6348
+527,"Show Low, AZ",Micropolitan,1,406.0,35.3996,-110.3214
+528,"Sierra Vista-Douglas, AZ",Metropolitan,1,2.0,31.8796,-109.7513
+529,"Glens Falls, NY",Metropolitan,1,2524.5,43.4435,-73.6488
+530,"Grand Island, NE",Metropolitan,1,1.0,41.0867,-98.3653
+531,"Grand Rapids, MN",Micropolitan,1,1.0,47.5095,-93.632
+532,"Grants Pass, OR",Metropolitan,1,3.5,42.3655,-123.5555
+533,"Great Bend, KS",Micropolitan,1,40.0,38.479,-98.7565
+534,"Greencastle, IN",Micropolitan,1,9.0,39.6663,-86.845
+535,"Greeneville, TN",Micropolitan,1,16.0,36.1754,-82.8458
+536,"Greenfield, MA",Micropolitan,1,94.0,42.5831,-72.5919
+537,"Greenville, MS",Micropolitan,1,37.0,33.2838,-90.9473
+538,"Fort Madison, IA",Micropolitan,1,110.0,40.642,-91.4793
+539,"Fredericksburg, TX",Micropolitan,1,37.0,30.3181,-98.9465
+540,"Fremont, NE",Micropolitan,1,14.0,41.5779,-96.654
+541,"Gaffney, SC",Micropolitan,1,1.0,35.0481,-81.6205
+542,"Gallup, NM",Micropolitan,1,3.5,35.5807,-108.2618
+543,"Gardnerville Ranchos, NV-CA",Micropolitan,1,77.0,38.7546,-119.7185
+544,"Glasgow, KY",Micropolitan,1,1.0,36.9748,-85.8216
+545,"Slidell-Mandeville-Covington, LA",Metropolitan,1,3.5,30.4079,-89.9546
+546,"Florence, SC",Metropolitan,1,287.0,34.152,-79.8085
+547,"Florence-Muscle Shoals, AL",Metropolitan,1,16.5,34.8082,-87.724
+548,"Forrest City, AR",Micropolitan,1,212.0,35.022,-90.7478
+549,"El Campo, TX",Micropolitan,1,22764.0,29.2779,-96.2221
+550,"El Dorado, AR",Micropolitan,1,65.0,33.1714,-92.5973
+551,"Elizabeth City, NC",Micropolitan,1,1.0,36.265,-76.2492
+552,"Emporia, KS",Micropolitan,1,15.0,38.3829,-96.3626
+553,"Evanston, WY-UT",Micropolitan,1,1.0,41.4059,-110.7869
+554,"Statesboro, GA",Micropolitan,1,22.0,32.3457,-81.7738
+555,"Steamboat Springs, CO",Micropolitan,1,10.0,40.5741,-107.8033
+556,"Stephenville, TX",Micropolitan,1,693.0,32.2363,-98.218
+557,"Sterling, CO",Micropolitan,1,12.5,40.7247,-103.1101
+558,"Storm Lake, IA",Micropolitan,1,11.5,42.7355,-95.1511
+559,"Sulphur Springs, TX",Micropolitan,1,12.5,33.1496,-95.564
+560,"Susanville, CA",Micropolitan,1,2.0,40.6736,-120.5943
+561,"Tahlequah, OK",Micropolitan,1,6.0,35.9067,-94.9997
+562,"Douglas, GA",Micropolitan,1,1066.0,31.4577,-82.8604
+563,"Dumas, TX",Micropolitan,1,21.0,35.8377,-101.8929
+564,"East Stroudsburg, PA",Micropolitan,1,12.0,41.0581,-75.3395
+565,"Effingham, IL",Micropolitan,1,45.0,39.1495,-88.4429
+566,"Cullman, AL",Micropolitan,1,8.0,34.1319,-86.8676
+567,"Cumberland, MD-WV",Micropolitan,1,1.0,39.5317,-78.8044
+568,"Danville, IL",Micropolitan,1,6.0,40.1834,-87.7328
+569,"Danville, KY",Micropolitan,1,3.5,37.515,-84.7335
+570,"Danville, VA",Micropolitan,1,1.0,36.8111,-79.3976
+571,"Daphne-Fairhope-Foley, AL",Metropolitan,1,60.0,30.661,-87.7498
+572,"Texarkana, TX-AR",Metropolitan,1,1.0,33.4736,-94.214
+573,"Tullahoma-Manchester, TN",Micropolitan,1,161.0,35.4432,-86.1402
+574,"Connersville, IN",Micropolitan,1,1.0,39.6401,-85.1787
+575,"Cordele, GA",Micropolitan,1,7.0,31.9229,-83.7681
+576,"Corinth, MS",Micropolitan,1,1.0,34.8808,-88.5803
+577,"Corning, NY",Micropolitan,1,2.0,42.2678,-77.3838
+578,"Corsicana, TX",Micropolitan,1,71.0,32.0469,-96.4725
+579,"Crawfordsville, IN",Micropolitan,1,1.0,40.0404,-86.8933
+580,"Clarksburg, WV",Micropolitan,1,2.0,39.2886,-80.4304
+581,"Butte-Silver Bow, MT",Micropolitan,1,9.0,45.9024,-112.6567
+582,"Camden, AR",Micropolitan,1,4.0,33.5771,-92.7073
+583,"Campbellsville, KY",Micropolitan,1,5.5,37.3142,-85.4428
+584,"Cañon City, CO",Micropolitan,1,5.0,38.4731,-105.4395
+585,"Ukiah, CA",Micropolitan,1,1.0,39.4336,-123.4316
+586,"Van Wert, OH",Micropolitan,1,5.0,40.8554,-84.5861
+587,"Vernon, TX",Micropolitan,1,4.0,34.0807,-99.2411
+588,"Vicksburg, MS",Micropolitan,1,227.5,32.3572,-90.852
+589,"Vincennes, IN",Micropolitan,1,40.0,38.6891,-87.418
+590,"Vineland, NJ",Metropolitan,1,10.5,39.3281,-75.1293
+591,"Brigham City, UT-ID",Micropolitan,1,6.0,41.6239,-112.9991
+592,"Brownwood, TX",Micropolitan,1,6.5,31.7743,-98.9998
+593,"Brunswick-St. Simons, GA",Metropolitan,1,1.0,31.3055,-81.5872
+594,"Bucyrus, OH",Micropolitan,1,5.0,40.8508,-82.9198
+595,"Burley, ID",Micropolitan,1,313.0,42.4149,-113.6087
+596,"Burlington, IA-IL",Micropolitan,1,1.0,40.8729,-91.0588
+597,"Big Rapids, MI",Micropolitan,1,2.0,43.6408,-85.3246
+598,"Blackfoot, ID",Micropolitan,1,31.5,43.2166,-112.3981
+599,"Bonham, TX",Micropolitan,1,6.5,33.5938,-96.1068
+600,"Batesville, AR",Micropolitan,1,2.0,35.7416,-91.5697
+601,"Bay City, MI",Metropolitan,1,6.0,43.7214,-83.9418
+602,"Amsterdam, NY",Micropolitan,1,1023.5,42.9023,-74.4397
+603,"Arkansas City-Winfield, KS",Micropolitan,1,3.0,37.2378,-96.8375
+604,"Ashland, OH",Micropolitan,1,1.0,40.846,-82.2707
+605,"Atchison, KS",Micropolitan,1,7.0,39.5317,-95.3134
+606,"Auburn, NY",Micropolitan,1,5.0,43.0103,-76.5744
+607,"Wabash, IN",Micropolitan,1,31.5,40.8457,-85.794
+608,"Walla Walla, WA",Metropolitan,1,1.0,46.2298,-118.4784
+609,"Washington, IN",Micropolitan,1,138.0,38.7024,-87.0721
+610,"West Plains, MO",Micropolitan,1,1.0,36.774,-91.8865
+611,"Aberdeen, SD",Micropolitan,1,200.0,45.5216,-98.696
