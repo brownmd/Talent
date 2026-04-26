@@ -6,8 +6,8 @@ import { ShareBar } from "../components/ShareBar";
 import { format } from "date-fns";
 import { baseURL } from "@/blog.config";
 
-const showDrafts =
-  process.env.NODE_ENV !== "production" || process.env.SHOW_DRAFTS === "true";
+// Drafts are only visible in local development.
+const showDrafts = process.env.NODE_ENV === "development";
 
 function findPost(slug: string) {
   return (allPosts ?? []).find(

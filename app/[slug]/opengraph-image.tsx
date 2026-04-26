@@ -2,8 +2,8 @@ import { ImageResponse } from "next/og";
 import { allPosts } from "@/.contentlayer/generated";
 import { CONFIG } from "@/blog.config";
 
-const showDrafts =
-  process.env.NODE_ENV !== "production" || process.env.SHOW_DRAFTS === "true";
+// Drafts are only visible in local development.
+const showDrafts = process.env.NODE_ENV === "development";
 
 export const runtime = "edge";
 
