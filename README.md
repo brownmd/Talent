@@ -31,9 +31,6 @@ Eventually I was able to make the website truly mine and start producing project
 Building this website taught me how to think and build. How to create while diving into waters I do not fully understand. With the support of AI tools I have been able to stay afloat and genuinely enjoy playing in this new creative space.
 
 I hope you enjoy the website. If you never read it, that is fine. I hope it brings you value if you do cross its path, but ultimately I made it for myself, which is what it is all about.
-
-Have fun with yourself. Do things you enjoy. Your aspirations and goals are for you and no one else. Everything you think, say and do matters. You are important.
-
 ---
 
 Built on [Lotse](https://github.com/marpeand/lotse) by marpeand. Deployed on [Vercel](https://vercel.com/).
