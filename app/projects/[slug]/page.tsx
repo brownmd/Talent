@@ -66,28 +66,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     url: `${CONFIG.baseURL}/projects/${project.slug}`,
     description: (project as any).description ?? "",
   };
+  const projectDescription: string | undefined = (project as any).description ?? undefined;
 
   return (
     <section className="space-y-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <header className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[linear-gradient(140deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01))] p-6 md:p-8">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-16 -top-20 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.2),rgba(255,255,255,0))]"
-        />
-        <div className="relative">
-          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fg-faint)]">
-            <span className="rounded-full border border-[var(--separator)] px-3 py-1">Project</span>
-            <span className="rounded-full border border-[var(--separator)] px-3 py-1">In Progress</span>
-          </div>
-          <h1 className="mt-4 text-2xl font-bold leading-tight md:text-3xl">{project.title}</h1>
-          <p className="mt-3 text-sm text-[var(--fg-muted)] md:text-base">
-            Personal build log and technical blueprint for the system architecture, scoring model, and rollout plan.
-          </p>
-          <div className="mt-5 text-sm text-[var(--fg-subtle)]">
-            Updated {format(new Date(project.date), "MMMM d, yyyy")}
-          </div>
+      <header>
+        <p className="text-sm font-medium uppercase tracking-[0.16em] text-[var(--fg-faint)]">Project</p>
+        <h1 className="mt-2 text-2xl font-bold leading-tight md:text-3xl">{project.title}</h1>
+        {projectDescription ? (
+          <p className="mt-3 text-sm text-[var(--fg-muted)] md:text-base">{projectDescription}</p>
+        ) : null}
+        <div className="mt-4 text-sm text-[var(--fg-subtle)]">
+          Updated {format(new Date(project.date), "MMMM d, yyyy")}
         </div>
       </header>
 
