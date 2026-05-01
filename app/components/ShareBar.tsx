@@ -23,7 +23,7 @@ export function ShareBar({ title, url }: { title: string; url: string }) {
           href={reddit}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-orange-400 transition-colors flex-shrink-0"
+          className="hover:text-[var(--accent-clay)] transition-colors flex-shrink-0"
           aria-label="Share on Reddit"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">

@@ -19,11 +19,19 @@ const PostSection = ({
   year: string;
   basePath?: string;
 }) => {
+  const isArticleSection = basePath === "";
+
   return (
     <div className="mt-10">
-      <span className="font-bold">{year}</span>
+      <span
+        className={`font-bold ${
+          isArticleSection ? "text-[var(--accent-clay-soft)]" : "text-[var(--fg)]"
+        }`}
+      >
+        {year}
+      </span>
       <div className="group/section">
-        <div className="group-hover/section:text-gray-500">
+        <div className="group-hover/section:text-[var(--fg-subtle)]">
           {posts.map((post: Post) => {
             let postDate = format(new Date(post.date), "MMMM do");
             return (

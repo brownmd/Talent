@@ -82,15 +82,16 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   return (
     <section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <p className="text-sm font-medium uppercase tracking-[0.16em] text-[var(--accent-clay-soft)]">Article</p>
       <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
       <div className="flex space-x-2 text-[var(--fg-subtle)]">
         <span>{format(new Date(post.date), "MM/dd/yyyy")}</span>
-        <span className="font-bold">·</span>
+        <span className="font-bold text-[var(--accent-clay)]">·</span>
         <span>{post.readingTime.text}</span>
       </div>
 
       {/* Post Content */}
-      <article className="my-10 prose prose-invert">
+      <article className="my-10 prose prose-invert prose-a:text-[var(--accent-clay-soft)] hover:prose-a:text-[var(--accent-clay)] prose-th:bg-[rgba(201,126,103,0.1)]">
         <MdxRenderer source={post.body.code} />
       </article>
 

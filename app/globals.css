@@ -10,6 +10,9 @@
   --fg-faint: #525252;
   --border: #2a2a2a;
   --separator: #3a3a3a;
+  --accent-clay: #C97E67;
+  --accent-clay-soft: #D89A83;
+  --accent-clay-strong: #B96E57;
 }
 
 .light {
@@ -20,6 +23,9 @@
   --fg-faint: #A3A3A3;
   --border: #D0D0D0;
   --separator: #C2C2C2;
+  --accent-clay: #B96E57;
+  --accent-clay-soft: #C97E67;
+  --accent-clay-strong: #9E5E4D;
 }
 
 body {
@@ -44,7 +50,7 @@ body {
   --tw-prose-body: #1a1a1a;
   --tw-prose-headings: #1a1a1a;
   --tw-prose-lead: #525252;
-  --tw-prose-links: #1a1a1a;
+  --tw-prose-links: #9E5E4D;
   --tw-prose-bold: #1a1a1a;
   --tw-prose-counters: #525252;
   --tw-prose-bullets: #858585;
