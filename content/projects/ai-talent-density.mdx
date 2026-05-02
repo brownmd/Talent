@@ -1,0 +1,136 @@
+---
+title: AI Talent Density
+date: 04-30-2026
+description: A production talent intelligence system mapping 5.87M GitHub activity records (2021 to 2026) into where AI capable talent is concentrated globally.
+---
+
+<p style={{fontSize: "13px", color: "#666660", marginBottom: "32px", fontWeight: 300}}>April 30, 2026</p>
+
+<p style={{fontSize: "14px", color: "#a8a6a0", lineHeight: 1.8, marginBottom: "40px", maxWidth: "640px"}}>AI Data Literacy is a talent intelligence project that tracks GitHub activity from 2021 to 2026, scores developer engagement with modern AI ecosystems, enriches public profile location data, and publishes analytics ready geographic views for dashboards and mapping.</p>
+
+---
+
+## Overview
+
+This is a monthly updated analytics pipeline with production guardrails and stable consumer facing views. It is not a one off heatmap.
+
+The current pipeline processes 5.87M GitHub activity records, loads monthly developer scores into Postgres/PostGIS, normalizes raw profile locations against a curated GeoNames reference, and serves downstream outputs to Metabase and Kepler.gl.
+
+---
+
+## What This Project Does
+
+This repo turns noisy public GitHub activity into a structured AI talent dataset.
+
+It does four things:
+
+1. Identifies AI-relevant GitHub activity from GitHub Archive using curated repo-pattern filters.
+2. Scores developers monthly based on event type and repo-category multipliers.
+3. Enriches users with public GitHub profile locations and normalizes those locations into canonical city, region, country, and metro aware rollups.
+4. Publishes analytics-friendly views for dashboards, reporting, and geographic visualization.
+
+---
+
+<div style={{fontFamily: "monospace", fontSize: "10px", color: "#666660", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "14px"}}>Pipeline</div>
+
+<div style={{display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "48px"}}>
+
+  <div style={{width: "100%", maxWidth: "580px", background: "#0a1410", border: "0.5px solid #185FA5", borderRadius: "6px", padding: "14px 20px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#85B7EB", marginBottom: "4px"}}>Data</div>
+    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#0C447C", lineHeight: 1.6}}>GitHub Archive · BigQuery SQL aggregation</div>
+  </div>
+
+  <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
+    <div style={{width: "1px", height: "18px", background: "#3a3a38"}}></div>
+    <div style={{width: 0, height: 0, borderLeft: "4px solid transparent", borderRight: "4px solid transparent", borderTop: "6px solid #3a3a38"}}></div>
+  </div>
+
+  <div style={{width: "100%", maxWidth: "580px", background: "#0e0c1e", border: "0.5px solid #534AB7", borderRadius: "6px", padding: "14px 20px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#AFA9EC", marginBottom: "4px"}}>Pipeline</div>
+    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#534AB7", lineHeight: 1.6}}>Python ETL · scoring · enrichment · location fetch</div>
+  </div>
+
+  <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
+    <div style={{width: "1px", height: "18px", background: "#3a3a38"}}></div>
+    <div style={{width: 0, height: 0, borderLeft: "4px solid transparent", borderRight: "4px solid transparent", borderTop: "6px solid #3a3a38"}}></div>
+  </div>
+
+  <div style={{width: "100%", maxWidth: "580px", background: "#140e00", border: "0.5px solid #854F0B", borderRadius: "6px", padding: "14px 20px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#FAC775", marginBottom: "4px"}}>Geocoding</div>
+    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#633806", lineHeight: 1.6}}>geopy / Nominatim · GeoNames reference data</div>
+  </div>
+
+  <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
+    <div style={{width: "1px", height: "18px", background: "#3a3a38"}}></div>
+    <div style={{width: 0, height: 0, borderLeft: "4px solid transparent", borderRight: "4px solid transparent", borderTop: "6px solid #3a3a38"}}></div>
+  </div>
+
+  <div style={{width: "100%", maxWidth: "580px", background: "#041210", border: "0.5px solid #0F6E56", borderRadius: "6px", padding: "14px 20px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#5DCAA5", marginBottom: "4px"}}>Database</div>
+    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#085041", lineHeight: 1.6}}>PostgreSQL 15 + PostGIS · Hetzner VPS · Docker Compose</div>
+  </div>
+
+  <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
+    <div style={{width: "1px", height: "18px", background: "#3a3a38"}}></div>
+    <div style={{width: 0, height: 0, borderLeft: "4px solid transparent", borderRight: "4px solid transparent", borderTop: "6px solid #3a3a38"}}></div>
+  </div>
+
+  <div style={{width: "100%", maxWidth: "580px", background: "#081205", border: "0.5px solid #3B6D11", borderRadius: "6px", padding: "14px 20px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#97C459", marginBottom: "4px"}}>Dashboards</div>
+    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#27500A", lineHeight: 1.6}}>Metabase · Kepler.gl · Plotly exports</div>
+  </div>
+
+  <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
+    <div style={{width: "1px", height: "18px", background: "#3a3a38"}}></div>
+    <div style={{width: 0, height: 0, borderLeft: "4px solid transparent", borderRight: "4px solid transparent", borderTop: "6px solid #3a3a38"}}></div>
+  </div>
+
+  <div style={{width: "100%", maxWidth: "580px", background: "#1a0a06", border: "0.5px solid #993C1D", borderRadius: "6px", padding: "14px 20px"}}>
+    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#F0997B", marginBottom: "4px"}}>Access</div>
+    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#712B13", lineHeight: 1.6}}>Tailscale · Cloudflare edge</div>
+  </div>
+
+</div>
+
+## Scoring Model
+
+### Event weights
+
+Higher signal contribution events receive more weight than passive activity.
+
+Examples:
+
+- ReleaseEvent: 30
+- PullRequestReviewEvent: 25
+- DeploymentEvent: 25
+- PullRequestEvent: 20
+- CreateEvent: 15
+- CheckRunEvent: 15
+- PushEvent: 10
+- WorkflowRunEvent: 10
+- MemberEvent: 10
+- IssuesEvent: 5
+- IssueCommentEvent: 4
+- ForkEvent: 2
+- WatchEvent: 1
+
+### Repo multipliers
+
+Repos are grouped into AI relevant ecosystems and weighted by technical sophistication.
+
+Current multiplier bands:
+
+- 5.0x: scaling, interpretability, RL, frontier infra
+- 3.5x: agentic orchestration and MCP ecosystems
+- 2.0x: SDKs, frameworks, and builder tools
+- 1.5x: local tooling and AI assisted development tools
+- 1.0x: all other qualifying AI activity
+
+---
+
+## Current Production Snapshot
+
+- 5,818,220 monthly score rows
+- 2,580,505 unique users
+- 515,870,033 cumulative score
+---
