@@ -36,6 +36,14 @@ body {
   overflow-x: hidden;
 }
 
+strong {
+  color: var(--accent-clay);
+}
+
+.prose-invert {
+  --tw-prose-bold: var(--accent-clay);
+}
+
 
 /* Social icons: white on dark, dark on light */
 .dark-icon {
@@ -51,7 +59,7 @@ body {
   --tw-prose-headings: #1a1a1a;
   --tw-prose-lead: #525252;
   --tw-prose-links: #9E5E4D;
-  --tw-prose-bold: #1a1a1a;
+  --tw-prose-bold: var(--accent-clay);
   --tw-prose-counters: #525252;
   --tw-prose-bullets: #858585;
   --tw-prose-hr: #C2C2C2;
