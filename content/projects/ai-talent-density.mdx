@@ -1,7 +1,7 @@
 ---
 title: AI Talent Density
 date: 04-30-2026
-description: A production talent intelligence system mapping 5.87M GitHub activity records (2021 to 2026) into where AI capable talent is concentrated globally.
+description: A production talent intelligence system mapping 5.87M GitHub activity records (2021 to 2026) into where AI capable talent is concentrated globally based users GitHub public activity.
 ---
 
 <p style={{fontSize: "13px", color: "#666660", marginBottom: "32px", fontWeight: 300}}>April 30, 2026</p>
@@ -12,22 +12,11 @@ description: A production talent intelligence system mapping 5.87M GitHub activi
 
 ## Overview
 
-This is a monthly updated analytics pipeline with production guardrails and stable consumer facing views. It is not a one off heatmap.
 
-The current pipeline processes 5.87M GitHub activity records, loads monthly developer scores into Postgres/PostGIS, normalizes raw profile locations against a curated GeoNames reference, and serves downstream outputs to Metabase and Kepler.gl.
-
----
-
-## What This Project Does
-
-This repo turns noisy public GitHub activity into a structured AI talent dataset.
-
-It does four things:
-
-1. Identifies AI-relevant GitHub activity from GitHub Archive using curated repo-pattern filters.
-2. Scores developers monthly based on event type and repo-category multipliers.
-3. Enriches users with public GitHub profile locations and normalizes those locations into canonical city, region, country, and metro aware rollups.
-4. Publishes analytics-friendly views for dashboards, reporting, and geographic visualization.
+1. Identifies AI-relevant GitHub activity from GitHub Archive.
+2. Scores GitHub users monthly activity based on event type and repo category.
+3. Enriches GitHub users with public GitHub suer profile locations and normalizes those locations.
+4. Creates ai user talent density visualizations, insights and reports.
 
 ---
 
@@ -94,12 +83,6 @@ It does four things:
 
 ## Scoring Model
 
-### Event weights
-
-Higher signal contribution events receive more weight than passive activity.
-
-Examples:
-
 - ReleaseEvent: 30
 - PullRequestReviewEvent: 25
 - DeploymentEvent: 25
@@ -116,9 +99,7 @@ Examples:
 
 ### Repo multipliers
 
-Repos are grouped into AI relevant ecosystems and weighted by technical sophistication.
-
-Current multiplier bands:
+GitHub Copilot suggested this... 
 
 - 5.0x: scaling, interpretability, RL, frontier infra
 - 3.5x: agentic orchestration and MCP ecosystems
@@ -130,7 +111,7 @@ Current multiplier bands:
 
 ## Current Production Snapshot
 
-- 5,818,220 monthly score rows
+- 5,818,220 monthly score rows from 2021 trough March of 2026
 - 2,580,505 unique users
 - 515,870,033 cumulative score
 ---
