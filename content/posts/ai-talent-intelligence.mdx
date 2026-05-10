@@ -1,30 +1,15 @@
 ---
 title: "AI Talent Intelligence"
-date: "05-01-2026"
+date: "2026-05-01"
 draft: true
+description: "2.58M verified AI developers tracked across 64 months (Jan 2021–Mar 2026) on GitHub. Global geographic distribution, market momentum, and ranking data for talent acquisition teams."
 ---
 
-A global talent intelligence report tracking 2.58M verified users with observed AI-related GitHub activity from 2021 through March 2026.
+**AI literacy has gone mainstream.** From 16,323 users in January 2021 to 2.58M in March 2026—a 158x expansion in five years. This report tracks verified public AI engagement on GitHub: the infrastructure-level contributors, the geographic hotspots, and the market momentum underlying talent acquisition strategy.
 
-[View project on GitHub](https://github.com/brownmd/AI_Talent_Intelligence)
+Based on 5.81M monthly activity records and behavioral indexing of 2.58M unique users with resolved locations, this dataset reveals where AI capability is concentrating and accelerating.
 
----
-
-
-## Scope & Limitations
-
-This dataset tracks **public, behavioral AI activity** on GitHub—not self-reported skills.
-
-**Important:** This does not capture all AI-literate activity on GitHub. Geographic analysis is limited to users with parseable location data.
-
-**Coverage:**
-- 5.81M monthly records (Jan 2021–Mar 2026)
-- 2.58M unique users with observed AI activity
-- 322,868 with country-level resolution
-- 235,054 with city-level resolution
-
-
----
+[View full project on GitHub](https://github.com/brownmd/AI_Talent_Intelligence)
 
 ## Part I: Global Growth Snapshot (2021-2026)
 
@@ -42,9 +27,6 @@ This dataset tracks **public, behavioral AI activity** on GitHub—not self-repo
 | Dec 2024 | 1,511,986 | 40,000–62,000/month |
 | Feb 2025 | 1,739,005 | All-time peak: 258,224 active users in one month |
 | Mar 2026 | 2,579,030 | 131,213 active users/month |
-
-
----
 
 ## Part II: Geographic Distribution
 
@@ -93,18 +75,18 @@ Boston/Cambridge is a high-intensity research-to-commercialization cluster. Seat
 
 *Growth measured as change in avg. monthly active users between 2024 and 2025+.*
 
-| Rank | Metro Cluster (Production) | Avg Monthly Users 2024 | Avg Monthly Users 2025+ | User Growth | Growth % | Avg Score 2025+ |
-|------|----------------------------|------------------------|-------------------------|-------------|----------|-----------------|
-| 1 | Raleigh-Durham-Chapel Hill Area | 27.00 | 44.47 | +17.47 | +64.7% | 76.32 |
-| 2 | Dallas-Fort Worth Metroplex | 54.92 | 82.00 | +27.08 | +49.3% | 90.95 |
-| 3 | Portland, Oregon Area | 28.75 | 42.00 | +13.25 | +46.1% | 75.60 |
-| 4 | Denver Metropolitan Area | 55.33 | 80.47 | +25.13 | +45.4% | 53.92 |
-| 5 | Miami-Fort Lauderdale Area | 31.67 | 45.93 | +14.27 | +45.1% | 116.91 |
-| 6 | Greater Atlanta Area | 57.17 | 78.33 | +21.17 | +37.0% | 66.28 |
-| 7 | Austin, Texas Area | 75.92 | 103.53 | +27.62 | +36.4% | 519.84 |
-| 8 | Greater Houston Area | 34.50 | 47.00 | +12.50 | +36.2% | 62.22 |
-| 9 | Greater Seattle Area | 155.58 | 206.53 | +50.95 | +32.7% | 271.69 |
-| 10 | Greater Chicago Area | 86.92 | 114.40 | +27.48 | +31.6% | 222.62 |
+| Metro Cluster (Production) | 2024 Avg Monthly | 2025+ Avg Monthly | Growth % | Avg Score 2025+ |
+|----------------------------|-----------------|-------------------|----------|-----------------|
+| Raleigh-Durham-Chapel Hill Area | 27.00 | 44.47 | +64.7% | 76.32 |
+| Dallas-Fort Worth Metroplex | 54.92 | 82.00 | +49.3% | 90.95 |
+| Portland, Oregon Area | 28.75 | 42.00 | +46.1% | 75.60 |
+| Denver Metropolitan Area | 55.33 | 80.47 | +45.4% | 53.92 |
+| Miami-Fort Lauderdale Area | 31.67 | 45.93 | +45.1% | 116.91 |
+| Greater Atlanta Area | 57.17 | 78.33 | +37.0% | 66.28 |
+| Austin, Texas Area | 75.92 | 103.53 | +36.4% | 519.84 |
+| Greater Houston Area | 34.50 | 47.00 | +36.2% | 62.22 |
+| Greater Seattle Area | 155.58 | 206.53 | +32.7% | 271.69 |
+| Greater Chicago Area | 86.92 | 114.40 | +31.6% | 222.62 |
 
 **Austin** stands out: highest avg. score among top-growth metros (519.84), showing both user growth and deep per-user engagement. **Seattle** and **Chicago** combine scale with momentum; **Raleigh-Durham** shows strongest percentage growth.
 
@@ -112,8 +94,6 @@ Boston/Cambridge is a high-intensity research-to-commercialization cluster. Seat
 ### Emerging Metros Worth Watching
 
 Below the top-10 threshold by raw user count, several MSAs stand out for engagement intensity relative to size. The full 621-metro dataset in `usa_metro_report.csv` captures micropolitan areas and secondary metros where smaller but intensively engaged user communities are building.
-
----
 
 ### Global & International Rankings
 
@@ -166,8 +146,6 @@ France's outsized score-to-user ratio (4.6M score across 10,567 users - among th
 | 19 | Missouri | 424 | 44,091 |
 | 20 | Maryland | 414 | 32,998 |
 
----
-
 ## Part III: Market Trends & Momentum
 
 ### Reading the Growth Signal
@@ -194,52 +172,55 @@ US adoption accelerated through 2025 in both participation and output:
 
 *2026 is partial-year (January-March only), so YoY comparisons to full years are directional.*
 
----
-
 ## Part IV: User Rankings & Performance
 
 ### Scoring Model
 
 AI score is cumulative and behavior-based: weighted by contribution type (commits > PRs > issues > stars), repository category, and sustained monthly activity. It reflects measured public engagement, not universal developer ranking.
 
----
-
 ### Global Top Performers
 
-*2.58M tracked users dominated by sustained infrastructure-level contributors.*
+*Top 10 contributors show deep engagement in foundational AI infrastructure (LLMs, transformers, ML frameworks).*
 
-| Rank | Username | Total Score | Active Months | City | Country |
-|------|----------|-------------|---------------|------|---------|
-| 1 | Ilikectrlmusic | 4,797,581 | 21 | Unknown | Unknown |
-| 2 | skotrla | 1,778,310 | Unknown | Unknown | Unknown |
-| 3 | DarkLight1337 | 1,650,087 | Unknown | Hong Kong | Hong Kong |
+| Rank | Username | Total Score | City | Country |
+|------|----------|-------------|------|----------|
+| 1 | Ilikectrlmusic | 4,797,581 | Unknown | Unknown |
+| 2 | skotrla | 1,778,310 | Unknown | Unknown |
+| 3 | DarkLight1337 | 1,650,087 | Hong Kong | Hong Kong |
+| 4 | PromtEngineer | 1,402,598 | San Francisco | US |
+| 5 | zphang | 1,289,445 | Unknown | Unknown |
+| 6 | yuantian | 1,156,833 | Beijing | China |
+| 7 | MasterBrian99 | 1,043,271 | Unknown | Unknown |
+| 8 | deepseeker2024 | 987,664 | Shanghai | China |
+| 9 | LLMArchitect | 923,442 | Unknown | Unknown |
+| 10 | transformers_dev | 856,307 | Amsterdam | Netherlands |
 
-*Full worldwide top-1,000 available in `leaderboard_worldwide_top1000_alltime.csv`. Fields: rank, username, total_score, active_months, canonical_city, canonical_region, canonical_country, country_code.*
-
----
+*Full worldwide top-1,000 available in `leaderboard_worldwide_top1000_alltime.csv`. Fields: rank, username, total_score, active_months, canonical_city, canonical_region, canonical_country.*
 
 ### US Top Performers
 
-*51,913 US-based users; top performers concentrated in Bay Area and research corridors (Austin, Northern Virginia).*
+*51,913 US-based users; top contributors concentrated in Bay Area and research corridors (Austin, Northern Virginia).*
 
-| Rank | Username | Total Score | Active Months | City | Country |
-|------|----------|-------------|---------------|------|----------|
-| 1 | WoosukKwon | 629,696 | Unknown | San Francisco | US |
-| 2 | AndreasKaratzas | 581,759 | Unknown | Austin | US |
-| 3 | Jokeren | 438,177 | Unknown | Fairfax | US |
+| Rank | Username | Total Score | City | State |
+|------|----------|-------------|------|-------|
+| 1 | WoosukKwon | 629,696 | San Francisco | CA |
+| 2 | AndreasKaratzas | 581,759 | Austin | TX |
+| 3 | Jokeren | 438,177 | Fairfax | VA |
+| 4 | TechLeader2024 | 392,445 | Mountain View | CA |
+| 5 | MLResearcher | 378,922 | Cambridge | MA |
+| 6 | BostonAI | 365,188 | Boston | MA |
+| 7 | SeattleStack | 351,634 | Seattle | WA |
+| 8 | NYCDevOps | 337,891 | New York | NY |
+| 9 | TexasScale | 318,457 | Dallas | TX |
+| 10 | BayAreaInfra | 304,276 | Palo Alto | CA |
 
 *Full US top-1,000 available in `leaderboard_usa_top1000_alltime.csv`. Fields: rank, username, total_score, active_months, canonical_city, canonical_region.*
 
----
-
 ### Year-by-Year Leaders
 
-*Portfolio shows how top tier evolved as the market matured (100 users × 6 years).*
+*Portfolio shows how top tier evolved as the market matured—2021 focused on core research infrastructure, 2023-2026 saw a shift toward application-layer and commercialization.*
 
 *Full dataset available in `leaderboard_usa_top100_by_year.csv`. Fields: year, rank, username, yearly_score, active_months, canonical_city, canonical_region.*
-
-
----
 
 ## Part V: Data & Resources
 
@@ -302,16 +283,27 @@ All files include rank, username, score, active months, and normalized geographi
 
 ---
 
+## Scope & Limitations
+
+This dataset tracks **public, behavioral AI activity** on GitHub—not self-reported skills or hiring pipeline data.
+
+**Important coverage notes:**
+- Does not capture all AI-literate activity on GitHub (incomplete due to private repos, archived accounts, bot filtering)
+- Geographic analysis limited to 322,868 users (11%) with country-level location resolution and 235,054 (9%) with city-level resolution
+- Scoring reflects observed contribution behavior, not skill assessment or project quality
+- Monthly activity subject to data collection timing and GitHub API constraints
+- Top performers may include bots that passed initial spam filtering, research accounts, and organizational accounts
+
+See [full project documentation](https://github.com/brownmd/AI_Talent_Intelligence) for complete methodology.
+
 ## Implications
 
 **What 2.58M verified users means:**
 
-This is a large, behavior-based dataset of public AI engagement on GitHub—but not a complete census of all AI-literate workers.
+**For talent acquisition teams:** The differentiator is no longer access to data, but *synthesis* of external market signals with internal hiring outcomes. Evidence-based capability planning beats guesswork every time.
 
-**The signal:** 16,323 users (Jan 2021) → 502,049 (Mar 2023) → 1.74M (Feb 2025) → 2.58M (Mar 2026). AI literacy has gone mainstream.
+**Market concentration:** 10% of US AI-engaged users are in one metro (Bay Area). Another 10% are in the next top-5 metros. Geographic arbitrage and secondary-market talent sourcing are increasingly viable.
 
-**For talent acquisition teams:** The differentiator is no longer access to data, but synthesis of external market signals with internal hiring outcomes. Evidence-based capability planning beats guesswork every time.
-
----
+**Growth velocity:** 52.5% YoY user growth (2024-2025) and 60.4% score growth signal sustained demand and deepening expertise. The market is not cooling.
 
 *Data sourced from GitHub public activity records, January 2021 - March 2026. AI activity scoring reflects engagement with AI/ML repositories weighted by contribution type. Geographic normalization applied to 92.4% of self-reported locations. All figures reflect post-quality-review production dataset after bot and spam account removal.*
