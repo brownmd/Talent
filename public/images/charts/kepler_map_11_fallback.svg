@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Kepler Map 11 fallback preview</title>
+  <desc id="desc">Static fallback preview for Regional Heatmap.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f2e8"/>
+      <stop offset="100%" stop-color="#edd9bb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="619" rx="16" fill="#ffffff" stroke="#c7a773"/>
+  <text x="60" y="90" font-family="Georgia, serif" font-size="36" fill="#4a3418">Regional Heatmap (Map 11)</text>
+  <text x="60" y="130" font-family="Arial, sans-serif" font-size="22" fill="#76562e">Static fallback preview</text>
+  <g>
+    <rect x="180" y="230" width="170" height="170" rx="12" fill="#f7d7a4"/>
+    <rect x="360" y="220" width="170" height="190" rx="12" fill="#efb468"/>
+    <rect x="540" y="205" width="170" height="220" rx="12" fill="#d87d33"/>
+    <rect x="720" y="235" width="170" height="170" rx="12" fill="#f1c892"/>
+    <rect x="900" y="245" width="150" height="150" rx="12" fill="#f6dfbd"/>
+  </g>
+  <rect x="60" y="560" width="1080" height="54" rx="10" fill="#fff7ec" stroke="#e3c79d"/>
+  <text x="80" y="595" font-family="Arial, sans-serif" font-size="20" fill="#6b4a20">If the live map is blocked, open /reports/kepler_map_11.html in a new tab.</text>
+</svg>

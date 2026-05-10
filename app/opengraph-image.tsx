@@ -22,7 +22,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #05232e 0%, #0a3a4a 50%, #0d4a5e 100%)",
+          background: "linear-gradient(140deg, #1a1a1a 0%, #221f1c 55%, #2a2521 100%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -38,7 +38,7 @@ export default async function Image() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+              "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -51,7 +51,7 @@ export default async function Image() {
             left: 0,
             right: 0,
             height: 5,
-            background: "linear-gradient(90deg, #c97e67 0%, #f6d76f 50%, #325763 100%)",
+            background: "linear-gradient(90deg, #c97e67 0%, #e9be78 50%, #8c6b4a 100%)",
           }}
         />
 
@@ -63,7 +63,7 @@ export default async function Image() {
             right: -120,
             width: 480,
             height: 480,
-            background: "radial-gradient(circle, rgba(50,87,99,0.45) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(201,126,103,0.16) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
@@ -76,7 +76,7 @@ export default async function Image() {
             left: -80,
             width: 420,
             height: 420,
-            background: "radial-gradient(circle, rgba(201,126,103,0.15) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(246,215,111,0.1) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
@@ -116,7 +116,7 @@ export default async function Image() {
                 fontWeight: 700,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#f6d76f",
+                color: "#e9be78",
               }}
             >
               Talent · AI · Strategy
@@ -143,7 +143,7 @@ export default async function Image() {
           <p
             style={{
               fontSize: 22,
-              color: "#a8c4cc",
+              color: "#cbbfb1",
               margin: 0,
               marginBottom: 44,
               padding: 0,
@@ -161,7 +161,7 @@ export default async function Image() {
               alignItems: "center",
               gap: 12,
               background: "rgba(255,255,255,0.07)",
-              border: "1px solid rgba(255,255,255,0.12)",
+              border: "1px solid rgba(201,126,103,0.35)",
               borderRadius: 100,
               padding: "10px 20px",
               width: "fit-content",
@@ -175,7 +175,7 @@ export default async function Image() {
                 background: "#c97e67",
               }}
             />
-            <span style={{ fontSize: 17, color: "#cbd5e1", letterSpacing: "0.02em" }}>
+            <span style={{ fontSize: 17, color: "#cbbfb1", letterSpacing: "0.02em" }}>
               {CONFIG.baseURL}
             </span>
           </div>

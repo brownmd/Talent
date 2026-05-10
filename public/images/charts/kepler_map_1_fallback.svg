@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Kepler Map 1 fallback preview</title>
+  <desc id="desc">Static fallback preview for City User Points map.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6efe8"/>
+      <stop offset="100%" stop-color="#e6d7c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="619" rx="16" fill="#ffffff" stroke="#bfa891"/>
+  <text x="60" y="90" font-family="Georgia, serif" font-size="36" fill="#3b2b1f">City User Points (Map 1)</text>
+  <text x="60" y="130" font-family="Arial, sans-serif" font-size="22" fill="#6b5a4d">Static fallback preview</text>
+  <g fill="#c97e67" opacity="0.8">
+    <circle cx="290" cy="290" r="10"/><circle cx="355" cy="250" r="8"/><circle cx="420" cy="320" r="7"/>
+    <circle cx="520" cy="280" r="9"/><circle cx="640" cy="340" r="11"/><circle cx="730" cy="290" r="8"/>
+    <circle cx="820" cy="360" r="10"/><circle cx="900" cy="305" r="8"/><circle cx="980" cy="260" r="7"/>
+  </g>
+  <rect x="60" y="560" width="1080" height="54" rx="10" fill="#f7f2ed" stroke="#d4c0ad"/>
+  <text x="80" y="595" font-family="Arial, sans-serif" font-size="20" fill="#5b4b3d">If the live map is blocked, open /reports/kepler_map_1.html in a new tab.</text>
+</svg>

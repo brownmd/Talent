@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Kepler Map 7 fallback preview</title>
+  <desc id="desc">Static fallback preview for Country AI Activity map.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3efe7"/>
+      <stop offset="100%" stop-color="#d9e4ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="619" rx="16" fill="#ffffff" stroke="#9db3bf"/>
+  <text x="60" y="90" font-family="Georgia, serif" font-size="36" fill="#243640">Country AI Activity (Map 7)</text>
+  <text x="60" y="130" font-family="Arial, sans-serif" font-size="22" fill="#4f636f">Static fallback preview</text>
+  <g>
+    <rect x="170" y="220" width="190" height="110" rx="10" fill="#9fc4d8"/>
+    <rect x="390" y="240" width="230" height="120" rx="10" fill="#6ca4c4"/>
+    <rect x="660" y="210" width="260" height="130" rx="10" fill="#3a86ad"/>
+    <rect x="950" y="255" width="120" height="90" rx="10" fill="#8eb8ce"/>
+  </g>
+  <rect x="60" y="560" width="1080" height="54" rx="10" fill="#eef5f8" stroke="#b5cbd7"/>
+  <text x="80" y="595" font-family="Arial, sans-serif" font-size="20" fill="#39505d">If the live map is blocked, open /reports/kepler_map_7.html in a new tab.</text>
+</svg>

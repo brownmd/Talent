@@ -9,6 +9,8 @@ function stripContentForReadingTime(raw) {
     .replace(/^---[\s\S]*?---/, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/^\|.*\|\s*$/gm, " ")
+    .replace(/^\s*[:\-\| ]+\s*$/gm, " ")
     .replace(/<img[^>]*>/gi, " ")
     .replace(/!\[.*?\]\(.*?\)/g, " ")
     .replace(/<[^>]+>/g, " ")

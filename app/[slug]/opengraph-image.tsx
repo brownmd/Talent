@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       (
         <div
           style={{
-            background: "linear-gradient(135deg, #05232e 0%, #0a3a4a 100%)",
+            background: "linear-gradient(135deg, #1a1a1a 0%, #23201d 100%)",
             width: "100%",
             height: "100%",
             display: "flex",
@@ -41,7 +41,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             justifyContent: "center",
             fontFamily: "Roboto",
             fontSize: 28,
-            color: "#a8c4cc",
+            color: "#b9afa4",
           }}
         >
           Post not found
@@ -60,7 +60,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #05232e 0%, #0a3a4a 50%, #0d4a5e 100%)",
+          background: "linear-gradient(140deg, #1a1a1a 0%, #221f1c 55%, #2a2521 100%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -76,7 +76,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+              "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -89,7 +89,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             left: 0,
             right: 0,
             height: 5,
-            background: "linear-gradient(90deg, #c97e67 0%, #f6d76f 50%, #325763 100%)",
+            background: "linear-gradient(90deg, #c97e67 0%, #e9be78 50%, #8c6b4a 100%)",
           }}
         />
 
@@ -101,7 +101,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             right: -100,
             width: 400,
             height: 400,
-            background: "radial-gradient(circle, rgba(50,87,99,0.4) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(201,126,103,0.16) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
@@ -114,7 +114,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             left: -60,
             width: 360,
             height: 360,
-            background: "radial-gradient(circle, rgba(201,126,103,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(246,215,111,0.1) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
@@ -153,7 +153,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                 fontWeight: 700,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#f6d76f",
+                color: "#e9be78",
               }}
             >
               {CONFIG.title}
@@ -174,7 +174,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               style={{
                 width: 56,
                 height: 4,
-                background: "linear-gradient(90deg, #c97e67 0%, #f6d76f 100%)",
+                background: "linear-gradient(90deg, #c97e67 0%, #e9be78 100%)",
                 borderRadius: 2,
               }}
             />
@@ -191,6 +191,17 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             >
               {post.title}
             </h1>
+            <p
+              style={{
+                fontSize: 24,
+                color: "#cbbfb1",
+                lineHeight: 1.35,
+                margin: 0,
+                maxWidth: 880,
+              }}
+            >
+              {(post as any).description ?? CONFIG.description}
+            </p>
           </div>
 
           {/* Bottom: date + logo wordmark */}
@@ -209,12 +220,12 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                 alignItems: "center",
                 gap: 10,
                 background: "rgba(255,255,255,0.07)",
-                border: "1px solid rgba(255,255,255,0.12)",
+                border: "1px solid rgba(201,126,103,0.35)",
                 borderRadius: 100,
                 padding: "8px 18px",
               }}
             >
-              <span style={{ fontSize: 16, color: "#94a3b8" }}>
+              <span style={{ fontSize: 16, color: "#cbbfb1" }}>
                 {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",

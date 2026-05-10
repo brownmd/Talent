@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { MdxRenderer } from "../components/Mdx";
 import { ShareBar } from "../components/ShareBar";
 import { format } from "date-fns";
-import { baseURL } from "@/blog.config";
+import { baseURL, description as siteDescription } from "@/blog.config";
 
 // Drafts are only visible in local development.
 const showDrafts = process.env.NODE_ENV === "development";
@@ -32,10 +32,13 @@ export async function generateMetadata({
   const post = findPost(slug);
   if (!post) return undefined;
 
-  const description: string | undefined = (post as any).description ?? undefined;
+  const description: string = (post as any).description ?? siteDescription;
   return {
     title: post.title,
     description,
+    alternates: {
+      canonical: `${baseURL}/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description,
