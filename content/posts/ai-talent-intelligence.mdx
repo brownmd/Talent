@@ -241,14 +241,11 @@ This reference covers:
 
 | Report | Description |
 |--------|-------------|
-| Talent Intelligence Master Dashboard | Combined report entry point |
-| AI Developer Density Dashboard | Geographic distribution and density analysis |
-| Global AI GitHub Funnel Analysis | Funnel and conversion pattern analysis |
-| Talent Intelligence Overview Card | Executive one-page battle card |
-| US AI Market Battle Card | US market scale, momentum, and sourcing lens |
-| Kepler Map 1 - City User Points | Individual user points by city (Kepler.gl export) |
-| Kepler Map 7 - Country AI Activity | AI activity distribution by country (Kepler.gl export) |
-| Kepler Map 13 - Global Heatmap | Global user activity heatmap (Kepler.gl export) |
+| [Talent Intelligence Overview Card](/reports/talent_intelligence_overview_card.html) | Executive one-page overview |
+| [US AI Market Battle Card](/reports/us_ai_market_battle_card.html) | US market scale, momentum, and sourcing lens |
+| [Kepler Map 1 - City User Points](/reports/kepler_map_1.html) | Individual user points by city (Kepler.gl export) |
+| [Kepler Map 7 - Country AI Activity](/reports/kepler_map_7.html) | AI activity distribution by country (Kepler.gl export) |
+| [Kepler Map 11 - Regional Heatmap](/reports/kepler_map_11.html) | Regional user activity heatmap (Kepler.gl export) |
 
 ### Featured Maps
 
@@ -256,28 +253,28 @@ Embedded interactive maps below. Use mouse to drag/pan; scroll to zoom.
 
 #### City User Points (Map 1)
 
-<iframe src="reports/kepler_map_1.html" title="Kepler Map 1 - City User Points" width="100%" height="680" loading="lazy" allowfullscreen style={{ border: "1px solid #d9e1ec", borderRadius: "8px" }}></iframe>
+<iframe src="/reports/kepler_map_1.html" title="Kepler Map 1 - City User Points" width="100%" height="680" loading="lazy" allowfullscreen style={{ border: "1px solid #d9e1ec", borderRadius: "8px" }}></iframe>
 
 #### Country AI Activity (Map 7)
 
-<iframe src="reports/kepler_map_7.html" title="Kepler Map 7 - Country AI Activity" width="100%" height="680" loading="lazy" allowfullscreen style={{ border: "1px solid #d9e1ec", borderRadius: "8px" }}></iframe>
+<iframe src="/reports/kepler_map_7.html" title="Kepler Map 7 - Country AI Activity" width="100%" height="680" loading="lazy" allowfullscreen style={{ border: "1px solid #d9e1ec", borderRadius: "8px" }}></iframe>
 
-#### Global Heatmap (Map 13)
+#### Regional Heatmap (Map 11)
 
-<iframe src="reports/kepler_map_13.html" title="Kepler Map 13 - Global Heatmap" width="100%" height="680" loading="lazy" allowfullscreen style={{ border: "1px solid #d9e1ec", borderRadius: "8px" }}></iframe>
+<iframe src="/reports/kepler_map_11.html" title="Kepler Map 11 - Regional Heatmap" width="100%" height="680" loading="lazy" allowfullscreen style={{ border: "1px solid #d9e1ec", borderRadius: "8px" }}></iframe>
 
 ### Leaderboard Data Files
 
 The following CSV exports accompany this report:
 
-| File | Description | Rows |
-|------|-------------|------|
-| `leaderboard_worldwide_top1000_alltime.csv` | Global top 1,000 users by all-time score, 2021-2026 | 1,000 |
-| `leaderboard_usa_top1000_alltime.csv` | US top 1,000 users by all-time score, with city/state | 1,000 |
-| `leaderboard_usa_top100_by_year.csv` | US top 100 per calendar year, 2021-2026 | 600 |
-| `usa_metro_report.csv` | All 621 US CBSAs ranked by AI-literate users | 621 |
-| `usa_metro_growth_falloff_since_2025.csv` | Metro-by-metro growth/falloff since 2025 using production historical monthly activity | 105 |
-| `usa_ai_literacy_yoy_change.csv` | USA year-over-year AI literacy adoption and score change (2021-2026) | 6 |
+| File | Description | Rows | Download |
+|------|-------------|------|----------|
+| leaderboard_worldwide_top1000_alltime.csv | Global top 1,000 users by all-time score, 2021-2026 | 1,000 | [CSV](/data/leaderboard_worldwide_top1000_alltime.csv) |
+| leaderboard_usa_top1000_alltime.csv | US top 1,000 users by all-time score, with city/state | 1,000 | [CSV](/data/leaderboard_usa_top1000_alltime.csv) |
+| leaderboard_usa_top100_by_year.csv | US top 100 per calendar year, 2021-2026 | 600 | [CSV](/data/leaderboard_usa_top100_by_year.csv) |
+| usa_metro_report.csv | All 621 US CBSAs ranked by AI-literate users | 621 | [CSV](/data/usa_metro_report.csv) |
+| usa_metro_growth_falloff_since_2025.csv | Metro-by-metro growth/falloff since 2025 using production historical monthly activity | 105 | [CSV](/data/usa_metro_growth_falloff_since_2025.csv) |
+| usa_ai_literacy_yoy_change.csv | USA year-over-year AI literacy adoption and score change (2021-2026) | 6 | [CSV](/data/usa_ai_literacy_yoy_change.csv) |
 
 All files include rank, username, score, active months, and normalized geographic fields.
 
