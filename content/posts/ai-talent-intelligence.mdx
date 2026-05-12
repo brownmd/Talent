@@ -11,7 +11,13 @@ Based on 5.81M monthly activity records on GitHub of 2.58M unique users with res
 
 **Project Details:** [AI Talent Intelligence](/projects/ai-talent-intelligence) · [GitHub](https://github.com/brownmd/AI_Talent_Intelligence)
 
+**Query Reference:** [View Query Reference](/query_reference.html) for scoring, normalization, analytical views, and core tables including profiles_normalized_published, profiles_location_analytics, profiles_normalized_city_strict, and spatial_reconcile_geonames_subset_prod_v2.
+
 ## Part I: Global Growth Snapshot (2021-2026)
+
+### [Regional Heatmap](/reports/kepler_map_11.html)
+
+<iframe src="/reports/kepler_map_11.html" title="Kepler Map 11 - Regional Heatmap" width="100%" loading="lazy" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
 
 ### Core Growth Metrics
 
@@ -96,9 +102,6 @@ Boston/Cambridge is a high-intensity research-to-commercialization cluster. Seat
 
 [Download metro growth/falloff data (105 metros, 2025+)](/data/usa_metro_growth_falloff_since_2025.csv)
 
-### Emerging Metros Worth Watching
-
-Below the top-10 threshold by raw user count, several MSAs stand out for engagement intensity relative to size. The [full 621-metro dataset](/data/usa_metro_report.csv) captures micropolitan areas and secondary metros where smaller but intensively engaged user communities are building.
 
 ### Global & International Rankings
 
@@ -179,10 +182,6 @@ US adoption accelerated through 2025 in both participation and output:
 
 [Download US AI literacy year-over-year data (2021–2026)](/data/usa_ai_literacy_yoy_change.csv)
 
-### [Regional Heatmap](/reports/kepler_map_11.html)
-
-<iframe src="/reports/kepler_map_11.html" title="Kepler Map 11 - Regional Heatmap" width="100%" loading="lazy" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
-
 ### [Country AI Activity](/reports/kepler_map_7.html)
 
 <iframe src="/reports/kepler_map_7.html" title="Kepler Map 7 - Country AI Activity" width="100%" loading="lazy" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
@@ -242,17 +241,6 @@ AI score is cumulative and behavior-based: weighted by contribution type (commit
 [Download US top-100 by year (CSV)](/data/leaderboard_usa_top100_by_year.csv)
 
 ## Part V: Data & Resources
-
-### Query Reference
-
-The full SQL query reference (scoring model, normalization schema, analytical views) is available here: [View Query Reference](/query_reference.html)
-
-This reference covers:
-- `profiles_normalized_published` - full enrichment with metro rollups and location aliases
-- `profiles_location_analytics` - unified view for downstream geographic analytics
-- `profiles_normalized_city_strict` - original city names preserved without rollup
-- Scoring schema, weight definitions, and contribution type hierarchy
-- Geographic normalization rules and the `spatial_reconcile_geonames_subset_prod_v2` ruleset
 
 ### Interactive Dashboards and Maps
 
