@@ -39,3 +39,7 @@ next-env.d.ts
 .contentlayer
 
 /public/rss.xml
+
+# hetzner deploy state (server-generated)
+.current_tag
+.previous_tag
