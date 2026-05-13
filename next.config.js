@@ -52,6 +52,11 @@ const nextConfig = {
                 destination: "/projects/ai-powered-talent-operator-operating-system",
                 permanent: true,
             },
+            {
+                source: "/projects/ai-talent-intelligence",
+                destination: "/projects/data-retrieval-system-for-talent-intelligence",
+                permanent: true,
+            },
         ];
     },
 };
