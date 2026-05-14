@@ -1,7 +1,7 @@
 ---
 title: Data Retrieval System for Talent Intelligence
-date: 04-30-2026
-description: I built a system to explore the use case of creating talent intelligence.
+date: 05-13-2026
+description: A system and platform for data insight creation using open source technologies.
 ---
 
 <p style={{fontSize: "13px", color: "#666660", marginBottom: "32px", fontWeight: 300}}>April 30, 2026</p>
@@ -15,19 +15,19 @@ description: I built a system to explore the use case of creating talent intelli
 ## The Project
 
 
-1. The Question: Where does AI talent reside in the World, and what does AI adoption look like from the inception of GPT to today?
-2. The Want: Build a system that allows the retrieval of data to provide insights.
-3. The Process: Using Claude Code and Github Copilot I designed a system to achieve that goal.
-4. Using The GitHub Archive Project hosted on Google's big query which stores public GitHub activity daily since 2012. I was able to query the free dataset and extract user information.
----
+Like most projects, they begin with an idea and a question that requires further exploration. My idea was, how can I query GitHub to create talent insights, to answer my question of, where does AI talent reside in the world?
 
-<div style={{fontFamily: "monospace", fontSize: "10px", color: "#666660", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "14px"}}>Pipeline</div>
+Using Claude Code and Github Copilot I was able to prompt my way to query large amounts of data to analyze, utilizing the GitHub Archive Project on Google big query, which stores all public activity on GitHub, starting from 2012 to present day.
+
+
+
+<div style={{fontFamily: "monospace", fontSize: "12px", color: "#666660", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "14px"}}>Pipeline</div>
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "48px"}}>
 
   <div style={{width: "100%", maxWidth: "580px", background: "#0a1410", border: "0.5px solid #185FA5", borderRadius: "6px", padding: "14px 20px"}}>
-    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#85B7EB", marginBottom: "4px"}}>Data</div>
-    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#0C447C", lineHeight: 1.6}}>GitHub Archive · BigQuery SQL aggregation</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(14px, 2.4vw, 16px)", fontWeight: 500, color: "#85B7EB", marginBottom: "4px"}}>Data</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(12px, 2.1vw, 14px)", color: "#0C447C", lineHeight: 1.65}}>GitHub Archive · BigQuery SQL aggregation</div>
   </div>
 
   <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
@@ -36,8 +36,8 @@ description: I built a system to explore the use case of creating talent intelli
   </div>
 
   <div style={{width: "100%", maxWidth: "580px", background: "#0e0c1e", border: "0.5px solid #534AB7", borderRadius: "6px", padding: "14px 20px"}}>
-    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#AFA9EC", marginBottom: "4px"}}>Pipeline</div>
-    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#534AB7", lineHeight: 1.6}}>Python ETL · scoring · enrichment · location fetch</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(14px, 2.4vw, 16px)", fontWeight: 500, color: "#AFA9EC", marginBottom: "4px"}}>Pipeline</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(12px, 2.1vw, 14px)", color: "#534AB7", lineHeight: 1.65}}>Python ETL · scoring · enrichment · location fetch</div>
   </div>
 
   <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
@@ -46,8 +46,8 @@ description: I built a system to explore the use case of creating talent intelli
   </div>
 
   <div style={{width: "100%", maxWidth: "580px", background: "#140e00", border: "0.5px solid #854F0B", borderRadius: "6px", padding: "14px 20px"}}>
-    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#FAC775", marginBottom: "4px"}}>Geocoding</div>
-    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#633806", lineHeight: 1.6}}>geopy / Nominatim · GeoNames reference data</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(14px, 2.4vw, 16px)", fontWeight: 500, color: "#FAC775", marginBottom: "4px"}}>Geocoding</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(12px, 2.1vw, 14px)", color: "#633806", lineHeight: 1.65}}>geopy / Nominatim · GeoNames reference data</div>
   </div>
 
   <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
@@ -56,8 +56,8 @@ description: I built a system to explore the use case of creating talent intelli
   </div>
 
   <div style={{width: "100%", maxWidth: "580px", background: "#041210", border: "0.5px solid #0F6E56", borderRadius: "6px", padding: "14px 20px"}}>
-    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#5DCAA5", marginBottom: "4px"}}>Database</div>
-    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#085041", lineHeight: 1.6}}>PostgreSQL 15 + PostGIS · Hetzner VPS · Docker Compose</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(14px, 2.4vw, 16px)", fontWeight: 500, color: "#5DCAA5", marginBottom: "4px"}}>Database</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(12px, 2.1vw, 14px)", color: "#085041", lineHeight: 1.65}}>PostgreSQL 15 + PostGIS · Hetzner VPS · Docker Compose</div>
   </div>
 
   <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
@@ -66,8 +66,8 @@ description: I built a system to explore the use case of creating talent intelli
   </div>
 
   <div style={{width: "100%", maxWidth: "580px", background: "#081205", border: "0.5px solid #3B6D11", borderRadius: "6px", padding: "14px 20px"}}>
-    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#97C459", marginBottom: "4px"}}>Dashboards</div>
-    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#27500A", lineHeight: 1.6}}>Metabase · Kepler.gl · Plotly exports</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(14px, 2.4vw, 16px)", fontWeight: 500, color: "#97C459", marginBottom: "4px"}}>Dashboards</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(12px, 2.1vw, 14px)", color: "#27500A", lineHeight: 1.65}}>Metabase · Kepler.gl · Plotly exports</div>
   </div>
 
   <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "6px 0"}}>
@@ -76,8 +76,8 @@ description: I built a system to explore the use case of creating talent intelli
   </div>
 
   <div style={{width: "100%", maxWidth: "580px", background: "#08121a", border: "0.5px solid #225b8f", borderRadius: "6px", padding: "14px 20px"}}>
-    <div style={{fontFamily: "monospace", fontSize: "13px", fontWeight: 500, color: "#8bbfe8", marginBottom: "4px"}}>Access</div>
-    <div style={{fontFamily: "monospace", fontSize: "11px", color: "#2f6d9c", lineHeight: 1.6}}>Tailscale · Cloudflare edge</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(14px, 2.4vw, 16px)", fontWeight: 500, color: "#8bbfe8", marginBottom: "4px"}}>Access</div>
+    <div style={{fontFamily: "monospace", fontSize: "clamp(12px, 2.1vw, 14px)", color: "#2f6d9c", lineHeight: 1.65}}>Tailscale · Cloudflare edge</div>
   </div>
 
 </div>
