@@ -5,15 +5,15 @@
         <meta charset="UTF-8"/>
         <title>Kepler.gl embedded map</title>
 
-        <!--Uber Font-->
-        <link rel="stylesheet" href="https://d1a3f4spazzrp4.cloudfront.net/kepler.gl/uber-fonts/4.0.0/superfine.css">
-
         <!--Kepler css-->
-        <link href="https://unpkg.com/kepler.gl@3.3.0-alpha.0/umd/keplergl.min.css" rel="stylesheet">
+        <link rel="preload" href="/vendor/kepler/keplergl.min.css" as="style">
+        <link href="/vendor/kepler/keplergl.min.css" rel="stylesheet">
 
         <!--MapBox css-->
-        <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css" rel="stylesheet">
-        <link href="https://unpkg.com/maplibre-gl@^3/dist/maplibre-gl.css" rel="stylesheet">
+        <link rel="preload" href="/vendor/mapbox/mapbox-gl.css" as="style">
+        <link rel="preload" href="/vendor/maplibre/maplibre-gl.css" as="style">
+        <link href="/vendor/mapbox/mapbox-gl.css" rel="stylesheet">
+        <link href="/vendor/maplibre/maplibre-gl.css" rel="stylesheet">
 
         <!-— facebook open graph tags -->
         <meta property="og:url" content="http://kepler.gl/" />
@@ -34,14 +34,20 @@
         <meta name="twitter:image" content="https://d1a3f4spazzrp4.cloudfront.net/kepler.gl/kepler.gl-meta-tag.png" />
 
         <!-- Load React/Redux -->
-        <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
-        <script src="https://unpkg.com/redux@4.2.1/dist/redux.js" crossorigin></script>
-        <script src="https://unpkg.com/react-redux@8.1.2/dist/react-redux.min.js" crossorigin></script>
-        <script src="https://unpkg.com/styled-components@6.1.8/dist/styled-components.min.js" crossorigin></script>
+        <link rel="preload" href="/vendor/react/react.production.min.js" as="script">
+        <link rel="preload" href="/vendor/react/react-dom.production.min.js" as="script">
+        <link rel="preload" href="/vendor/redux/redux.js" as="script">
+        <link rel="preload" href="/vendor/react-redux/react-redux.min.js" as="script">
+        <link rel="preload" href="/vendor/styled-components/styled-components.min.js" as="script">
+        <link rel="preload" href="/vendor/kepler/keplergl.min.js" as="script">
+        <script src="/vendor/react/react.production.min.js"></script>
+        <script src="/vendor/react/react-dom.production.min.js"></script>
+        <script src="/vendor/redux/redux.js"></script>
+        <script src="/vendor/react-redux/react-redux.min.js"></script>
+        <script src="/vendor/styled-components/styled-components.min.js"></script>
 
         <!-- Load Kepler.gl -->
-        <script src="https://unpkg.com/kepler.gl@3.3.0-alpha.0/umd/keplergl.min.js" crossorigin></script>
+        <script src="/vendor/kepler/keplergl.min.js"></script>
 
         <style type="text/css">
           body {margin: 0; padding: 0; overflow: hidden;}

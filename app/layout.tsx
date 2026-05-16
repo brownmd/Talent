@@ -88,6 +88,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://unpkg.com" crossOrigin="" />
+        <link rel="preconnect" href="https://d1a3f4spazzrp4.cloudfront.net" crossOrigin="" />
+        <link rel="preconnect" href="https://api.tiles.mapbox.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://unpkg.com" />
+        <link rel="dns-prefetch" href="https://d1a3f4spazzrp4.cloudfront.net" />
+        <link rel="dns-prefetch" href="https://api.tiles.mapbox.com" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
         <script
           dangerouslySetInnerHTML={{
