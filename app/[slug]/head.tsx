@@ -3,7 +3,7 @@ type HeadProps = {
 };
 
 const keplerPreloads = [
-  { href: "/reports/kepler_map_11.html", as: "document" },
+  { href: "/reports2/kepler_map_11.html", as: "document" },
   { href: "/vendor/kepler/keplergl.min.css", as: "style" },
   { href: "/vendor/mapbox/mapbox-gl.css", as: "style" },
   { href: "/vendor/maplibre/maplibre-gl.css", as: "style" },
