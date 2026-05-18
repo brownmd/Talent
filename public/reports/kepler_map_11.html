@@ -325,9 +325,21 @@
                 }
               }
 
+              function forceReflow() {
+                var appElement = document.getElementById('app');
+                if (!appElement) {
+                  return;
+                }
+
+                appElement.style.transform = 'translateZ(0)';
+                appElement.getBoundingClientRect();
+                appElement.style.transform = '';
+              }
+
               function paintKick() {
                 dispatchResize();
                 dispatchMouseMove();
+                forceReflow();
               }
 
               if (window.requestAnimationFrame) {
@@ -339,6 +351,23 @@
               }
 
               window.setTimeout(paintKick, 250);
+              window.setTimeout(paintKick, 1000);
+
+              var tries = 0;
+              var paintTimer = window.setInterval(function () {
+                paintKick();
+                tries += 1;
+                if (tries >= 12) {
+                  window.clearInterval(paintTimer);
+                }
+              }, 200);
+
+              window.addEventListener('load', paintKick);
+              document.addEventListener('visibilitychange', function () {
+                if (!document.hidden) {
+                  paintKick();
+                }
+              });
             }
 
             // For some reason Kepler overwrites the config without extra wait time
