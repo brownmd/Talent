@@ -293,6 +293,54 @@
               config
             );
 
+            function forceInitialPaint() {
+              function dispatchResize() {
+                try {
+                  window.dispatchEvent(new Event('resize'));
+                } catch (e) {
+                  var resizeEvent = document.createEvent('Event');
+                  resizeEvent.initEvent('resize', true, true);
+                  window.dispatchEvent(resizeEvent);
+                }
+              }
+
+              function dispatchMouseMove() {
+                var appElement = document.getElementById('app');
+                if (!appElement) {
+                  return;
+                }
+
+                try {
+                  appElement.dispatchEvent(new MouseEvent('mousemove', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true,
+                    clientX: 1,
+                    clientY: 1,
+                  }));
+                } catch (e) {
+                  var mouseEvent = document.createEvent('MouseEvents');
+                  mouseEvent.initMouseEvent('mousemove', true, true, window, 0, 0, 0, 1, 1, false, false, false, false, 0, null);
+                  appElement.dispatchEvent(mouseEvent);
+                }
+              }
+
+              function paintKick() {
+                dispatchResize();
+                dispatchMouseMove();
+              }
+
+              if (window.requestAnimationFrame) {
+                window.requestAnimationFrame(function () {
+                  window.requestAnimationFrame(paintKick);
+                });
+              } else {
+                window.setTimeout(paintKick, 0);
+              }
+
+              window.setTimeout(paintKick, 250);
+            }
+
             // For some reason Kepler overwrites the config without extra wait time
             window.setTimeout(() => {
               store.dispatch(
@@ -304,6 +352,7 @@
                   },
                 })
               );
+              forceInitialPaint();
             }, 500);
           }(KeplerGl, store))
         </script>
