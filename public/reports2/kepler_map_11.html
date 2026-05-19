@@ -294,6 +294,8 @@
             );
 
             function forceInitialPaint() {
+              try { window.focus(); } catch (e) {}
+
               function dispatchResize() {
                 try {
                   window.dispatchEvent(new Event('resize'));
@@ -304,24 +306,32 @@
                 }
               }
 
-              function dispatchMouseMove() {
+              function dispatchPointerEvents() {
                 var appElement = document.getElementById('app');
                 if (!appElement) {
                   return;
                 }
 
+                var eventProps = {
+                  view: window,
+                  bubbles: true,
+                  cancelable: true,
+                  clientX: Math.floor(appElement.offsetWidth / 2) || 1,
+                  clientY: Math.floor(appElement.offsetHeight / 2) || 1,
+                  pointerId: 1,
+                  pointerType: 'mouse',
+                };
+
                 try {
-                  appElement.dispatchEvent(new MouseEvent('mousemove', {
-                    view: window,
-                    bubbles: true,
-                    cancelable: true,
-                    clientX: 1,
-                    clientY: 1,
-                  }));
+                  appElement.dispatchEvent(new PointerEvent('pointerenter', eventProps));
+                  appElement.dispatchEvent(new PointerEvent('pointermove', eventProps));
+                  appElement.dispatchEvent(new MouseEvent('mousemove', eventProps));
                 } catch (e) {
-                  var mouseEvent = document.createEvent('MouseEvents');
-                  mouseEvent.initMouseEvent('mousemove', true, true, window, 0, 0, 0, 1, 1, false, false, false, false, 0, null);
-                  appElement.dispatchEvent(mouseEvent);
+                  try {
+                    var mouseEvent = document.createEvent('MouseEvents');
+                    mouseEvent.initMouseEvent('mousemove', true, true, window, 0, 0, 0, 1, 1, false, false, false, false, 0, null);
+                    appElement.dispatchEvent(mouseEvent);
+                  } catch (e2) {}
                 }
               }
 
@@ -338,7 +348,7 @@
 
               function paintKick() {
                 dispatchResize();
-                dispatchMouseMove();
+                dispatchPointerEvents();
                 forceReflow();
               }
 
@@ -351,13 +361,16 @@
               }
 
               window.setTimeout(paintKick, 250);
+              window.setTimeout(paintKick, 500);
               window.setTimeout(paintKick, 1000);
+              window.setTimeout(paintKick, 2000);
+              window.setTimeout(paintKick, 3500);
 
               var tries = 0;
               var paintTimer = window.setInterval(function () {
                 paintKick();
                 tries += 1;
-                if (tries >= 12) {
+                if (tries >= 30) {
                   window.clearInterval(paintTimer);
                 }
               }, 200);
