@@ -294,8 +294,6 @@
             );
 
             function forceInitialPaint() {
-              try { window.focus(); } catch (e) {}
-
               function dispatchResize() {
                 try {
                   window.dispatchEvent(new Event('resize'));
@@ -306,41 +304,43 @@
                 }
               }
 
-              function dispatchPointerEvents() {
-                var appElement = document.getElementById('app');
-                if (!appElement) {
-                  return;
-                }
+              function dispatchCanvasEvents() {
+                // MapLibre/Kepler listens on the canvas directly — events must target it,
+                // not a parent div, because DOM events don't propagate downward.
+                var canvas = document.querySelector('canvas');
+                var target = canvas || document.getElementById('app');
+                if (!target) { return; }
 
-                var eventProps = {
-                  view: window,
-                  bubbles: true,
-                  cancelable: true,
-                  clientX: Math.floor(appElement.offsetWidth / 2) || 1,
-                  clientY: Math.floor(appElement.offsetHeight / 2) || 1,
-                  pointerId: 1,
-                  pointerType: 'mouse',
-                };
+                var cx = Math.floor(target.offsetWidth / 2) || 100;
+                var cy = Math.floor(target.offsetHeight / 2) || 100;
 
                 try {
-                  appElement.dispatchEvent(new PointerEvent('pointerenter', eventProps));
-                  appElement.dispatchEvent(new PointerEvent('pointermove', eventProps));
-                  appElement.dispatchEvent(new MouseEvent('mousemove', eventProps));
+                  target.dispatchEvent(new PointerEvent('pointerover',  { view: window, bubbles: true, cancelable: true, clientX: cx, clientY: cy, pointerId: 1, pointerType: 'mouse' }));
+                  target.dispatchEvent(new PointerEvent('pointerenter', { view: window, bubbles: false, cancelable: false, clientX: cx, clientY: cy, pointerId: 1, pointerType: 'mouse' }));
+                  target.dispatchEvent(new PointerEvent('pointermove',  { view: window, bubbles: true, cancelable: true, clientX: cx, clientY: cy, pointerId: 1, pointerType: 'mouse' }));
+                  target.dispatchEvent(new MouseEvent('mouseover',  { view: window, bubbles: true, cancelable: true, clientX: cx, clientY: cy }));
+                  target.dispatchEvent(new MouseEvent('mouseenter', { view: window, bubbles: false, cancelable: false, clientX: cx, clientY: cy }));
+                  target.dispatchEvent(new MouseEvent('mousemove',  { view: window, bubbles: true, cancelable: true, clientX: cx, clientY: cy }));
                 } catch (e) {
                   try {
-                    var mouseEvent = document.createEvent('MouseEvents');
-                    mouseEvent.initMouseEvent('mousemove', true, true, window, 0, 0, 0, 1, 1, false, false, false, false, 0, null);
-                    appElement.dispatchEvent(mouseEvent);
+                    var me = document.createEvent('MouseEvents');
+                    me.initMouseEvent('mousemove', true, true, window, 0, 0, 0, cx, cy, false, false, false, false, 0, null);
+                    target.dispatchEvent(me);
                   } catch (e2) {}
                 }
+
+                // iOS Safari: also fire a touch event on the canvas
+                try {
+                  var touch = new Touch({ identifier: 1, target: target, clientX: cx, clientY: cy, pageX: cx, pageY: cy, screenX: cx, screenY: cy });
+                  var touchList = document.createTouchList ? document.createTouchList(touch) : [touch];
+                  target.dispatchEvent(new TouchEvent('touchstart', { bubbles: true, cancelable: true, touches: touchList, targetTouches: touchList, changedTouches: touchList }));
+                  target.dispatchEvent(new TouchEvent('touchend',   { bubbles: true, cancelable: true, touches: document.createTouchList ? document.createTouchList() : [], targetTouches: [], changedTouches: touchList }));
+                } catch (e) {}
               }
 
               function forceReflow() {
                 var appElement = document.getElementById('app');
-                if (!appElement) {
-                  return;
-                }
-
+                if (!appElement) { return; }
                 appElement.style.transform = 'translateZ(0)';
                 appElement.getBoundingClientRect();
                 appElement.style.transform = '';
@@ -348,19 +348,30 @@
 
               function paintKick() {
                 dispatchResize();
-                dispatchPointerEvents();
+                dispatchCanvasEvents();
                 forceReflow();
+              }
+
+              // Poll until the canvas element exists, then fire paint kicks
+              function waitForCanvasThenKick() {
+                var canvas = document.querySelector('canvas');
+                if (canvas) {
+                  paintKick();
+                } else {
+                  window.setTimeout(waitForCanvasThenKick, 100);
+                }
               }
 
               if (window.requestAnimationFrame) {
                 window.requestAnimationFrame(function () {
-                  window.requestAnimationFrame(paintKick);
+                  window.requestAnimationFrame(function() {
+                    waitForCanvasThenKick();
+                  });
                 });
               } else {
-                window.setTimeout(paintKick, 0);
+                window.setTimeout(waitForCanvasThenKick, 0);
               }
 
-              window.setTimeout(paintKick, 250);
               window.setTimeout(paintKick, 500);
               window.setTimeout(paintKick, 1000);
               window.setTimeout(paintKick, 2000);
@@ -377,9 +388,7 @@
 
               window.addEventListener('load', paintKick);
               document.addEventListener('visibilitychange', function () {
-                if (!document.hidden) {
-                  paintKick();
-                }
+                if (!document.hidden) { paintKick(); }
               });
             }
 
