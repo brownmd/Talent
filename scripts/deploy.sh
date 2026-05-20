@@ -14,6 +14,8 @@ git pull origin main
 echo "==> Syncing static reports to $STATIC_DIR"
 mkdir -p "$STATIC_DIR/reports"
 cp -r "$REPO/public/reports/." "$STATIC_DIR/reports/"
+mkdir -p "$STATIC_DIR/reports2"
+cp -r "$REPO/public/reports2/." "$STATIC_DIR/reports2/"
 
 echo "==> Building image talent-blog:$RELEASE"
 docker build -t "talent-blog:$RELEASE" -t talent-blog:latest .
@@ -43,5 +45,8 @@ curl -sf "http://localhost:$APP_PORT/blog"           && echo "✓ /blog OK"
 curl -sf "http://localhost:$APP_PORT/reports/kepler_map_1.html" > /dev/null \
   || curl -sf "http://localhost:80/reports/kepler_map_1.html" > /dev/null \
   && echo "✓ /reports OK"
+curl -sf "http://localhost:$APP_PORT/reports2/kepler_map_11.html" > /dev/null \
+  || curl -sf "http://localhost:80/reports2/kepler_map_11.html" > /dev/null \
+  && echo "✓ /reports2 OK"
 
 echo "==> Done. Released talent-blog:$RELEASE"
