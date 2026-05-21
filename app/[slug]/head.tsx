@@ -18,7 +18,7 @@ const keplerPreloads = [
 export default async function Head({ params }: HeadProps) {
   const { slug } = await params;
 
-  if (slug !== "mapping-global-ai-activity-on-github") {
+  if (slug !== "mapping-global-ai-workforce-density") {
     return null;
   }
 
