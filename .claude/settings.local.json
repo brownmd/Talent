@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ssh -i ~/.ssh/id_hetzner -o ConnectTimeout=10 -o StrictHostKeyChecking=no root@157.180.123.88 \"bash /srv/talent/scripts/deploy.sh\")"
+    ]
+  }
+}

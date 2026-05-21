@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^Get-ChildItem -Path \\. -Include package\\.json, package-lock\\.json, yarn\\.lock, pnpm-lock\\.yaml -Recurse \\| Select-Object FullName; if \\(Test-Path package\\.json\\) \\{ Get-Content package\\.json \\| ConvertFrom-Json \\| Select-Object -ExpandProperty scripts \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Get-ChildItem -Path \\. -Include package\\.json, package-lock\\.json, yarn\\.lock, pnpm-lock\\.yaml; Get-Content package\\.json \\| ConvertFrom-Json \\| Select-Object -ExpandProperty scripts$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
