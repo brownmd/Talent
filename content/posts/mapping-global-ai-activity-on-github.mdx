@@ -1,0 +1,255 @@
+---
+title: "Mapping Global AI Workforce Density"
+date: "2026-05-19"
+draft: false
+description: "2.58M verified AI developers tracked across 64 months (Jan 2021–Mar 2026) on GitHub. Global geographic distribution, market momentum, and ranking data for talent acquisition teams."
+---
+
+This report maps where AI talent is concentrated globally, using public open source GitHub activity data from the GitHub Archive Project on Google BigQuery. Of the 2.58M unique users tracked across 5.81M monthly activity records from January 2021 through March 2026, roughly 323K have resolved locations, which we use to show where AI developers are clustered around the world.
+
+**Project Details:** [Data Retrieval System for Talent Intelligence](/projects/data-retrieval-system-for-talent-intelligence) · [GitHub](https://github.com/brownmd/AI_Talent_Intelligence)
+
+**Query Reference:** [View Query Reference](/query_reference.html) for scoring, normalization, analytical views, and core tables including profiles_normalized_published, profiles_location_analytics, profiles_normalized_city_strict, and spatial_reconcile_geonames_subset_prod_v2.
+
+### [Regional Heatmap](/reports2/kepler_map_11.html)
+
+<iframe src="/reports2/kepler_map_11.html" title="Kepler Map 11 - Regional Heatmap" width="100%" loading="eager" fetchpriority="high" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
+
+## Part I: Global Growth Snapshot (2021-2026)
+
+### Core Growth Metrics
+
+*Cumulative users are measured within this dataset window (Jan 2021 onward), not across all historical GitHub activity.*
+
+| Milestone | Cumulative Users (Since Jan 2021) | Notes |
+|-----------|-----------------|-------|
+| Jan 2021 (baseline) | 16,323 | 1st month data analysis |
+| Jul 2022 | 220,592 | Steady pre-ChatGPT baseline |
+| Sep 2022 | 287,926 | +30% in 60 days; first step change |
+| Nov 2022 | 346,201 | ChatGPT launch effect begins |
+| Mar 2023 | 502,049 | 67,995 new users/month|
+| Apr 2023 | 574,844 | 72,795 new users/month |
+| Dec 2023 | 920,884 | 34,000–50,000/month |
+| Dec 2024 | 1,511,986 | 40,000–62,000/month |
+| Feb 2025 | 1,739,005 | All-time peak: 258,224 active users in one month |
+| Mar 2026 | 2,579,030 | 131,213 active users/month |
+
+### [Monthly Users Trend](/reports/chart_monthly_users.html)
+
+<iframe src="/reports/chart_monthly_users.html" title="Monthly Users Trend" width="100%" loading="lazy" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
+
+## Part II: Geographic Distribution
+
+### Top US Metros by AI Users
+
+### [City User Points](/reports2/kepler_map_1.html)
+
+<iframe src="/reports2/kepler_map_1.html" title="Kepler Map 1 - City User Points" width="100%" loading="lazy" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
+
+*Cumulative unique users, Jan 2021–Mar 2026. Rankings use official US Census Bureau MSA definitions.*
+
+| Rank | Metro Area | AI-Literate Users | Avg AI Score |
+|------|-----------|-------------------|---------------|
+| 1 | San Francisco-Oakland-Fremont, CA | 5,154 | 365.82 |
+| 2 | New York-Newark-Jersey City, NY-NJ | 3,287 | 111.84 |
+| 3 | Seattle-Tacoma-Bellevue, WA | 2,598 | 198.83 |
+| 4 | Los Angeles-Long Beach-Anaheim, CA | 2,420 | 106.98 |
+| 5 | Boston-Cambridge-Newton, MA-NH | 1,909 | 103.34 |
+| 6 | San Jose-Sunnyvale-Santa Clara, CA | 1,709 | 293.11 |
+| 7 | Chicago-Naperville-Elgin, IL-IN | 1,414 | 206.83 |
+| 8 | Austin-Round Rock-San Marcos, TX | 1,221 | 276.78 |
+| 9 | Atlanta-Sandy Springs-Roswell, GA | 1,019 | 302.90 |
+| 10 | Dallas-Fort Worth-Arlington, TX | 936 | 189.68 |
+
+[Download full 621-metro report (621 CBSAs)](/data/usa_metro_report.csv)
+
+### Per-Capita State Rankings
+
+*Per-capita density is calculated from users with resolved locations and reveals structural concentration independent of raw volume.*
+
+| Rank | State | AI-Literate Users | Per Million Residents |
+|------|-------|-------------------|----------------------|
+| 1 | District of Columbia | 388 | 572 |
+| 2 | Washington | 2,822 | 361 |
+| 3 | California | 12,120 | 307 |
+| 4 | Massachusetts | 2,003 | 285 |
+| 5 | New York | 5,366 | 274 |
+| 6 | Colorado | 1,173 | 200 |
+| 7 | Oregon | 640 | 151 |
+
+
+### Concentration and Market Archetypes
+
+The Bay Area (San Francisco, Oakland, Berkeley, Mountain View, Palo Alto, Sunnyvale) represents the deepest concentration layer: 5,154 users in one MSA, roughly **10% of located US users**.
+
+
+### Fastest-Growing US Metros
+
+*Growth measured as change in avg. monthly active users between 2024 and 2025+.*
+
+| Metro Cluster (Production) | 2024 Avg Monthly | 2025+ Avg Monthly | Growth % | Avg Score 2025+ |
+|----------------------------|-----------------|-------------------|----------|-----------------|
+| Raleigh-Durham-Chapel Hill Area | 27.00 | 44.47 | +64.7% | 76.32 |
+| Dallas-Fort Worth Metroplex | 54.92 | 82.00 | +49.3% | 90.95 |
+| Portland, Oregon Area | 28.75 | 42.00 | +46.1% | 75.60 |
+| Denver Metropolitan Area | 55.33 | 80.47 | +45.4% | 53.92 |
+| Miami-Fort Lauderdale Area | 31.67 | 45.93 | +45.1% | 116.91 |
+| Greater Atlanta Area | 57.17 | 78.33 | +37.0% | 66.28 |
+| Austin, Texas Area | 75.92 | 103.53 | +36.4% | 519.84 |
+| Greater Houston Area | 34.50 | 47.00 | +36.2% | 62.22 |
+| Greater Seattle Area | 155.58 | 206.53 | +32.7% | 271.69 |
+| Greater Chicago Area | 86.92 | 114.40 | +31.6% | 222.62 |
+
+**Austin** stands out: highest avg. score among top-growth metros (519.84), showing both user growth and deep per-user engagement. **Seattle** and **Chicago** combine scale with momentum; **Raleigh-Durham** shows strongest percentage growth.
+
+[Download metro growth/falloff data (105 metros, 2025+)](/data/usa_metro_growth_falloff_since_2025.csv)
+
+
+### Global & International Rankings
+
+#### Global Country Rankings (2021-2026)
+
+### [Country AI Activity](/reports2/kepler_map_7.html)
+
+<iframe src="/reports2/kepler_map_7.html" title="Kepler Map 7 - Country AI Activity" width="100%" loading="lazy" allowFullScreen style={{ width: "100%", height: "min(760px, 95vh)", display: "block", border: "1px solid var(--border)", borderRadius: "8px" }}></iframe>
+
+Across the full 64-month dataset, 322,837 users with parseable locations are distributed across more than 100 countries. The United States leads in raw volume, but China and India represent the largest non-Western concentrations of users with observed AI-related GitHub interactions.
+
+| Rank | Country | AI-Literate Users | All-Time Score |
+|------|---------|-------------------|----------------|
+| 1 | United States | 51,913 | 14,955,482 |
+| 2 | China | 48,585 | 6,681,326 |
+| 3 | India | 35,843 | 4,598,222 |
+| 4 | Germany | 14,679 | 2,771,222 |
+| 5 | Brazil | 12,539 | 1,746,415 |
+| 6 | United Kingdom | 11,439 | 2,407,735 |
+| 7 | France | 10,567 | 4,587,579 |
+| 8 | Canada | 9,105 | 2,060,313 |
+| 9 | Japan | 5,678 | 1,031,122 |
+| 10 | South Korea | 5,363 | 716,400 |
+| 11 | Russia | 4,927 | 348,102 |
+| 12 | Australia | 4,851 | 716,188 |
+| 13 | Spain | 4,699 | 720,888 |
+| 14 | Pakistan | 4,446 | 935,429 |
+| 15 | Netherlands | 4,138 | 953,174 |
+
+France's outsized score-to-user ratio, 4.6M score across 10,567 users, among the highest per-capita output globally.
+
+#### U.S. State Rankings (All-Time, 2021-2026)
+
+| Rank | State | AI-Literate Users | All-Time Score |
+|------|-------|-------------------|----------------|
+| 1 | California | 12,120 | 5,125,543 |
+| 2 | New York | 5,366 | 1,056,885 |
+| 3 | Texas | 3,802 | 1,154,670 |
+| 4 | Washington | 2,822 | 1,825,738 |
+| 5 | Massachusetts | 2,003 | 782,074 |
+| 6 | Illinois | 1,649 | 612,605 |
+| 7 | Florida | 1,501 | 288,944 |
+| 8 | Pennsylvania | 1,250 | 149,383 |
+| 9 | Colorado | 1,173 | 184,535 |
+| 10 | Georgia | 1,107 | 170,915 |
+| 11 | North Carolina | 939 | 128,648 |
+| 12 | Ohio | 717 | 186,449 |
+| 13 | Virginia | 669 | 492,968 |
+| 14 | Michigan | 662 | 66,206 |
+| 15 | Oregon | 640 | 357,910 |
+| 16 | Arizona | 497 | 71,408 |
+| 17 | Indiana | 473 | 48,369 |
+| 18 | Tennessee | 437 | 50,568 |
+| 19 | Missouri | 424 | 44,091 |
+| 20 | Maryland | 414 | 32,998 |
+
+## Part III: Market Trends & Momentum
+
+### Reading the Growth Signal
+
+The clearest signal is cumulative expansion. US-located monthly users grew roughly 6x from 2021 to 2026:
+
+- **January 2021:** 507 US users with verified location observed in that month
+- **March 2023:** 2,922 US-located users observed in that month
+- **January 2025:** 6,417 US-located users observed in that month
+- **March 2026 (latest):** 3,133 US-located users observed in that month
+
+### USA Year-over-Year Adoption (Production Historical Data)
+
+US adoption accelerated through 2025 in both participation and output:
+
+| Year | Unique Users | YoY User Change | Total Score | YoY Score Change | Avg Score / User-Month |
+|------|--------------|-----------------|-------------|------------------|------------------------|
+| 2021 | 139,852 | - | 20,436,250.50 | - | 102.89 |
+| 2022 | 266,203 | +90.3% | 30,180,230.50 | +47.7% | 78.33 |
+| 2023 | 665,690 | +150.1% | 52,795,072.50 | +74.9% | 46.56 |
+| 2024 | 851,973 | +28.0% | 94,320,842.00 | +78.7% | 62.65 |
+| 2025 | 1,299,354 | +52.5% | 151,263,267.50 | +60.4% | 69.55 |
+| 2026* | 345,890 | partial | 32,848,873.50 | partial | 79.65 |
+
+*2026 is partial-year (January-March only), so YoY comparisons to full years are directional.*
+
+[Download US AI literacy year-over-year data (2021–2026)](/data/usa_ai_literacy_yoy_change.csv)
+
+## Part IV: User Rankings & Performance
+
+### Scoring Model
+
+AI score is cumulative and weighted by contribution type (commits > PRs > issues > stars), repository category, and sustained monthly activity.)
+
+### Global Top Performers
+
+*Top 10 contributors show deep engagement in foundational AI infrastructure (LLMs, transformers, ML frameworks).*
+
+| Rank | Username | Total Score | City | Country |
+|------|----------|-------------|------|----------|
+| 1 | Ilikectrlmusic | 4,797,581 |  |  |
+| 2 | skotrla | 1,778,310 |  |  |
+| 3 | DarkLight1337 | 1,650,087 | Hong Kong | Hong Kong |
+| 4 | crazywoola | 1,355,798 | Macau | Macau |
+| 5 | HuggingFaceDocBuilderDev | 1,294,456 |  |  |
+| 6 | sre-ci-robot | 1,100,693 |  |  |
+| 7 | patrickvonplaten | 931,914.5 |  |  |
+| 8 | tamnd | 922,619 |  |  |
+| 9 | zhyncs | 849,163.5 |  |  |
+| 10 | jacoblee93 | 822,378 |  |  |
+
+[Download worldwide top-1,000 (CSV)](/data/leaderboard_worldwide_top1000_alltime.csv)
+
+### US Top Performers
+
+*51,913 US-based users; top contributors concentrated in Bay Area and research corridors (Austin, Northern Virginia).*
+
+| Rank | Username | Total Score | City | State |
+|------|----------|-------------|------|-------|
+| 1 | WoosukKwon | 629,696 | San Francisco | CA |
+| 2 | AndreasKaratzas | 581,759 | Austin | TX |
+| 3 | Jokeren | 438,177 | Fairfax | VA |
+| 4 | antiagainst | 291,886 | Seattle | WA |
+| 5 | DEQygrund | 270,880 | Portland | OR |
+| 6 | BillGarman | 263,322 | Seattle | WA |
+| 7 | comaniac | 229,311 | San Francisco | CA |
+| 8 | Fridge003 | 212,663.5 | San Jose | CA |
+| 9 | ProExpertProg | 210,370 | Cambridge | MA |
+| 10 | averikitsch | 199,211 | Seattle | WA |
+
+[Download US top-1,000 (CSV)](/data/leaderboard_usa_top1000_alltime.csv)
+
+### Year-by-Year Leaders
+
+*Portfolio shows how top tier evolved as the market matured: 2021 focused on core research infrastructure, and 2023-2026 saw a shift toward application-layer and commercialization.*
+
+[Download US top-100 by year (CSV)](/data/leaderboard_usa_top100_by_year.csv)
+
+## Part V: Data & Resources
+
+### Interactive Dashboards and Maps
+
+| Report | Description |
+|--------|-------------|
+| [Talent Intelligence Overview Card](/reports/talent_intelligence_overview_card.html) | Executive one-page overview |
+| [US AI Market Battle Card](/reports/us_ai_market_battle_card.html) | US market scale, momentum, and sourcing lens |
+
+---
+
+## Implications
+
+
+**For talent acquisition teams:** Access to workforce data helps TA teams advise the business with confidence. Data creates value and builds trust, but in a function defined by speed and time-to-fill, a challenge is building a system that delivers insights fast enough to act on.
